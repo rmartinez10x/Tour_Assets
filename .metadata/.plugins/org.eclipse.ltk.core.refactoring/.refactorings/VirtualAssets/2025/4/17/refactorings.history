@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Move &apos;PDA_AI_Generated.tst&apos; to &apos;VirtualAssets&apos;" description="Move &apos;PDA_AI_Generated.tst&apos; to &apos;VirtualAssets&apos;" destination="/VirtualAssets" element1="/TestAssets/PDA_AI_Generated.tst" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1745536269697" updateReferences="true"/>
-</session>
