@@ -1,0 +1,34 @@
+2025-05-21T11:26:12.092-0700 I CONTROL  [initandlisten] MongoDB starting : pid=13876 port=9101 dbpath=C:\Users\rmartinez\parasoft\soavirt_workspaces\Demo_WS_2025\.metadata\EmbeddedDataRepository\repositories 64-bit host=path
+2025-05-21T11:26:12.092-0700 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2025-05-21T11:26:12.092-0700 I CONTROL  [initandlisten] db version v3.6.8
+2025-05-21T11:26:12.092-0700 I CONTROL  [initandlisten] git version: 6bc9ed599c3fa164703346a22bad17e33fa913e4
+2025-05-21T11:26:12.092-0700 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2o-fips  27 Mar 2018
+2025-05-21T11:26:12.093-0700 I CONTROL  [initandlisten] allocator: tcmalloc
+2025-05-21T11:26:12.093-0700 I CONTROL  [initandlisten] modules: none
+2025-05-21T11:26:12.093-0700 I CONTROL  [initandlisten] build environment:
+2025-05-21T11:26:12.093-0700 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2025-05-21T11:26:12.093-0700 I CONTROL  [initandlisten]     distarch: x86_64
+2025-05-21T11:26:12.093-0700 I CONTROL  [initandlisten]     target_arch: x86_64
+2025-05-21T11:26:12.093-0700 I CONTROL  [initandlisten] options: { net: { bindIpAll: true, ipv6: true, port: 9101 }, security: { authorization: "enabled" }, storage: { dbPath: "C:\Users\rmartinez\parasoft\soavirt_workspaces\Demo_WS_2025\.metadata\EmbeddedDataRepository\repositories" }, systemLog: { destination: "file", path: "C:\Users\rmartinez\parasoft\soavirt_workspaces\Demo_WS_2025\.metadata\EmbeddedDataRepository\logs\repo.log" } }
+2025-05-21T11:26:12.096-0700 I -        [initandlisten] Detected data files in C:\Users\rmartinez\parasoft\soavirt_workspaces\Demo_WS_2025\.metadata\EmbeddedDataRepository\repositories created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2025-05-21T11:26:12.096-0700 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=15758M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),cache_cursors=false,compatibility=(release="3.0",require_max="3.0"),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2025-05-21T11:26:12.271-0700 I STORAGE  [initandlisten] WiredTiger message [1747851972:270823][13876:140703740102176], txn-recover: Main recovery loop: starting at 16/53888
+2025-05-21T11:26:12.409-0700 I STORAGE  [initandlisten] WiredTiger message [1747851972:409347][13876:140703740102176], txn-recover: Recovering log 16 through 17
+2025-05-21T11:26:12.497-0700 I STORAGE  [initandlisten] WiredTiger message [1747851972:496883][13876:140703740102176], txn-recover: Recovering log 17 through 17
+2025-05-21T11:26:12.559-0700 I STORAGE  [initandlisten] WiredTiger message [1747851972:558895][13876:140703740102176], txn-recover: Set global recovery timestamp: 0
+2025-05-21T11:26:13.101-0700 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/rmartinez/parasoft/soavirt_workspaces/Demo_WS_2025/.metadata/EmbeddedDataRepository/repositories/diagnostic.data'
+2025-05-21T11:26:13.103-0700 I NETWORK  [initandlisten] waiting for connections on port 9101
+2025-05-21T11:26:13.297-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:56195 #1 (1 connection now open)
+2025-05-21T11:26:13.308-0700 I NETWORK  [conn1] received client metadata from 127.0.0.1:56195 conn1: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.8" }, os: { type: "Windows", name: "Microsoft Windows 10", architecture: "x86_64", version: "10.0 (build 26100)" } }
+2025-05-21T11:26:13.311-0700 I ACCESS   [conn1] Unauthorized: not authorized on admin to execute command { createUser: "parasoft_embedded_repo", pwd: "xxx", roles: [ { role: "root", db: "admin" } ], digestPassword: false, writeConcern: { w: "majority", wtimeout: 600000.0 }, $db: "admin" }
+2025-05-21T11:26:13.313-0700 I NETWORK  [conn1] end connection 127.0.0.1:56195 (0 connections now open)
+2025-05-21T11:56:18.733-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:57788 #2 (1 connection now open)
+2025-05-21T11:56:18.744-0700 I NETWORK  [conn2] received client metadata from 127.0.0.1:57788 conn2: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.8" }, os: { type: "Windows", name: "Microsoft Windows 10", architecture: "x86_64", version: "10.0 (build 26100)" } }
+2025-05-21T11:56:18.765-0700 I ACCESS   [conn2] Successfully authenticated as principal parasoft_embedded_repo on admin
+2025-05-21T11:56:18.769-0700 I COMMAND  [conn2] terminating, shutdown command received
+2025-05-21T11:56:18.770-0700 I NETWORK  [conn2] shutdown: going to close listening sockets...
+2025-05-21T11:56:18.770-0700 I FTDC     [conn2] Shutting down full-time diagnostic data capture
+2025-05-21T11:56:18.775-0700 I STORAGE  [conn2] WiredTigerKVEngine shutting down
+2025-05-21T11:56:18.815-0700 I STORAGE  [conn2] shutdown: removing fs lock...
+2025-05-21T11:56:18.815-0700 I CONTROL  [conn2] now exiting
+2025-05-21T11:56:18.816-0700 I CONTROL  [conn2] shutting down with code:0

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;Tours/WEB_API__Compare.tst.bak&apos;" deleteContents="false" description="Delete resource &apos;Tours/WEB_API__Compare.tst.bak&apos;" element1="/Tours/WEB_API__Compare.tst.bak" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1747852605078"/>
+</session>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;AI_Generated.tst, PDA_AI_generated.tst&apos; to &apos;ProvisioningAssets&apos;" description="Move 2 resources to &apos;ProvisioningAssets&apos;" destination="/ProvisioningAssets" element1="/TestAssets/AI_Generated.tst" element2="/TestAssets/PDA_AI_generated.tst" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="2" stamp="1747153709522" updateReferences="true"/>
+</session>

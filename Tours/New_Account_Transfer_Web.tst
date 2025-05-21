@@ -1,0 +1,2853 @@
+---
+parasoftVersion: 2025.1.0
+productVersion: 10.7.2
+schemaVersion: 3
+suite:
+  $type: TestSuite
+  name: Test Suite
+  hasEnvironmentConfig: true
+  environmentConfig:
+    environments:
+    - variables:
+      - name: PATH_BASE_URL
+        value: http://path:18081
+      - name: PATH_BASE_URL_2
+        value: https://ajax.googleapis.com
+      name: Default path Environment
+      active: true
+  lastModifiedBy: rmartinez
+  tests:
+  - $type: TestSuite
+    name: Web Scenarios
+    testID: 1
+    tests:
+    - $type: ToolTest
+      name: Extension Tool
+      enabled: false
+      testID: 24
+      tool:
+        $type: MethodTool
+        iconName: Method
+        name: Extension Tool
+        method:
+          hasCode: true
+          code:
+            $type: ScriptCode
+            input:
+              useText: true
+              textInput:
+                $type: ScriptingTextInput
+                text: "def setChromeArguments(input, context) {    \r\nSystem.setProperty(\"\
+                  com.parasoft.browser.BrowserPropertyOptions.CHROME_ARGUMENTS\",\
+                  \ \"--remote-allow-origins=*\");\r\n}"
+          hasMethodId: true
+          methodId:
+            $type: ScriptMethodIdentifier
+            functionName: setChromeArguments
+            arguments:
+            - java.lang.Object
+            - java.lang.Object
+      writeInput: true
+      inputType: InputUsable
+      input:
+        use: 1
+        text:
+          text: ""
+          type: text/plain
+    - $type: TestSuite
+      name: Demo
+      testID: 2
+      abortOnError: 1
+      browserOptions:
+        browserType:
+          useDefault: false
+          type:
+            $type: SingleBrowserType
+            typeValue: 3
+      runMode: 2
+      tests:
+      - $type: BrowserTest
+        name: Navigate to "http://path:18081/parabank/index.htm"
+        testID: 3
+        tool:
+          $type: BrowserTestingTool
+          usesAutomaticallyGeneratedName: true
+          iconName: BrowserTest
+          name: Navigate to "http://path:18081/parabank/index.htm"
+          commands:
+          - windowIdentifier:
+              BrowserTestingTool_WindowName: ""
+            action:
+              $type: NavigateAction
+              url:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: StringTestValue
+                  BrowserTestingTool_NavigateURL: "${PATH_BASE_URL}/parabank/index.htm"
+          delaySettings:
+            delays:
+            - $type: PageLoadDelay
+            - $type: ElementDelay
+              windowIdentifier:
+                WindowName: ""
+              elementState: 1
+              specifiedLocator:
+                criteria:
+                  $type: AttributeCriteria
+                  elementName: any
+                  attributeName: ""
+          originalCommand: true
+          command:
+            windowIdentifier:
+              BrowserTestingTool_WindowName: ""
+            action:
+              $type: NavigateAction
+              url:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: StringTestValue
+                  BrowserTestingTool_NavigateURL: "${PATH_BASE_URL}/parabank/index.htm"
+          browserContents: true
+          contents:
+            windowContents:
+            - parentUrl: ""
+              charSet: windows-1252
+              url: http://path:18081/parabank/index.htm
+              htmlSize: 1581
+              html: !!binary |-
+                H4sIAAAAAAAA/71Ye2/bNhD/O/kULAcULVBbcV5tbVmdmyZogaYxmnTFsA0FJdEWY4nUSCpO0PYD
+                7VvuSD0T28nkek1gW+Ljjnf3uxfdR2/Oji5+Hx+jSCext+3aHzeiJPRcpW9iivRNSodY02vtBEph
+                79cgIlJRjfCni5POCzz4g0//7AexILO/nsFzp3wMiSadxvt146VbPj7r1sN2NGIh7XOhn5QvHcJZ
+                QjR9+jVkKo3JDcxyih6xJBVSE64H380BJkIm1Qo/FsFs8N2QKHZ3VMSSr1dMMZ/FTN/0gXRIebkm
+                iIT8mgrFNBO8T3wl4kzTwXfXsUrwtre23IRqggrhh4Xw9USkddqhf2fsaoiPBNeU684FqA6jIH8r
+                dGgUPKjINKhopoHRmEjymvAZ+oY+0zgQCYWnMx4zENmMMz51nXyp2QTjMxRJOhliJ4WtPixxNE1A
+                C5p2wV6DS0WVAqFYODzojV7vj5739kY7J8e9N7snh4d7z/fh8/L56HjnxQlGksZDbCVWEaUaLxh/
+                JU+76X9iqALJUo2UDJoc59S/BCU6hE+zmMhL5fS6h92X5Xs3Ybx72e44Hpjb8gK2rmOdYBuefBHe
+                IMEBouEQhyLIEjBnNxZT4JApKjlJaHcC4+rJ00F+5JBdIeCIE8L4mHAa2+Et88m/trbhr1qmRVqu
+                QsglC9oloZEGoNNSHJZM76oNvGFKlRPEFHQ0ZZN29pqzUEdDfHCIUUTZNAJU7+9i5AsZUjnEO4D2
+                mCg1xPbERqFkhUiMh/R6oyKBQUR7iUgMMpReVwnY22tIuNdbJqFhB3g1rtggUEmclusCkpqggr3j
+                65RKRnkAMTWiKGSTCZXm1XVSiLwOgMGrIWHQR2WOCmQ9ZIh9EsymUmQ87KNMxk8WVJBv6hjUdS/T
+                aRtNPEU78M9FR9KUEj2wUDQYzeJKYjrRAP0sR2nMyvFzEyyBC7hr9eg6MSuWeZX1iS8y3d7mI7MN
+                fVJGtUvpgg9esYCq9qTPi50rSZuw3nec+XzeNcpWYqK7EJWdS5U6qRRhFmgFYSbF3rh4W5OUY9IE
+                qai9FwEpFLmC3JoxYWS2oTHApUkZ4JfFixb3M60NdG/bO4KshL3N+bShd0fMKowY02cK/zCG7LYV
+                TArNN5gUI+3ZFBtrRrleC+feaqYA86m83aSYRp6oJ4zPNSeK7FH+mDTiRrveUaY0aFGi9yYrQe7a
+                bYQSm6ka+cWUSsgkrWIKgmBgsNY0ZZ7d2sqPoBSKBLAcn51fWGaAKPPlpp7re5+KZOk6vmeDnp0y
+                x6xjqs0ajKfg8XUtUAVdO4GLw5e5F6MrEmcwYKKvVXTNcgzb5hC7W7FMi03L2dazS9k+QFtlfsJq
+                gQoPK0mB+dA73iDoOsZaeUap8RkLMcvS9vA8EXIqNLLnQoxPxKscqeldBpJOmdJUtmfxsdhZEW5g
+                /w56c6TX0xVgpcm7t1EPMFcp4aXayoiPvcfcV+kACjeY9Zqxq16ybUHYdPg8JUMbAfHw4hTVWeCe
+                5OKUOb6NPl7NVQhCfGY6CiWZoxPI3Q/nsR9hdSEJV1BY/ARWRxENZtCVxNA/3ZNCN8HqlMwoekNt
+                h6YWouui0fVcrLa7nSx6qv9mer/tqb/MSRg/Jkk6+GLd/joBIV6zOIbMe/OwpjbDbxQEUCtq9BYc
+                UsifxnYVAgtjVYVxImSzjFi/iPsIVS86BWp1zIn2vffQASuNPtA5nAHemzChV9DBqbt1TQkPOA8c
+                bGfP6R04uzu7e1WRZON7U3MciLc97y+HuO7y3yn0QczRR9o5Symn4a2abDPsDrAHOnhUXSIsAeGG
+                OO3f5lTCr8SDWlJwrkTDOgdYhoTbKaZ6qh6aXfhECEhczZa9SOf1ZD0BU3nFvKC7H66H3xb18DdU
+                amuBxwY6qXuob6afuofBel3V2gTv660eJgoFWJao23RtKZUlDxBoXI8xTROyRsV2DhvRKUkf4LR2
+                w3KUb7zTXZu6s0R34yZDpDe2NMPeP2hcqgONIKDYYYUkNdChYbcuteugay5fNW4e/zczgjKFiO63
+                Ni1GmsipuYr94sf26uXukuUSlRctRQQA/3dM9wUr7d33v3QAd7kSFwAA
+              isTopLevelWindow: true
+            browserType:
+              $type: SingleBrowserType
+              typeValue: 3
+          browserOutputProvider:
+            msgOutputProviders:
+            - $type: HttpMessageOutputProvider
+              name: "${PATH_BASE_URL}/parabank/index.htm"
+              httpMethod:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: HTTPMethodTestValue
+                  method: GET
+              accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+              baseUrl: "${PATH_BASE_URL}/parabank/index.htm"
+              requestHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Request Header of ${PATH_BASE_URL}/parabank/index.htm"
+              requestBody:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Body
+                name: "Request Body of ${PATH_BASE_URL}/parabank/index.htm"
+              requestStub:
+                $type: StubToolOutputProvider
+                menuName: Configure Request
+                name: "Configure Request for ${PATH_BASE_URL}/parabank/index.htm"
+              responseHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Response Header of ${PATH_BASE_URL}/parabank/index.htm"
+              responseBody:
+                $type: MIMESpecificNamedToolOutputProvider
+                menuName: Body
+                name: "Response Body of ${PATH_BASE_URL}/parabank/index.htm"
+                type: text/html
+              responseStub:
+                $type: StubToolOutputProvider
+                menuName: Stub Request/Response
+                name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/index.htm"
+              trafficObject:
+                $type: ObjectOutputProvider
+                menuName: Traffic Object
+                name: "Traffic Object for ${PATH_BASE_URL}/parabank/index.htm"
+            - $type: HttpMessageOutputProvider
+              name: "${PATH_BASE_URL}/parabank/template.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              httpMethod:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: HTTPMethodTestValue
+                  method: GET
+              accept: "text/css,*/*;q=0.1"
+              referer: http://path:18081/parabank/index.htm
+              baseUrl: "${PATH_BASE_URL}/parabank/template.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              requestHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Request Header of ${PATH_BASE_URL}/parabank/template.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              requestBody:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Body
+                name: "Request Body of ${PATH_BASE_URL}/parabank/template.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              requestStub:
+                $type: StubToolOutputProvider
+                menuName: Configure Request
+                name: "Configure Request for ${PATH_BASE_URL}/parabank/template.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              responseHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Response Header of ${PATH_BASE_URL}/parabank/template.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              responseBody:
+                $type: MIMESpecificNamedToolOutputProvider
+                menuName: Body
+                name: "Response Body of ${PATH_BASE_URL}/parabank/template.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+                type: text/html
+              responseStub:
+                $type: StubToolOutputProvider
+                menuName: Stub Request/Response
+                name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/template.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              trafficObject:
+                $type: ObjectOutputProvider
+                menuName: Traffic Object
+                name: "Traffic Object for ${PATH_BASE_URL}/parabank/template.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+            - $type: HttpMessageOutputProvider
+              name: "${PATH_BASE_URL}/parabank/style.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              httpMethod:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: HTTPMethodTestValue
+                  method: GET
+              accept: "text/css,*/*;q=0.1"
+              referer: http://path:18081/parabank/index.htm
+              baseUrl: "${PATH_BASE_URL}/parabank/style.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              requestHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Request Header of ${PATH_BASE_URL}/parabank/style.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              requestBody:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Body
+                name: "Request Body of ${PATH_BASE_URL}/parabank/style.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              requestStub:
+                $type: StubToolOutputProvider
+                menuName: Configure Request
+                name: "Configure Request for ${PATH_BASE_URL}/parabank/style.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              responseHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Response Header of ${PATH_BASE_URL}/parabank/style.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              responseBody:
+                $type: MIMESpecificNamedToolOutputProvider
+                menuName: Body
+                name: "Response Body of ${PATH_BASE_URL}/parabank/style.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+                type: text/html
+              responseStub:
+                $type: StubToolOutputProvider
+                menuName: Stub Request/Response
+                name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/style.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              trafficObject:
+                $type: ObjectOutputProvider
+                menuName: Traffic Object
+                name: "Traffic Object for ${PATH_BASE_URL}/parabank/style.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+            - $type: HttpMessageOutputProvider
+              name: "${PATH_BASE_URL}/parabank/webjars/angularjs/1.6.9/angular.min.js;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              httpMethod:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: HTTPMethodTestValue
+                  method: GET
+              accept: '*/*'
+              referer: http://path:18081/parabank/index.htm
+              baseUrl: "${PATH_BASE_URL}/parabank/webjars/angularjs/1.6.9/angular.min.js;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              requestHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Request Header of ${PATH_BASE_URL}/parabank/webjars/angularjs/1.6.9/angular.min.js;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              requestBody:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Body
+                name: "Request Body of ${PATH_BASE_URL}/parabank/webjars/angularjs/1.6.9/angular.min.js;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              requestStub:
+                $type: StubToolOutputProvider
+                menuName: Configure Request
+                name: "Configure Request for ${PATH_BASE_URL}/parabank/webjars/angularjs/1.6.9/angular.min.js;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              responseHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Response Header of ${PATH_BASE_URL}/parabank/webjars/angularjs/1.6.9/angular.min.js;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              responseBody:
+                $type: MIMESpecificNamedToolOutputProvider
+                menuName: Body
+                name: "Response Body of ${PATH_BASE_URL}/parabank/webjars/angularjs/1.6.9/angular.min.js;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+                type: text/html
+              responseStub:
+                $type: StubToolOutputProvider
+                menuName: Stub Request/Response
+                name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/webjars/angularjs/1.6.9/angular.min.js;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              trafficObject:
+                $type: ObjectOutputProvider
+                menuName: Traffic Object
+                name: "Traffic Object for ${PATH_BASE_URL}/parabank/webjars/angularjs/1.6.9/angular.min.js;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+            - $type: HttpMessageOutputProvider
+              name: "${PATH_BASE_URL}/parabank/images/header-main.jpg;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              httpMethod:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: HTTPMethodTestValue
+                  method: GET
+              accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+              referer: http://path:18081/parabank/index.htm
+              baseUrl: "${PATH_BASE_URL}/parabank/images/header-main.jpg;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              requestHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Request Header of ${PATH_BASE_URL}/parabank/images/header-main.jpg;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              requestBody:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Body
+                name: "Request Body of ${PATH_BASE_URL}/parabank/images/header-main.jpg;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              requestStub:
+                $type: StubToolOutputProvider
+                menuName: Configure Request
+                name: "Configure Request for ${PATH_BASE_URL}/parabank/images/header-main.jpg;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              responseHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Response Header of ${PATH_BASE_URL}/parabank/images/header-main.jpg;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              responseBody:
+                $type: MIMESpecificNamedToolOutputProvider
+                menuName: Body
+                name: "Response Body of ${PATH_BASE_URL}/parabank/images/header-main.jpg;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+                type: text/html
+              responseStub:
+                $type: StubToolOutputProvider
+                menuName: Stub Request/Response
+                name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/images/header-main.jpg;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              trafficObject:
+                $type: ObjectOutputProvider
+                menuName: Traffic Object
+                name: "Traffic Object for ${PATH_BASE_URL}/parabank/images/header-main.jpg;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+            - $type: HttpMessageOutputProvider
+              name: "${PATH_BASE_URL}/parabank/images/atmhand.jpg"
+              httpMethod:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: HTTPMethodTestValue
+                  method: GET
+              accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+              referer: http://path:18081/parabank/template.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE
+              baseUrl: "${PATH_BASE_URL}/parabank/images/atmhand.jpg"
+              requestHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Request Header of ${PATH_BASE_URL}/parabank/images/atmhand.jpg"
+              requestBody:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Body
+                name: "Request Body of ${PATH_BASE_URL}/parabank/images/atmhand.jpg"
+              requestStub:
+                $type: StubToolOutputProvider
+                menuName: Configure Request
+                name: "Configure Request for ${PATH_BASE_URL}/parabank/images/atmhand.jpg"
+              responseHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Response Header of ${PATH_BASE_URL}/parabank/images/atmhand.jpg"
+              responseBody:
+                $type: MIMESpecificNamedToolOutputProvider
+                menuName: Body
+                name: "Response Body of ${PATH_BASE_URL}/parabank/images/atmhand.jpg"
+                type: text/html
+              responseStub:
+                $type: StubToolOutputProvider
+                menuName: Stub Request/Response
+                name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/images/atmhand.jpg"
+              trafficObject:
+                $type: ObjectOutputProvider
+                menuName: Traffic Object
+                name: "Traffic Object for ${PATH_BASE_URL}/parabank/images/atmhand.jpg"
+            - $type: HttpMessageOutputProvider
+              name: "${PATH_BASE_URL}/parabank/images/icon2.jpg"
+              httpMethod:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: HTTPMethodTestValue
+                  method: GET
+              accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+              referer: http://path:18081/parabank/template.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE
+              baseUrl: "${PATH_BASE_URL}/parabank/images/icon2.jpg"
+              requestHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Request Header of ${PATH_BASE_URL}/parabank/images/icon2.jpg"
+              requestBody:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Body
+                name: "Request Body of ${PATH_BASE_URL}/parabank/images/icon2.jpg"
+              requestStub:
+                $type: StubToolOutputProvider
+                menuName: Configure Request
+                name: "Configure Request for ${PATH_BASE_URL}/parabank/images/icon2.jpg"
+              responseHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Response Header of ${PATH_BASE_URL}/parabank/images/icon2.jpg"
+              responseBody:
+                $type: MIMESpecificNamedToolOutputProvider
+                menuName: Body
+                name: "Response Body of ${PATH_BASE_URL}/parabank/images/icon2.jpg"
+                type: text/html
+              responseStub:
+                $type: StubToolOutputProvider
+                menuName: Stub Request/Response
+                name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/images/icon2.jpg"
+              trafficObject:
+                $type: ObjectOutputProvider
+                menuName: Traffic Object
+                name: "Traffic Object for ${PATH_BASE_URL}/parabank/images/icon2.jpg"
+            - $type: HttpMessageOutputProvider
+              name: "${PATH_BASE_URL}/parabank/images/icon4.jpg"
+              httpMethod:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: HTTPMethodTestValue
+                  method: GET
+              accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+              referer: http://path:18081/parabank/template.css;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE
+              baseUrl: "${PATH_BASE_URL}/parabank/images/icon4.jpg"
+              requestHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Request Header of ${PATH_BASE_URL}/parabank/images/icon4.jpg"
+              requestBody:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Body
+                name: "Request Body of ${PATH_BASE_URL}/parabank/images/icon4.jpg"
+              requestStub:
+                $type: StubToolOutputProvider
+                menuName: Configure Request
+                name: "Configure Request for ${PATH_BASE_URL}/parabank/images/icon4.jpg"
+              responseHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Response Header of ${PATH_BASE_URL}/parabank/images/icon4.jpg"
+              responseBody:
+                $type: MIMESpecificNamedToolOutputProvider
+                menuName: Body
+                name: "Response Body of ${PATH_BASE_URL}/parabank/images/icon4.jpg"
+                type: text/html
+              responseStub:
+                $type: StubToolOutputProvider
+                menuName: Stub Request/Response
+                name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/images/icon4.jpg"
+              trafficObject:
+                $type: ObjectOutputProvider
+                menuName: Traffic Object
+                name: "Traffic Object for ${PATH_BASE_URL}/parabank/images/icon4.jpg"
+            - $type: HttpMessageOutputProvider
+              name: https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTMxLjAuNjc3OC4yNjUSIAnYBtxHa1NCvRIFDeeNQA4SBQ3OQUx6Ido2TUumfULA?alt=proto
+              httpMethod:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: HTTPMethodTestValue
+                  method: GET
+              baseUrl: https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTMxLjAuNjc3OC4yNjUSIAnYBtxHa1NCvRIFDeeNQA4SBQ3OQUx6Ido2TUumfULA
+              hasUrlArgs: true
+              urlArgs:
+                properties:
+                - name: alt
+                  value:
+                    fixedValue:
+                      $type: StringTestValue
+                      value: proto
+              requestHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: Request Header of https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTMxLjAuNjc3OC4yNjUSIAnYBtxHa1NCvRIFDeeNQA4SBQ3OQUx6Ido2TUumfULA?alt=proto
+              requestBody:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Body
+                name: Request Body of https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTMxLjAuNjc3OC4yNjUSIAnYBtxHa1NCvRIFDeeNQA4SBQ3OQUx6Ido2TUumfULA?alt=proto
+              requestStub:
+                $type: StubToolOutputProvider
+                menuName: Configure Request
+                name: Configure Request for https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTMxLjAuNjc3OC4yNjUSIAnYBtxHa1NCvRIFDeeNQA4SBQ3OQUx6Ido2TUumfULA?alt=proto
+              responseHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: Response Header of https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTMxLjAuNjc3OC4yNjUSIAnYBtxHa1NCvRIFDeeNQA4SBQ3OQUx6Ido2TUumfULA?alt=proto
+              responseBody:
+                $type: MIMESpecificNamedToolOutputProvider
+                menuName: Body
+                name: Response Body of https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTMxLjAuNjc3OC4yNjUSIAnYBtxHa1NCvRIFDeeNQA4SBQ3OQUx6Ido2TUumfULA?alt=proto
+                type: text/html
+              responseStub:
+                $type: StubToolOutputProvider
+                menuName: Stub Request/Response
+                name: Stub Request/Response for https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTMxLjAuNjc3OC4yNjUSIAnYBtxHa1NCvRIFDeeNQA4SBQ3OQUx6Ido2TUumfULA?alt=proto
+              trafficObject:
+                $type: ObjectOutputProvider
+                menuName: Traffic Object
+                name: Traffic Object for https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTMxLjAuNjc3OC4yNjUSIAnYBtxHa1NCvRIFDeeNQA4SBQ3OQUx6Ido2TUumfULA?alt=proto
+            loadTestConfig:
+              requestConfigs:
+              - $type: LoadTestRequestConfig
+                name: "${PATH_BASE_URL}/parabank/index.htm"
+                httpMethod:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: HTTPMethodTestValue
+                    method: GET
+                accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3"
+                url:
+                  value: "${PATH_BASE_URL}/parabank/index.htm"
+                requestData:
+                  value: ""
+                responseHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Response Header
+                  name: "${PATH_BASE_URL}/parabank/index.htm"
+                responseBody:
+                  $type: MIMESpecificNamedToolOutputProvider
+                  menuName: Response Body
+                  name: "${PATH_BASE_URL}/parabank/index.htm"
+                  type: text/html
+            contents:
+              $type: BrowserContentsOutputProvider
+              outputTools:
+              - $type: BrowserContentsViewer
+                iconName: BrowserContentsViewer
+                name: Browser Contents Viewer
+              - $type: AccessibilityScanTool
+                allowToolbar: false
+                iconName: AccessibilityScanTool
+                name: Web Accessibility Scan
+                excludedElements:
+                - css=.admin
+                excludedRules:
+                - color-contrast
+                outputProvider:
+                  name: Errors
+                locator:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: any
+                    attributeName: id
+              name: Browser Contents
+            traffic:
+              $type: NamedToolOutputProvider
+              outputTools:
+              - $type: TrafficViewer
+                iconName: TrafficViewer
+                name: Traffic Viewer
+                showRequestHeaders: true
+                showResponseHeaders: true
+              name: HTTP Traffic
+      - $type: TestSuite
+        name: "Form: login"
+        testID: 4
+        abortOnError: 1
+        runMode: 2
+        tests:
+        - $type: BrowserTest
+          name: Type "john"
+          testID: 5
+          tool:
+            $type: BrowserTestingTool
+            usesAutomaticallyGeneratedName: true
+            iconName: BrowserTest
+            name: Type "john"
+            commands:
+            - windowIdentifier:
+                BrowserTestingTool_WindowName: ""
+                BrowserTestingTool_WindowIndex: 0
+              action:
+                $type: TypeAction
+                location:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: input
+                    attributeName: name
+                    attributeValue:
+                      values:
+                      - $type: ScriptedValue
+                      fixedValue:
+                        $type: StringTestValue
+                        BrowserTestingTool_LocatorAttributeValue: username
+                inputData:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: StringTestValue
+                    BrowserTestingTool_TypeValue: john
+            delaySettings:
+              delays:
+              - $type: ElementDelay
+                windowIdentifier:
+                  WindowName: ""
+                elementState: 1
+                specifiedLocator:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: any
+                    attributeName: ""
+            originalCommand: true
+            command:
+              windowIdentifier:
+                BrowserTestingTool_WindowName: ""
+                BrowserTestingTool_WindowIndex: 0
+              action:
+                $type: TypeAction
+                location:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: input
+                    attributeName: name
+                    attributeValue:
+                      values:
+                      - $type: ScriptedValue
+                      fixedValue:
+                        $type: StringTestValue
+                        BrowserTestingTool_LocatorAttributeValue: username
+                inputData:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: StringTestValue
+                    BrowserTestingTool_TypeValue: john
+            browserContents: true
+            contents:
+              windowContents:
+              - parentUrl: ""
+                charSet: windows-1252
+                url: http://path:18081/parabank/index.htm
+                htmlSize: 1588
+                html: !!binary |-
+                  H4sIAAAAAAAA/71Y627bNhT+nTwFywFFC9RW4lza2rK6xE3RAk1jNOmKYRsKSqItxhKpkVScoO0D
+                  7S13SF1jx8nkem2RROLlfDznfDwXuY9en40ufh+foEgnsbft2j9uREnouUrfxBTpm5QOsabX2gmU
+                  wt6vQUSkohrhTxdvOi/w4A8+/bMfxILM/noGz53yMSSadBrv142Xbvn4rFsP29GIhbTPhX5SvnQI
+                  ZwnR9OnXkKk0Jjcwyyl6xJJUSE24Hnw3B5gImVQr/FgEs8F3I6LY3VERS75eMcV8FjN90wfRIeXl
+                  miAS8msqFNNM8D7xlYgzTQffXccawdve2nITqgkqlB8WytcTkdZph/6dsashHgmuKdedCzAdRkH+
+                  VtjQGHhQiWlI0UwD0JhIckz4DH1Dn2kciITC0xmPGahsxhmfuk6+1GyC8RmKJJ0MsZPCVh+WOJom
+                  YAVNu+CvwaWiSoFSLBzujXq93aPeycHo+ODlyej50c7h65fPRy92DvYOnh+enGAkaTzEVmMVUarx
+                  kvNXYtpN/xOgCiRLNVIyaCLOqX8JRnQIn2YxkZfK2e0edl+W792E8e5lu+N44G6LBbCuYy/BNjz5
+                  IrxBggNFwyEORZAl4M5uLKaAkCkqOUlodwLj6snTQX7kkF0hQMQJYXxMOI3t8Jb5yX9tbcO/apkW
+                  abkKIZcsWZeERhugTkt1WDJdNBvchilVThBTsNGUTdr5a85CHQ3xwSFGEWXTCFi938PIFzKkcoh3
+                  gO0xUWqI7YmNQckKlRgP6fVGVQKHiPYakRh0KG9dpeDuXkPDvd27NDRwwFdzFRsCKo3Tcl1AUhNU
+                  sHdynVLJKA8gpkYUhWwyodK8uk4KkdcBMng1JQz7qMxZgewNGWKfBLOpFBkP+yiT8ZMlE+SbOoZ1
+                  3ct02sYST9EO/OeiI2lKiR5YKhqOZnGlMZ1ooH6WszRm5fi5CZaAAte1enSdmBXLvMr7xBeZbu/z
+                  I7MNfVLGtHfKhTt4xQKq2os+L3auFG3Cet9x5vN51xhbiYnuQlR2LlXqpFKEWaAVhJkUe+PibU1R
+                  jkkTpJL2XgSkMOQKcWvGhCOzDY2BLk3JQL8sXva4n2ltqHvb3xFkJext7k4beQtqVmHEuD5T+Ic5
+                  ZLetACks3wApRtrDFBtroNyuxeXeaqYA81PddpNiGnminjB3rjlRZI/yj0kjbtTzRpnSYEWJ3pus
+                  BLmr1wglNlM18osplZBJWsUUBMHAcK3pyjy7tdUfQSkUCYAcn51fWDBglPnlpp7re5+KZOk6vmeD
+                  np0yx6xjqs0ajKdw4+taoAq6dgIXhy9zL0ZXJM5g4FJENudYY9ewY9g6h/jdCjYtNt0NXc8W0Ldh
+                  H5CtMj9htVLFLStFgQvRu6YermM8lmeVmqOxELMsbU/RN0JOhUb2XIjxiXiVszVdBJB0ypSmsj3E
+                  x2JnJbjB/wUG52yvpyvSSpN7bzMfqK5SwkuzlVEfe4+5r9IBFG8w6zXjV71k2xKxeenztAytBMTE
+                  i1NUZ4J7EoxT5vk29ng1VyEo8ZnpKJRkjt5A/n44l/0I1IUkXEFx8ROgRhENZtCZxNBD3ZNGNwF1
+                  SmYUvaa2S1NLEXbZ6XouVvvdThZ91X9zvd/21F/mJIwfkyQdfLHX/joBJY5ZHEP2vXnYUpvBOwoC
+                  qBc1egsXUsifBruKgYWzquI4EbJZSqxfyH2EyhedgrQ65kT73nvogpVGH+gczgDvTZrQK+ji1GJt
+                  U9IDzgMH291xentOb6e3XxVKNr43LcdBeNvz/nKI607/nUIfxBx9pJ2zlHIa3qrLNgN3gD2wwaPq
+                  Q8IdJNwQ0v5tpJJ+JR/UHUXnSjasc4C7mHA7xVRP1UOzE58IAYmr2bYX6byerCdgKq+al2z3wzXx
+                  26Im/oZKay1hbKCbukf6ZnqqewDW66zWFnhff/WwUCjAskTdlmtLqSx5QEDjExnTNCFrVGznsBGd
+                  kvQBpLWbllG+caHDNnVnye7G1wyR3tjSDHv/oHFpDnQEAcUOKySpoQ4Nu3WpXQdd8wFW4+bxfzMj
+                  KFOI6H5r12KkiZyaz7Ff/Nh+fllccrdG5ceWIgLA/XdMBwYr7ffvfwHBzcJOFhcAAA==
+                isTopLevelWindow: true
+              browserType:
+                $type: SingleBrowserType
+                typeValue: 3
+            browserOutputProvider:
+              contents:
+                $type: BrowserContentsOutputProvider
+                outputTools:
+                - $type: BrowserContentsViewer
+                  iconName: BrowserContentsViewer
+                  name: Browser Contents Viewer
+                name: Browser Contents
+              traffic:
+                $type: NamedToolOutputProvider
+                outputTools:
+                - $type: TrafficViewer
+                  iconName: TrafficViewer
+                  name: Traffic Viewer
+                  showRequestHeaders: true
+                  showResponseHeaders: true
+                name: HTTP Traffic
+        - $type: BrowserTest
+          name: Type "****"
+          testID: 6
+          tool:
+            $type: BrowserTestingTool
+            usesAutomaticallyGeneratedName: true
+            iconName: BrowserTest
+            name: Type "****"
+            commands:
+            - windowIdentifier:
+                BrowserTestingTool_WindowName: ""
+                BrowserTestingTool_WindowIndex: 0
+              action:
+                $type: TypePasswordAction
+                location:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: input
+                    attributeName: name
+                    attributeValue:
+                      values:
+                      - $type: ScriptedValue
+                      fixedValue:
+                        $type: StringTestValue
+                        BrowserTestingTool_LocatorAttributeValue: password
+                inputData:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: PasswordTestValue
+                    password: AwAAABhnUkkzRkk1WmFva3p0N0xEM3RCYm5nPT0=
+            delaySettings:
+              delays:
+              - $type: ElementDelay
+                windowIdentifier:
+                  WindowName: ""
+                elementState: 1
+                specifiedLocator:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: any
+                    attributeName: ""
+            originalCommand: true
+            command:
+              windowIdentifier:
+                BrowserTestingTool_WindowName: ""
+                BrowserTestingTool_WindowIndex: 0
+              action:
+                $type: TypeAction
+                location:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: input
+                    attributeName: name
+                    attributeValue:
+                      values:
+                      - $type: ScriptedValue
+                      fixedValue:
+                        $type: StringTestValue
+                        BrowserTestingTool_LocatorAttributeValue: password
+                inputData:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: PasswordTestValue
+                    password: AwAAABhnUkkzRkk1WmFva3p0N0xEM3RCYm5nPT0=
+            browserContents: true
+            contents:
+              windowContents:
+              - parentUrl: ""
+                charSet: windows-1252
+                url: http://path:18081/parabank/index.htm
+                htmlSize: 1590
+                html: !!binary |-
+                  H4sIAAAAAAAA/71Y627bNhT+nTwFywFFC9RW4lza2rK6xE3RAk1jNOmKYRsKSqItxhKpkVScoO0D
+                  7S13SF1jx8nkem2RROLlfDznfOdCuY9en40ufh+foEgnsbft2j9uREnouUrfxBTpm5QOsabX2gmU
+                  wt6vQUSkohrhTxdvOi/w4A8+/bMfxILM/noGz53yMSSadBrv142Xbvn4rFsP29GIhbTPhX5SvnQI
+                  ZwnR9OnXkKk0Jjcwyyl6xJJUSE24Hnw3B5gImVQr/FgEs8F3I6LY3VERS75eMcV8FjN90wfRIeXl
+                  miAS8msqFNNM8D7xlYgzTQffXccawdve2nITqgkqlB8WytcTkdZph/6dsashHgmuKdedCzAdRkH+
+                  VtjQGHhQiWlI0UwD0JhIckz4DH1Dn2kciITC0xmPGahsxhmfuk6+1GyC8RmKJJ0MsZPCVh+WOJom
+                  YAVNu+CvwaWiSoFSLBzujXq93aPeycHo+ODlyej50c7h65fPRy92DvYOnh+enGAkaTzEVmMVUarx
+                  kvNXYtpN/xOgCiRLNVIyaCLOqX8JRnQIn2YxkZfK2e0edl+W792E8e5lu+N44G6LBbCuY4NgG558
+                  Ed4gwYGi4RCHIsgScGc3FlNAyBSVnCS0O4Fx9eTpID9yyK4QIOKEMD4mnMZ2eMv85L+2tuFftUyL
+                  tFyFkEuWrEtCow1Qp6U6LJkumg2iYUqVE8QUbDRlk3b+mrNQR0N8cIhRRNk0Albv9zDyhQypHOId
+                  YHtMlBpie2JjULJCJcZDer1RlcAhor1GJAYdyqirFNzda2i4t3uXhgYO+GpCsSGg0jgt1wUkNUkF
+                  eyfXKZWM8gByakRRyCYTKs2r66SQeR0gg1dTwrCPypwVyEbIEPskmE2lyHjYR5mMnyyZIN/UMazr
+                  XqbTNpZ4inbgPxcdSVNK9MBS0XA0iyuN6UQD9bOcpTErx89NsgQUCNfq0XViVizzKu8TX2S6vc+P
+                  zDb0SRnT3ikXYvCKBVS1F31e7Fwp2qT1vuPM5/OuMbYSE92FrOxcqtRJpQizQCtIMyn2xsXbmqIc
+                  UyZIJe29CEhhyBXi1swJR2YbGgNdmpKBflm87HE/09pQ97a/I6hK2NtcTBt5C2pWacS4PlP4hzlk
+                  t60AKSzfAClG2sMUG2ug3K5FcG81S4D5qaLdlJhGnagnTMw1J4rqUf4xZcSNet4oUxqsKNF7U5Wg
+                  dvUaqcRWqkZ9Ma0SMkWrmIIkGBiuNV2ZV7e2+iNohSIBkOOz8wsLBowyv9zUc33vU1EsXcf3bNKz
+                  U+aYdU61VYPxFCK+7gWqpGsncHH4svZidEXiDAYuRWRrjjV2DTuGrXPI361g02LT3dD1bAEd0kTc
+                  hn5Avsr8hNWKFZFWigM3ondNXVzHeC2vLDVPYyFmWdqepm+EnAqN7LkQ4xPxKmdsuggg6ZQpTWV7
+                  iI/FzkpwIwYWWJwzvp6uiCtN/b3NfqC7SgkvzVZmfuw95r5KB9DAwazXzGH1km1Lxmbg56UZrhOQ
+                  Fy9OUV0N7ikyTlnr29jj1VyFoMRnpqNQkjl6AzX84Xr2I1AXknAFDcZPgBpFNJjB7SSGe9Q9pXQT
+                  UKdkRtFram9qainLLjtdz8Vqv9vJ4m7131zvtz31lzkJ48ckSQdfbNhfJ6DEMYtjqMA3D1tqM3hH
+                  QQA9o0ZvISCF/GmwqxhYOKtqkBMhm+3E+s3cR+h+0SlIq3NOtO+9h5uw0ugDncMZ4L1JE3oFNzm1
+                  2N+U9IDzwMF2d5zentPb6e1XzZLN703LcRDe9ry/HOL6tv9OoQ9ijj7SzllKOQ1v9WabgTvAHtjg
+                  UfUx4Q4Sbghp/zZSSb+SD+qOxnMlG9Y5wF1MuF1iqqfqoXkbnwgBhat5dS/KeT1ZT8BU3jkv2e6H
+                  ++K3RV/8DZXWWsLYwI3qHumbuVfdA7De7WptgffdsR4WCg1Ylqjbcm0rlSUPCGh8JmOaJmSNju0c
+                  NqJTkj6AtPbFZZRvXLhlm76zZHfji4ZIb2xrhr1/0Lg0BzqChGKHFZLUUIeG3brdrpOu+QircfP4
+                  v5kRlClEdL+1azHSRE7NJ9kvfmw/wSwuuVuj8oNLkQEg/h1zC4OV9hv4v7EUBp0aFwAA
+                isTopLevelWindow: true
+              browserType:
+                $type: SingleBrowserType
+                typeValue: 3
+            browserOutputProvider:
+              contents:
+                $type: BrowserContentsOutputProvider
+                outputTools:
+                - $type: BrowserContentsViewer
+                  iconName: BrowserContentsViewer
+                  name: Browser Contents Viewer
+                name: Browser Contents
+              traffic:
+                $type: NamedToolOutputProvider
+                outputTools:
+                - $type: TrafficViewer
+                  iconName: TrafficViewer
+                  name: Traffic Viewer
+                  showRequestHeaders: true
+                  showResponseHeaders: true
+                name: HTTP Traffic
+        - $type: BrowserTest
+          name: Click "Log In"
+          testID: 7
+          tool:
+            $type: BrowserTestingTool
+            usesAutomaticallyGeneratedName: true
+            iconName: BrowserTest
+            name: Click "Log In"
+            commands:
+            - windowIdentifier:
+                BrowserTestingTool_WindowName: ""
+                BrowserTestingTool_WindowIndex: 0
+              action:
+                $type: ClickAction
+                location:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: input
+                    attributeName: value
+                    attributeValue:
+                      values:
+                      - $type: ScriptedValue
+                      fixedValue:
+                        $type: StringTestValue
+                        BrowserTestingTool_LocatorAttributeValue: Log In
+            delaySettings:
+              delays:
+              - $type: PageLoadDelay
+              - $type: ElementDelay
+                windowIdentifier:
+                  WindowName: ""
+                elementState: 1
+                specifiedLocator:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: any
+                    attributeName: ""
+            originalCommand: true
+            command:
+              windowIdentifier:
+                BrowserTestingTool_WindowName: ""
+                BrowserTestingTool_WindowIndex: 0
+              action:
+                $type: ClickAction
+                location:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: input
+                    attributeName: value
+                    attributeValue:
+                      values:
+                      - $type: ScriptedValue
+                      fixedValue:
+                        $type: StringTestValue
+                        BrowserTestingTool_LocatorAttributeValue: Log In
+            browserContents: true
+            contents:
+              windowContents:
+              - parentUrl: ""
+                charSet: windows-1252
+                url: http://path:18081/parabank/overview.htm
+                htmlSize: 2625
+                html: !!binary |-
+                  H4sIAAAAAAAA/+VcbW8buRH+bP8KZhH05DtrpdW7ZUk5J43RK9LGuDgtiuvhQO1S2nW4L11y7Rg5
+                  /6D+y85wX7VaOlb6oUY3hi2Sz8yQfGZIDoSQixd/fP/m+h9Xb4krfb46XqiPhcuos1oIec8ZkfcR
+                  WxqSfZY9Wwhj9aPt0lgwSYyP15fdmXH+S7D959zmIf306ymUu3nRoZJ2K/XPlYqZF0/Nslm1up7D
+                  5kEoO3mlSwPPp5KdfHE8EXF6D2jAyAvPj8JY0kCeP+AANmHsFxJrHtqfzh/QRKbdFa7nf7n1hLf2
+                  uCfv52DaYUEuY7th/CUKhSe9MJjTtQh5Itn5w6KnSFgdHx0tfCYpySa/zCZfAq6UUZf9K/Ful8ab
+                  MJAskN1roM4gdlrLOESCzwszFSvSk9DRFY3paxp8Ir+TC9sOk0AK8v6Wxbceu1v0UhmU5h7IuDHb
+                  LI1eBDpr0OlJ5sP0JTPRUSRmfGmo4QuXMWnseVJrRykdYETYsRdJImK7auWOrW9glj0abBNO4xvR
+                  s8yJeZbXTd8LzBuwABwrfTC16KnIO4bSOnTulXHHuyWeszR86gVXNGBc9XmEv5U/R8fwr5CVYZSL
+                  ErKgexOkDnYOroDePX9bHzlEzJaJns0ZDHPrbQxy5znSXRrjiUFc5m1d8OZoYJB1GDssXhp98DKn
+                  QiwNZRnnRDVde4HDPn+1ax5uw7RnyqGvPCqKgVjDykiGVtNI0AS4CyOmYqAYWZTL2TTCoDdWbz9H
+                  LPZYYMOadxlxvM2GxVhd9CLYGXpA7qqkGB3F4pRlogJkaayp/WkbQ9A6c5LEvLM3rVSpaydChj6L
+                  zZtoe0L68BOE3ZhFjMpz5TL0ZcKLmbCN9FmQpN7kXt7+ARcpDB1iqCguetzLxFYF+3QdJjLl/AKL
+                  5KNAGhplBa41m4lU/ENW04rjsp/3end3dyZOVoQbadqh37sRUS+KQyexpYAoj4zVVVb7RlM93EZo
+                  Ye1daNNswhpzlRi/wCK5AhdUpcGlCd9ne51IieGwy7UL/jJWj8czytSGUywLpD0RRqNPVFGjmM26
+                  opi1pKpZpVRO55QFa7474G8RuLixVPaREsAwqwLZxlL7wI2mXDzCp5xfw2YIA1yv/s64rThYr8if
+                  QzcgH3xPumr5wMk6WGU7OimjChqPU/r3/FdSHEYsoKlqOuv30ED+yu7yI0IbAxUb2RmSBcT+0fJV
+                  CzKmgYAdIbVwndXIJax2fRCW6nDs8ojep9qvoQLxeP8EvQ0EmOo61byEKlGdg9sfjf/SRBJBKsJg
+                  NW48ONaUmY+qibxJw4f8FGzCJxiK4XxnQkKuki2sn9MG8g5anqCPW3Ie9O/CLXmf7EVuNdbS8CxD
+                  uYjUGPf93VDNDj9MZqJoaeR+zR19EUUGgrhe4pBzPCrqMm9kzIvTA2SFDYGX7gMvul3Q/mkzJ8IN
+                  73JF0u2u8l493DorWLMhMOVaOaKOpsZYdK1MWNI1ZKA45Sz+r7GhsL2NqeNhoqXOn6wHVEuzCELy
+                  elxWFLwqFg6Ua9BryiEfZN83YRe31ONqTBf+vj7Uio4QqQxiIdN8ppRNKf1ZHXpzkk2PwDZNcz6Q
+                  XRkjuenRWJBQldLxnHfrVHZcWDC3kPpi/L0CTq3BcDSu6q9hbXnB1lgpJI1M6dTsNcl3X05HZwOz
+                  33+i/Mv+nqziTpHCYIH/r4kZYaLXSAwgBxDzcmD1TaTy26WfFzHjyVRDDCCHEGP192PgMOnnRcxk
+                  OtMQA8hBS+kwZp47L9PZmYYXQNocMGf9voaYMxz404n5P4qWYd+ymklBpMXRMrQGAw0xgBxEzIHM
+                  PH9qBsOhhhpA2hwzw9FIQwwgBxEzGFqm9XRmmsSfFzXjiSa/Q6TNMTOZavI7RNpMzHSmye8QaTMx
+                  szNNgodIi4kZ9S1NgodIm4mxBpokD5E2EzMYapI8RNpMzHCkSfEQaTMxo7EmxUOkzcSMJ5pvNhFp
+                  MzGTqSbzReQQYqYHfeHbJP28iJmdaRI8RFocMeN+X5PgIdJmYqyBJsFDpM3EDEeaPAaRNhMzGmvy
+                  GETaTMx4osljEGkzMZOpJo9BpM3ETGeaPAaRNhMzO9N8g4dIi4mZ9PuaBA+RNhNjWZoED5E2EzMY
+                  ahI8RNpMzHCk+QYPkTYTMxprMl9E2kzMeKLJfBFpMzGTqSbzRaTNxExnmswXkTYTMzvTZL6ItJiY
+                  ab+vyXwRaTMxlqXJfBFpMzGDgSbzRaTNxAxHmswXkTYTMxprMl9E2kzMeKLJfBFpMzGTqSbzRaTN
+                  xExnmswXkTYTMzvTZL6ItJiYWb+vyXwRaTMxlqXJfBFpMzGDgSbzRaTNxAyHmswXkfYSMx4NNf85
+                  USEHETMcW6Y1+K/ED6Smcru0fuPVIZR72yC7Oqwuq1+HknK8qt4wRMCbRzk+G5h40a9Z6w/BWkTn
+                  DXM4LsrpNdhcZROGcvXYqO2Qi4jCuIfG6vvsZi5M2+aJwwRxmHqyRRDpUkl8ek/WjIhkfcNsSWRI
+                  3JA7ojoSZ1UbTjkAqODFXkVieue6QnzTzWcluHsx+m0ch7HCslvbx4v8aRPs4pbGhEYRWZLiCZTQ
+                  STjrfNdwXfu7U/LLryfnShGUzPLm9r443twG+U0SqDvxpPNSxf0peYlvSpyQLwUHKWDuzGVJZJyw
+                  8yaZdEJLsqFcVCRKUbRvbpnsFO9m/BbF4ef7nrrvnr/zIXoG+YFYg4E1gE+jV6zUU/JFej4LEzkf
+                  9uHfw0nF/4SY0mVBp5xWzEQUBoJVZ1QbdbEelkDf+ROkcpsmPlekVZC4WPL4W0JY+lEi2XWltVMz
+                  Da7bM5a7fRPGb6nt1lVKD3aypqaJKkMpbNL8Pno5NHDGRa21sLY/vYdaW90BNpUwzgYP7I+riJdS
+                  qG67Qklh8rHx1mYfM5nExZZnrrM5L0ifvILfeR0pu39o6LjJh4Xzaj3jyq2FABxku9OrO/cwr9as
+                  71R/IBG+FnXJQyo7tTmeEqvfwHMDbVWTVWby0j5DpUcZ/q0Pu3kvqW0VNcF8Q9ndcXKKhaQywUWp
+                  +jOz6kr5d6dpToxs3zD2reBCLmyoyqtqBXTx/RUGHs1M7FiAfVaEnJlKo5OLphwyh+BGlg0CdrK5
+                  qqPZk71gU+F+hFv3xuMSt22IOJ++Y0JU9uoOsnp0lPmoaPUCiM0UyrG87RVRBdiSPsgYjuXOiQmf
+                  PnxATsQpRLFxCj/GCcw0SDg/BxsP8AfHU3lqa+dpkaJUFKqvaeEhyeLq+1tw8u2CJQBQ+piNKja/
+                  g+KVbwb9KXsz6HeSv52yp6d5vekRDf0bTo8ofdtLTt9s8LH3nL5uFDaZxBe7do3VJbZ+xUDllTdP
+                  Mp9GGUlQIX+h0Ve0dx5fyl/P2X1NC9OnPAIqr4yF0X2We/6bXOXDJhecE9Us8CDGteaY6r2kLJBy
+                  dXy4TxrVIf0NWwgsQ0iID3aBQSSNt/iM329rrp5Fq4s0zyh/BC1bJbBGeiqhXahn/Vb/AVoUl1JO
+                  UQAA
+                isTopLevelWindow: true
+              browserType:
+                $type: SingleBrowserType
+                typeValue: 3
+            browserOutputProvider:
+              msgOutputProviders:
+              - $type: HttpMessageOutputProvider
+                name: "${PATH_BASE_URL}/parabank/login.htm;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+                unparsedPostData: username=john&password=demo
+                httpMethod:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: HTTPMethodTestValue
+                    method: POST
+                accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+                referer: http://path:18081/parabank/index.htm
+                contentType: application/x-www-form-urlencoded
+                baseUrl: "${PATH_BASE_URL}/parabank/login.htm;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+                hasPostData: true
+                postData:
+                  properties:
+                  - name: username
+                    value:
+                      fixedValue:
+                        $type: StringTestValue
+                        value: john
+                  - name: password
+                    value:
+                      fixedValue:
+                        $type: StringTestValue
+                        value: demo
+                requestHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Header
+                  name: "Request Header of ${PATH_BASE_URL}/parabank/login.htm;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+                requestBody:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Body
+                  name: "Request Body of ${PATH_BASE_URL}/parabank/login.htm;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+                requestStub:
+                  $type: StubToolOutputProvider
+                  menuName: Configure Request
+                  name: "Configure Request for ${PATH_BASE_URL}/parabank/login.htm;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+                responseHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Header
+                  name: "Response Header of ${PATH_BASE_URL}/parabank/login.htm;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+                responseBody:
+                  $type: MIMESpecificNamedToolOutputProvider
+                  menuName: Body
+                  name: "Response Body of ${PATH_BASE_URL}/parabank/login.htm;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+                  type: text/html
+                responseStub:
+                  $type: StubToolOutputProvider
+                  menuName: Stub Request/Response
+                  name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/login.htm;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+                trafficObject:
+                  $type: ObjectOutputProvider
+                  menuName: Traffic Object
+                  name: "Traffic Object for ${PATH_BASE_URL}/parabank/login.htm;jsessionid=3C221A2E5CB59EC7A06D97C8053576EE"
+              - $type: HttpMessageOutputProvider
+                name: "${PATH_BASE_URL}/parabank/overview.htm"
+                httpMethod:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: HTTPMethodTestValue
+                    method: GET
+                accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+                referer: http://path:18081/parabank/index.htm
+                baseUrl: "${PATH_BASE_URL}/parabank/overview.htm"
+                requestHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Header
+                  name: "Request Header of ${PATH_BASE_URL}/parabank/overview.htm"
+                requestBody:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Body
+                  name: "Request Body of ${PATH_BASE_URL}/parabank/overview.htm"
+                requestStub:
+                  $type: StubToolOutputProvider
+                  menuName: Configure Request
+                  name: "Configure Request for ${PATH_BASE_URL}/parabank/overview.htm"
+                responseHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Header
+                  name: "Response Header of ${PATH_BASE_URL}/parabank/overview.htm"
+                responseBody:
+                  $type: MIMESpecificNamedToolOutputProvider
+                  menuName: Body
+                  name: "Response Body of ${PATH_BASE_URL}/parabank/overview.htm"
+                  type: text/html
+                responseStub:
+                  $type: StubToolOutputProvider
+                  menuName: Stub Request/Response
+                  name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/overview.htm"
+                trafficObject:
+                  $type: ObjectOutputProvider
+                  menuName: Traffic Object
+                  name: "Traffic Object for ${PATH_BASE_URL}/parabank/overview.htm"
+              - $type: HttpMessageOutputProvider
+                name: "${PATH_BASE_URL}/parabank/style.css"
+                httpMethod:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: HTTPMethodTestValue
+                    method: GET
+                accept: "text/css,*/*;q=0.1"
+                referer: http://path:18081/parabank/overview.htm
+                baseUrl: "${PATH_BASE_URL}/parabank/style.css"
+                requestHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Header
+                  name: "Request Header of ${PATH_BASE_URL}/parabank/style.css"
+                requestBody:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Body
+                  name: "Request Body of ${PATH_BASE_URL}/parabank/style.css"
+                requestStub:
+                  $type: StubToolOutputProvider
+                  menuName: Configure Request
+                  name: "Configure Request for ${PATH_BASE_URL}/parabank/style.css"
+                responseHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Header
+                  name: "Response Header of ${PATH_BASE_URL}/parabank/style.css"
+                responseBody:
+                  $type: MIMESpecificNamedToolOutputProvider
+                  menuName: Body
+                  name: "Response Body of ${PATH_BASE_URL}/parabank/style.css"
+                  type: text/html
+                responseStub:
+                  $type: StubToolOutputProvider
+                  menuName: Stub Request/Response
+                  name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/style.css"
+                trafficObject:
+                  $type: ObjectOutputProvider
+                  menuName: Traffic Object
+                  name: "Traffic Object for ${PATH_BASE_URL}/parabank/style.css"
+              - $type: HttpMessageOutputProvider
+                name: "${PATH_BASE_URL}/parabank/template.css"
+                httpMethod:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: HTTPMethodTestValue
+                    method: GET
+                accept: "text/css,*/*;q=0.1"
+                referer: http://path:18081/parabank/overview.htm
+                baseUrl: "${PATH_BASE_URL}/parabank/template.css"
+                requestHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Header
+                  name: "Request Header of ${PATH_BASE_URL}/parabank/template.css"
+                requestBody:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Body
+                  name: "Request Body of ${PATH_BASE_URL}/parabank/template.css"
+                requestStub:
+                  $type: StubToolOutputProvider
+                  menuName: Configure Request
+                  name: "Configure Request for ${PATH_BASE_URL}/parabank/template.css"
+                responseHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Header
+                  name: "Response Header of ${PATH_BASE_URL}/parabank/template.css"
+                responseBody:
+                  $type: MIMESpecificNamedToolOutputProvider
+                  menuName: Body
+                  name: "Response Body of ${PATH_BASE_URL}/parabank/template.css"
+                  type: text/html
+                responseStub:
+                  $type: StubToolOutputProvider
+                  menuName: Stub Request/Response
+                  name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/template.css"
+                trafficObject:
+                  $type: ObjectOutputProvider
+                  menuName: Traffic Object
+                  name: "Traffic Object for ${PATH_BASE_URL}/parabank/template.css"
+              - $type: HttpMessageOutputProvider
+                name: "${PATH_BASE_URL}/parabank/webjars/angularjs/1.6.9/angular.min.js"
+                httpMethod:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: HTTPMethodTestValue
+                    method: GET
+                accept: '*/*'
+                referer: http://path:18081/parabank/overview.htm
+                baseUrl: "${PATH_BASE_URL}/parabank/webjars/angularjs/1.6.9/angular.min.js"
+                requestHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Header
+                  name: "Request Header of ${PATH_BASE_URL}/parabank/webjars/angularjs/1.6.9/angular.min.js"
+                requestBody:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Body
+                  name: "Request Body of ${PATH_BASE_URL}/parabank/webjars/angularjs/1.6.9/angular.min.js"
+                requestStub:
+                  $type: StubToolOutputProvider
+                  menuName: Configure Request
+                  name: "Configure Request for ${PATH_BASE_URL}/parabank/webjars/angularjs/1.6.9/angular.min.js"
+                responseHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Header
+                  name: "Response Header of ${PATH_BASE_URL}/parabank/webjars/angularjs/1.6.9/angular.min.js"
+                responseBody:
+                  $type: MIMESpecificNamedToolOutputProvider
+                  menuName: Body
+                  name: "Response Body of ${PATH_BASE_URL}/parabank/webjars/angularjs/1.6.9/angular.min.js"
+                  type: text/html
+                responseStub:
+                  $type: StubToolOutputProvider
+                  menuName: Stub Request/Response
+                  name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/webjars/angularjs/1.6.9/angular.min.js"
+                trafficObject:
+                  $type: ObjectOutputProvider
+                  menuName: Traffic Object
+                  name: "Traffic Object for ${PATH_BASE_URL}/parabank/webjars/angularjs/1.6.9/angular.min.js"
+              - $type: HttpMessageOutputProvider
+                name: "${PATH_BASE_URL}/parabank/images/header-customer.jpg"
+                httpMethod:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: HTTPMethodTestValue
+                    method: GET
+                accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+                referer: http://path:18081/parabank/overview.htm
+                baseUrl: "${PATH_BASE_URL}/parabank/images/header-customer.jpg"
+                requestHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Header
+                  name: "Request Header of ${PATH_BASE_URL}/parabank/images/header-customer.jpg"
+                requestBody:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Body
+                  name: "Request Body of ${PATH_BASE_URL}/parabank/images/header-customer.jpg"
+                requestStub:
+                  $type: StubToolOutputProvider
+                  menuName: Configure Request
+                  name: "Configure Request for ${PATH_BASE_URL}/parabank/images/header-customer.jpg"
+                responseHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Header
+                  name: "Response Header of ${PATH_BASE_URL}/parabank/images/header-customer.jpg"
+                responseBody:
+                  $type: MIMESpecificNamedToolOutputProvider
+                  menuName: Body
+                  name: "Response Body of ${PATH_BASE_URL}/parabank/images/header-customer.jpg"
+                  type: text/html
+                responseStub:
+                  $type: StubToolOutputProvider
+                  menuName: Stub Request/Response
+                  name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/images/header-customer.jpg"
+                trafficObject:
+                  $type: ObjectOutputProvider
+                  menuName: Traffic Object
+                  name: "Traffic Object for ${PATH_BASE_URL}/parabank/images/header-customer.jpg"
+              - $type: HttpMessageOutputProvider
+                name: "${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                httpMethod:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: HTTPMethodTestValue
+                    method: GET
+                accept: "application/json, text/plain, */*"
+                referer: http://path:18081/parabank/overview.htm
+                baseUrl: "${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                requestHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Header
+                  name: "Request Header of ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                requestBody:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Body
+                  name: "Request Body of ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                requestStub:
+                  $type: StubToolOutputProvider
+                  menuName: Configure Request
+                  name: "Configure Request for ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                responseHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Header
+                  name: "Response Header of ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                responseBody:
+                  $type: MIMESpecificNamedToolOutputProvider
+                  menuName: Body
+                  name: "Response Body of ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                  type: text/html
+                responseStub:
+                  $type: StubToolOutputProvider
+                  menuName: Stub Request/Response
+                  name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                trafficObject:
+                  $type: ObjectOutputProvider
+                  menuName: Traffic Object
+                  name: "Traffic Object for ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+              loadTestConfig:
+                requestConfigs:
+                - $type: LoadTestRequestConfig
+                  name: "${PATH_BASE_URL}/parabank/login.htm;jsessionid=52B08007CDF30856FA697EF305B7E5D2"
+                  httpMethod:
+                    values:
+                    - $type: ScriptedValue
+                    fixedValue:
+                      $type: HTTPMethodTestValue
+                      method: POST
+                  accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3"
+                  referer: http://path:18081/parabank/index.htm
+                  contentType: application/x-www-form-urlencoded
+                  url:
+                    value: "${PATH_BASE_URL}/parabank/login.htm;jsessionid=52B08007CDF30856FA697EF305B7E5D2"
+                  requestData:
+                    value: username=john&password=demo
+                  responseHeader:
+                    $type: HTTPNamedToolOutputProvider
+                    menuName: Response Header
+                    name: "${PATH_BASE_URL}/parabank/login.htm;jsessionid=52B08007CDF30856FA697EF305B7E5D2"
+                  responseBody:
+                    $type: MIMESpecificNamedToolOutputProvider
+                    menuName: Response Body
+                    name: "${PATH_BASE_URL}/parabank/login.htm;jsessionid=52B08007CDF30856FA697EF305B7E5D2"
+                    type: text/html
+                - $type: LoadTestRequestConfig
+                  name: "${PATH_BASE_URL}/parabank/overview.htm"
+                  httpMethod:
+                    values:
+                    - $type: ScriptedValue
+                    fixedValue:
+                      $type: HTTPMethodTestValue
+                      method: GET
+                  accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3"
+                  referer: http://path:18081/parabank/index.htm
+                  url:
+                    value: "${PATH_BASE_URL}/parabank/overview.htm"
+                  requestData:
+                    value: ""
+                  responseHeader:
+                    $type: HTTPNamedToolOutputProvider
+                    menuName: Response Header
+                    name: "${PATH_BASE_URL}/parabank/overview.htm"
+                  responseBody:
+                    $type: MIMESpecificNamedToolOutputProvider
+                    menuName: Response Body
+                    name: "${PATH_BASE_URL}/parabank/overview.htm"
+                    type: text/html
+                - $type: LoadTestRequestConfig
+                  name: "${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                  httpMethod:
+                    values:
+                    - $type: ScriptedValue
+                    fixedValue:
+                      $type: HTTPMethodTestValue
+                      method: GET
+                  accept: "application/json, text/plain, */*"
+                  referer: http://path:18081/parabank/overview.htm
+                  url:
+                    value: "${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                  requestData:
+                    value: ""
+                  responseHeader:
+                    $type: HTTPNamedToolOutputProvider
+                    menuName: Response Header
+                    name: "${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                  responseBody:
+                    $type: MIMESpecificNamedToolOutputProvider
+                    menuName: Response Body
+                    name: "${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                    type: text/html
+              contents:
+                $type: BrowserContentsOutputProvider
+                outputTools:
+                - $type: BrowserContentsViewer
+                  iconName: BrowserContentsViewer
+                  name: Browser Contents Viewer
+                name: Browser Contents
+              traffic:
+                $type: NamedToolOutputProvider
+                outputTools:
+                - $type: TrafficViewer
+                  iconName: TrafficViewer
+                  name: Traffic Viewer
+                  showRequestHeaders: true
+                  showResponseHeaders: true
+                name: HTTP Traffic
+      - $type: BrowserTest
+        name: Click "Open New Account"
+        testID: 8
+        tool:
+          $type: BrowserTestingTool
+          usesAutomaticallyGeneratedName: true
+          iconName: BrowserTest
+          name: Click "Open New Account"
+          commands:
+          - windowIdentifier:
+              BrowserTestingTool_WindowName: ""
+              BrowserTestingTool_WindowIndex: 0
+            action:
+              $type: ClickAction
+              location:
+                criteria:
+                  $type: AttributeCriteria
+                  elementName: a
+                  attributeName: text
+                  attributeValue:
+                    values:
+                    - $type: ScriptedValue
+                    fixedValue:
+                      $type: StringTestValue
+                      BrowserTestingTool_LocatorAttributeValue: Open New Account
+          delaySettings:
+            delays:
+            - $type: PageLoadDelay
+            - $type: ElementDelay
+              windowIdentifier:
+                WindowName: ""
+              elementState: 1
+              specifiedLocator:
+                criteria:
+                  $type: AttributeCriteria
+                  elementName: any
+                  attributeName: ""
+          originalCommand: true
+          command:
+            windowIdentifier:
+              BrowserTestingTool_WindowName: ""
+              BrowserTestingTool_WindowIndex: 0
+            action:
+              $type: ClickAction
+              location:
+                criteria:
+                  $type: AttributeCriteria
+                  elementName: a
+                  attributeName: text
+                  attributeValue:
+                    values:
+                    - $type: ScriptedValue
+                    fixedValue:
+                      $type: StringTestValue
+                      BrowserTestingTool_LocatorAttributeValue: Open New Account
+          browserContents: true
+          contents:
+            windowContents:
+            - parentUrl: ""
+              charSet: windows-1252
+              url: http://path:18081/parabank/openaccount.htm
+              htmlSize: 2255
+              html: !!binary |-
+                H4sIAAAAAAAA/80Za2/cNvJz/CsYIWhsxCvt+pVkH0pdX9y6l2uMxunhkAsKrsRd0aZEHUnZXrj+
+                Qfcvb4Z6cR+y3eAOuDXW5JAzQ3Le5I6f/+XjycU/zt+TxKQi3BrbZpwwGodjbRaCEbPI2cQz7NYE
+                kdZe+H2UUKWZId7ni9PeG2/0JZv/cxgJSa++7kK/V3djamjPgW8dwK+7u347bEcTHrNhJs12DfRo
+                xlNq2M5dzHUu6AJmM0ae8zSXytDMjO5xAzOp0gZjKmR0NbpHFhV1Tyc8vbvmmk+54GYxBNYxy2qc
+                KJHqLpeaGy6zIZ1qKQrDRvfjwAoh3Hr2bJwyQ0l1+El1+HYiMSbvsX8V/HrincjMsMz0LkB0HolK
+                qJIhCnjUsHG4GG5goXOq6A80uyJ/kI85y8hxFMkiM+OgnEZEwWE6UWw28YIc0KeAHhiWwskN81FH
+                RDEx8ezOdcKY8daU2MnHEv0JJjpSPDdEq8jlcsOml3DAgGbzQlB1qYOBf+S/rWE/5Zl/CRxAvJYe
+                WI0Da3Rb0JvKeGGZx/ya8HjipZRn5zRjwq75DL/Ov2db8GlwjcxrVELGdO2ANMbFQQuwOk/nqzsH
+                Y5kzHUSCwTbnfOaRGx6bZOIdHnkkYXyegCIP9jwylSpmauL1QcGCaj3xLGc8E+1Ymmcxu310aSHn
+                slyZClirNohmI4N9Zyf7g007QRagLrQYh0Gzs7zGi2iO9u6F729zpjjLInD3hJGYz2ZMITgOcggK
+                AQg3bEWMimKqlDKxBjLxpjS6misw1XhICiW2145VEvWiQhuZMuVf5vMd0oe/TPYUyxk1I6sy1GUh
+                mpOwmUlZVpTaFLwe/4T+CVsHG2q640DwCi1spE+nsjClzI+xSz5rFMNGXM3UNY+YLtE/VVAnOnr8
+                MAhubm58PKyWM+NHMg0udR7kSsZFZDRYee6F5xX0jawCjCC04fZBRrQ6cAc7x8aPsUvOQQUuNqi0
+                EOvSnhbGoDksyzoBfXnhw/aMOCvbadwCxV5ob6NObLeDsDq1Q1iNlKQV0BKXZ6qMtY4O+G0MFwOL
+                E0faCTQzd6IKLCsNBprWeXRKhbiAYAgbnIZ/ZyKyMpiG5GeZZORTyk1i3QeS6l5YxXHSWhUMbpXi
+                X9NfK2IJOYCWpOWpbVL4hd20iaHDBhwe17gmu6kMoqTT5GM1/AQORtFMQ0QoOVxUEDkFb+82wpYc
+                Mq7I6aKk/gEAsMfFE+hmYGB26ZLyFEBiFwe1P2j/LYsihyqEgTfOOKQ1y+azHSInpfmQs2wmn8BI
+                QWpn2kCZUjnWr+UA+QAjT6DHkFwb/Qc5Jx+LNct1ba00z9aUG0tVGPeXTbXOfljI5PnEO47jSsnH
+                ee7hMLqKkkJglmhnT4wSTcoALB2BtZXO/7zXA7qz2ZDoRN6cQmlFer2wXoVjrKzGNzMAFsmgnrF5
+                aJPlJoMKF2s3ZKyLKXgNMLft9o7LPFdcGw6FH/SvqeBxtRDmM+uACTW2QiFyVi9BbmQhYrKQBRH8
+                CnKbJOhQ79BLrWtWDDQTDEzBlg9lyVYuy7McMsbK4sBXFlHC4mYn2IGKtQclmFlYgfMMj4G8tF8y
+                Z/FHm2vJhLzsv7RIqYyxwtqE1ZwNIjRpPmNZsoBFC2bzfU0FXFQBMj756f3JX89++XEclKhPYTOA
+                VHf8GxB96qSCMs0u1AhsqkL8bi1jWT0cE0g4PC1S1MOLQb/v9/skhaxPplBYMFtjg+w4SBFqDa5J
+                Fd4Iqo+nVn2oJJ7NfXIOZZhmUC1LCQ3NCLu1ipg3VMiljkczjEc1Z9AV2FodOx/Q+EzJtLKXs/i/
+                pfo5M3WgRTNutV1taE3hiFJKXzdIPvAH12jOCom8JsdDR1dkuiAtLuShSrOCTnGtwd7+waHX6LmE
+                Vk3GDjeaX+NwgHVvwwGh0DbdFIdHrx0KhELbdFMcvX7jUCAU2qab4vWbtw4FQqFtuine9vsOBUKh
+                bTop9vuDQUthodA23RSDvT2HAqHQNt0Ue/v7DgVCoW26KfYPDhwKhELbdFMcHjkatFBom26K128c
+                fVgotE03xZu3jj4sFNqmi+LwYH+vlW4JhbZpKR6OOZiL4BZlvbS8l5ZJw1upZes1VrMP3oZsdi3j
+                G2Ygm/nsoM1/LIs35MCt9fT4K9OFMB2T75UCD8a5ar2tcX3lxZWvKbh3nkNWaK7GcFUQbPvlUhZ/
+                uUu+fN0ZWRJA99uE7iJiQgdMCIO2Ptp+YRPyLnmB14sdcrfVxPVyxm8ONiEYDEab5qvTTciMCr0Z
+                pTxjF4bNbzD75evmqZVIOFrbpRNLcZH6dHgg4nzsKRF5u7nI/Q6F3+0isAVYffHUAXjkYC+oI6m3
+                S+4w70B1Ntzvw+d+Z4ktfnxIJ9l2s7JiOoc4zVZ3sLJv2m66pvDxTWz0FKL1smEF4Uv/6zqjTXuH
+                y2KUPH3zjUJbzE3rtGP362ZlPfEhXaHZF0oAymZdKQYleqX0d7XmzuKJVd13kNiruQvr+a8esify
+                injfLeX4iUdePSJuyKajDcYFxYvZhn3vEu9/ZzaOU644VAdy46HLPrwBuxXcWbxqlWtH7qT9XCoO
+                L2HX3JTXOpTyO74kWnex/xdLrXtNp17MYcbw/1pweYpunhA1V9DqyLmuOfQQbagpMHzYLfkVGJI+
+                ebc8NCReZYveOhdUbsPDAu9cAGjxTQLK55rFEgfINFrC1dlSbNeoiplCZVAHo76rTYAFDC2MbNek
+                jnpwXnuXbrdNr+m4D7ozKQ1T7hNwmf2dyXYCpsr3FNvdfBV3nq1+qp6t/iD19X2NruMB8QGK7mfE
+                B4i+7THxmxk+9KT4OFOolopUL/P1wlMcfYSB80MDXANTmldCAoD8jeaPUC+9/9UPOMsPuljC1Rbg
+                PHTLfGFfTrzw3+S83jY5FoLYYY2xEE079ptbovMuij8bGc/d0m84QsDqqRn+aRV4xFA1xx+Rfp8K
+                +zK/irL5RPU7fOUl4COB/alkbH9UCv8D5QxtfswbAAA=
+              isTopLevelWindow: true
+            browserType:
+              $type: SingleBrowserType
+              typeValue: 3
+          browserOutputProvider:
+            msgOutputProviders:
+            - $type: HttpMessageOutputProvider
+              name: "${PATH_BASE_URL}/parabank/openaccount.htm"
+              httpMethod:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: HTTPMethodTestValue
+                  method: GET
+              accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+              referer: http://path:18081/parabank/overview.htm
+              baseUrl: "${PATH_BASE_URL}/parabank/openaccount.htm"
+              requestHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Request Header of ${PATH_BASE_URL}/parabank/openaccount.htm"
+              requestBody:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Body
+                name: "Request Body of ${PATH_BASE_URL}/parabank/openaccount.htm"
+              requestStub:
+                $type: StubToolOutputProvider
+                menuName: Configure Request
+                name: "Configure Request for ${PATH_BASE_URL}/parabank/openaccount.htm"
+              responseHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Response Header of ${PATH_BASE_URL}/parabank/openaccount.htm"
+              responseBody:
+                $type: MIMESpecificNamedToolOutputProvider
+                menuName: Body
+                name: "Response Body of ${PATH_BASE_URL}/parabank/openaccount.htm"
+                type: text/html
+              responseStub:
+                $type: StubToolOutputProvider
+                menuName: Stub Request/Response
+                name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/openaccount.htm"
+              trafficObject:
+                $type: ObjectOutputProvider
+                menuName: Traffic Object
+                name: "Traffic Object for ${PATH_BASE_URL}/parabank/openaccount.htm"
+            - $type: HttpMessageOutputProvider
+              name: "${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+              httpMethod:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: HTTPMethodTestValue
+                  method: GET
+              accept: "application/json, text/plain, */*"
+              referer: http://path:18081/parabank/openaccount.htm
+              baseUrl: "${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+              requestHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Request Header of ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+              requestBody:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Body
+                name: "Request Body of ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+              requestStub:
+                $type: StubToolOutputProvider
+                menuName: Configure Request
+                name: "Configure Request for ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+              responseHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Response Header of ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+              responseBody:
+                $type: MIMESpecificNamedToolOutputProvider
+                menuName: Body
+                name: "Response Body of ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                type: text/html
+              responseStub:
+                $type: StubToolOutputProvider
+                menuName: Stub Request/Response
+                name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+              trafficObject:
+                $type: ObjectOutputProvider
+                menuName: Traffic Object
+                name: "Traffic Object for ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+            loadTestConfig:
+              requestConfigs:
+              - $type: LoadTestRequestConfig
+                name: "${PATH_BASE_URL}/parabank/openaccount.htm"
+                httpMethod:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: HTTPMethodTestValue
+                    method: GET
+                accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3"
+                referer: http://path:18081/parabank/overview.htm
+                url:
+                  value: "${PATH_BASE_URL}/parabank/openaccount.htm"
+                requestData:
+                  value: ""
+                responseHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Response Header
+                  name: "${PATH_BASE_URL}/parabank/openaccount.htm"
+                responseBody:
+                  $type: MIMESpecificNamedToolOutputProvider
+                  menuName: Response Body
+                  name: "${PATH_BASE_URL}/parabank/openaccount.htm"
+                  type: text/html
+              - $type: LoadTestRequestConfig
+                name: "${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                httpMethod:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: HTTPMethodTestValue
+                    method: GET
+                accept: "application/json, text/plain, */*"
+                referer: http://path:18081/parabank/openaccount.htm
+                url:
+                  value: "${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                requestData:
+                  value: ""
+                responseHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Response Header
+                  name: "${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                responseBody:
+                  $type: MIMESpecificNamedToolOutputProvider
+                  menuName: Response Body
+                  name: "${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                  type: text/html
+            contents:
+              $type: BrowserContentsOutputProvider
+              outputTools:
+              - $type: BrowserContentsViewer
+                iconName: BrowserContentsViewer
+                name: Browser Contents Viewer
+              - $type: AccessibilityScanTool
+                allowToolbar: false
+                iconName: AccessibilityScanTool
+                name: Web Accessibility Scan
+                outputProvider:
+                  name: Errors
+                locator:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: any
+                    attributeName: id
+              name: Browser Contents
+            traffic:
+              $type: NamedToolOutputProvider
+              outputTools:
+              - $type: TrafficViewer
+                iconName: TrafficViewer
+                name: Traffic Viewer
+                showRequestHeaders: true
+                showResponseHeaders: true
+              name: HTTP Traffic
+      - $type: TestSuite
+        name: "Form: http://path:18081/parabank/openaccount.htm"
+        testID: 9
+        abortOnError: 1
+        runMode: 2
+        tests:
+        - $type: BrowserTest
+          name: Click "Open New Account" 2
+          testID: 10
+          tool:
+            $type: BrowserTestingTool
+            usesAutomaticallyGeneratedName: true
+            iconName: BrowserTest
+            name: Click "Open New Account" 2
+            commands:
+            - windowIdentifier:
+                BrowserTestingTool_WindowName: ""
+                BrowserTestingTool_WindowIndex: 0
+              action:
+                $type: ClickAction
+                location:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: input
+                    attributeName: value
+                    attributeValue:
+                      values:
+                      - $type: ScriptedValue
+                      fixedValue:
+                        $type: StringTestValue
+                        BrowserTestingTool_LocatorAttributeValue: Open New Account
+            delaySettings:
+              delays:
+              - $type: ElementDelay
+                windowIdentifier:
+                  WindowName: ""
+                elementState: 1
+                specifiedLocator:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: any
+                    attributeName: ""
+            originalCommand: true
+            command:
+              windowIdentifier:
+                BrowserTestingTool_WindowName: ""
+                BrowserTestingTool_WindowIndex: 0
+              action:
+                $type: ClickAction
+                location:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: input
+                    attributeName: value
+                    attributeValue:
+                      values:
+                      - $type: ScriptedValue
+                      fixedValue:
+                        $type: StringTestValue
+                        BrowserTestingTool_LocatorAttributeValue: Open New Account
+            browserContents: true
+            contents:
+              windowContents:
+              - parentUrl: ""
+                charSet: windows-1252
+                url: http://path:18081/parabank/openaccount.htm
+                htmlSize: 1832
+                html: !!binary |-
+                  H4sIAAAAAAAA/81Ye08cNxD/Gz6FsaIGFG4XyEPpPZYSGlSqtKAEWkUURb5d361hd721vRwnwgfq
+                  t+yM1/u4F5BIlXpREj9mxvP4zXi8/Y2fTw7PPp++J7FJk2C9b//rx5xFQV+bacKJmeZ8QA2/NX6o
+                  NQ1+CmOmNDeEnp8ddd7S3kU2/qsbJpJdX27DuFMNI2ZYpzW/bU28arjtNct2NRYR72bSbFaTDstE
+                  ygzfuouEzhM2hd2Mkw2R5lIZlpnePSowkiqtKYaJDK979yjCcXd0LNK7G6HFUCTCTLsgOuJZRRPG
+                  Ut3lUgsjZNZlQy2TwvDefd+3TgjW19b6KTeMOOMHzvhmIzYm7/C/C3EzoIcyMzwznTNwHSVhOXM+
+                  RAf3ajEtKUYYOOiUKfaOZdfkKznJeUYOwlAWmen75TYSJgK2Y8VHA+rnQD4Ect/wFCw33MMYEcWT
+                  AbWa65hzQxeCuFKOZfoGITpUIjdEq7AtZcKHV2Cgz7JxkTB1pf1d7433YzX3UpF5VyAB3Gv5QVTf
+                  t6Bbh9FQRlMrPBI3REQDmjKRnbKMJ/bMNfzb+mdtHX41rZF5RUpIny0YyCI8HKIAp4t0PK85gGXM
+                  tR8mHNQcixElExGZeEBfv6Ek5mIcQyBf7VEylCriakB3IMAJ03pArWS0ia04WmQRv3306ESOZXky
+                  S+CsChC1IrsvW5q83F2mCYqAcCFiWgJqzfKKLmQ54p0G729zrgTPQkj3mJNIjEZc4bTv51AUfHBu
+                  0LgYA8VV6WViATKgQxZejxVANeqSQiWbC2aVTJ2w0EamXHlX+XiL7MCfTHYUzzkzPRsyjGWR1Jbw
+                  kUl5VpTRTES1/gnzE1QHDNXDvp8IRxbU3mdDWZjS5wc4JOca3bCUVnN1I0KuS/JPbraSHDO+6/uT
+                  ycRDY7UcGS+UqX+lcz9XMipCowHlOQ1O3ew7RflYQVgt7YMMmTN4hbgWxg9wSE4hBG1qCGmRLHp7
+                  WBiDcJj1dQzxosHDeEaaOXXqtEC3F5oujYkdrmB0VrcY3UrJ6iYNc2mTA2tVHfBvDVwsLK060mwg
+                  zNobrrDM/YeFpkkenbIkOYNiCAoOgz95ElofDAPyq4wz8ikVJrbpA5fqXuDqOGlQBYvrpfsX4te4
+                  WMIdwErW0mp7KfzOJ83FsAIDLRk3eCafOECUfJqcuOUnSDCKZRoqQinhzM3IEWT7ahA27HDjJjmb
+                  ltzvYAJ4nD6BbwQAs0eXnEcwJfZwCPuD+G9EFDl0IRyycSTgWrNizu0SOSzhQ46zkXyCIAVXO9cG
+                  2hSXWB/LBfIBVp7AjyW5Av0HOSYnxQJy21gr4dlAuUaqwro/C9Xq9sNGJs8H9CCKXJAP8pziMqaK
+                  kkmCt0Sze2hUUl8ZQKVDQFuZ/BudDvAdj7pEx3JyBK0V6XQArgtbH7kuEoOblQoCC2m9s1w+iIl3
+                  qx17TdW4tF0PjzYgP3YdaR5ArMaKGWgdbNy3yVQWiri8IELDHTIhmCqeTTjHBVn5GekyyJaKNivS
+                  IVddm6YQJfQobLuzjyNaVSgA2A10iRivfSDaffvq9U7bliFgUWRjGtidMpL25DJm1ksc4LrMU0vc
+                  +F4pqeyei/l6v2qM0JgbBtbmORmQuoGCCyXhm89nYv18m1xcbvUsC5B7TdjbhBh2oBwVmc2izWc2
+                  LtvkGV5CW+Ru3fLjr9zxaggMiFEF7y3bd9YNyIglejlJaeMqCuwtNexeXC7f8jRPeGh4dGJblt6C
+                  lmNu6tI2aKxDg0jrZ61E4s36uv8C5eF26ts0rdoTaFj39nb3fIcbTbfJnREphxzuvtyB3/3WjFj8
+                  edA6ZZv1yYrrHMDK5zWY05s1SlccHr6cek9hmvMKyJgjuNi5XBS0THdoKcL46crXAW0ol53TrN0v
+                  wqoYwhX5UKwQ9tBLAsnyWCloGrkL+n4VuWPIVgzdD01en9l3y4uH8EReEPrDSMm0LgUDSl484m5P
+                  RL0l4IJnpNkEvbcJ/e9g00rKuYRaQVxn6GwOL6FuF8R5VC6YvJL3vAxcu5KiRymW05Zr24f9X5Ba
+                  jepBdVhLGMd/F4rLU2LzhKo5R1ZVzsXIYYZoAzcjlg+rkuemAbys9meXuoQ6LNJFKRjcWoad7Lcn
+                  wIudKzR9lYgZCXDTaAkNluXYrEgVN4WCy5xgvJ0SgICunaPYBa9jHFrfBGZ6oHpUD9rP/pGUhqv2
+                  hwK4ZGc3mw3YKrtuO1zesLUeN7+4x81XUjV5C3wrnpkPcKx+bD7A9H1Pzu8W+NDD83GhI6mKVM/K
+                  hS4eVx8R0PocJQxPWe6cBBPyG8sf4Z55JVZt/uyzH/u0CgGtzyEyn9r+mgb/kNNKbXIADxa7rLEW
+                  IrSjVp/ZvJ7x46KhbZX+wBUCqGem+80hoMQwNcZPjV+Gif1+M0+y3KLqa43LEsgR335Q69tPj8G/
+                  cUpczPIVAAA=
+                isTopLevelWindow: true
+              browserType:
+                $type: SingleBrowserType
+                typeValue: 3
+            browserOutputProvider:
+              msgOutputProviders:
+              - $type: HttpMessageOutputProvider
+                name: "${PATH_BASE_URL}/parabank/services_proxy/bank/createAccount?customerId=12212&newAccountType=0&fromAccountId=12345"
+                unparsedPostData: ""
+                httpMethod:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: HTTPMethodTestValue
+                    method: POST
+                accept: "application/json, text/plain, */*"
+                referer: http://path:18081/parabank/openaccount.htm
+                contentType: application/json;charset=UTF-8
+                baseUrl: "${PATH_BASE_URL}/parabank/services_proxy/bank/createAccount"
+                hasUrlArgs: true
+                urlArgs:
+                  properties:
+                  - name: customerId
+                    value:
+                      fixedValue:
+                        $type: StringTestValue
+                        value: 12212
+                  - name: newAccountType
+                    value:
+                      fixedValue:
+                        $type: StringTestValue
+                        value: 0
+                  - name: fromAccountId
+                    value:
+                      fixedValue:
+                        $type: StringTestValue
+                        value: 12345
+                requestHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Header
+                  name: "Request Header of ${PATH_BASE_URL}/parabank/services_proxy/bank/createAccount?customerId=12212&newAccountType=0&fromAccountId=12345"
+                requestBody:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Body
+                  name: "Request Body of ${PATH_BASE_URL}/parabank/services_proxy/bank/createAccount?customerId=12212&newAccountType=0&fromAccountId=12345"
+                requestStub:
+                  $type: StubToolOutputProvider
+                  menuName: Configure Request
+                  name: "Configure Request for ${PATH_BASE_URL}/parabank/services_proxy/bank/createAccount?customerId=12212&newAccountType=0&fromAccountId=12345"
+                responseHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Header
+                  name: "Response Header of ${PATH_BASE_URL}/parabank/services_proxy/bank/createAccount?customerId=12212&newAccountType=0&fromAccountId=12345"
+                responseBody:
+                  $type: MIMESpecificNamedToolOutputProvider
+                  menuName: Body
+                  name: "Response Body of ${PATH_BASE_URL}/parabank/services_proxy/bank/createAccount?customerId=12212&newAccountType=0&fromAccountId=12345"
+                  type: text/html
+                responseStub:
+                  $type: StubToolOutputProvider
+                  menuName: Stub Request/Response
+                  name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/services_proxy/bank/createAccount?customerId=12212&newAccountType=0&fromAccountId=12345"
+                trafficObject:
+                  $type: ObjectOutputProvider
+                  menuName: Traffic Object
+                  name: "Traffic Object for ${PATH_BASE_URL}/parabank/services_proxy/bank/createAccount?customerId=12212&newAccountType=0&fromAccountId=12345"
+              loadTestConfig:
+                requestConfigs:
+                - $type: LoadTestRequestConfig
+                  name: "${PATH_BASE_URL}/parabank/services_proxy/bank/createAccount?customerId=12212&newAccountType=0&fromAccountId=12345"
+                  httpMethod:
+                    values:
+                    - $type: ScriptedValue
+                    fixedValue:
+                      $type: HTTPMethodTestValue
+                      method: POST
+                  accept: "application/json, text/plain, */*"
+                  referer: http://path:18081/parabank/openaccount.htm
+                  contentType: application/json;charset=UTF-8
+                  url:
+                    value: "${PATH_BASE_URL}/parabank/services_proxy/bank/createAccount?customerId=12212&newAccountType=0&fromAccountId=12345"
+                  requestData:
+                    value: ""
+                  responseHeader:
+                    $type: HTTPNamedToolOutputProvider
+                    menuName: Response Header
+                    name: "${PATH_BASE_URL}/parabank/services_proxy/bank/createAccount?customerId=12212&newAccountType=0&fromAccountId=12345"
+                  responseBody:
+                    $type: MIMESpecificNamedToolOutputProvider
+                    menuName: Response Body
+                    name: "${PATH_BASE_URL}/parabank/services_proxy/bank/createAccount?customerId=12212&newAccountType=0&fromAccountId=12345"
+                    type: text/html
+              contents:
+                $type: BrowserContentsOutputProvider
+                outputTools:
+                - $type: BrowserContentsViewer
+                  iconName: BrowserContentsViewer
+                  name: Browser Contents Viewer
+                name: Browser Contents
+              traffic:
+                $type: NamedToolOutputProvider
+                outputTools:
+                - $type: TrafficViewer
+                  iconName: TrafficViewer
+                  name: Traffic Viewer
+                  showRequestHeaders: true
+                  showResponseHeaders: true
+                name: HTTP Traffic
+      - $type: BrowserTest
+        name: Click "Transfer Funds"
+        testID: 11
+        tool:
+          $type: BrowserTestingTool
+          usesAutomaticallyGeneratedName: true
+          iconName: BrowserTest
+          name: Click "Transfer Funds"
+          commands:
+          - windowIdentifier:
+              BrowserTestingTool_WindowName: ""
+              BrowserTestingTool_WindowIndex: 0
+            action:
+              $type: ClickAction
+              location:
+                criteria:
+                  $type: AttributeCriteria
+                  elementName: a
+                  attributeName: text
+                  attributeValue:
+                    values:
+                    - $type: ScriptedValue
+                    fixedValue:
+                      $type: StringTestValue
+                      BrowserTestingTool_LocatorAttributeValue: Transfer Funds
+          delaySettings:
+            delays:
+            - $type: PageLoadDelay
+            - $type: ElementDelay
+              windowIdentifier:
+                WindowName: ""
+              elementState: 1
+              specifiedLocator:
+                criteria:
+                  $type: AttributeCriteria
+                  elementName: any
+                  attributeName: ""
+          originalCommand: true
+          command:
+            windowIdentifier:
+              BrowserTestingTool_WindowName: ""
+              BrowserTestingTool_WindowIndex: 0
+            action:
+              $type: ClickAction
+              location:
+                criteria:
+                  $type: AttributeCriteria
+                  elementName: a
+                  attributeName: text
+                  attributeValue:
+                    values:
+                    - $type: ScriptedValue
+                    fixedValue:
+                      $type: StringTestValue
+                      BrowserTestingTool_LocatorAttributeValue: Transfer Funds
+          browserContents: true
+          contents:
+            windowContents:
+            - parentUrl: ""
+              charSet: windows-1252
+              url: http://path:18081/parabank/transfer.htm
+              htmlSize: 2378
+              html: !!binary |-
+                H4sIAAAAAAAA/+0aa3PbuPGz/SsQNpOTJ5Yo2c5LD+Z8aTxNJ008eVynk2ZuIBISYYOPEqAdTc4/
+                qP+yuwBBgpJoK5n0W+ixQQC7i31jCXh6769vX3z41/lLEqtEBPtT3UxjRqNgKtVKMKJWOZt5in1R
+                fiilF/waxrSQTBHv44ez/lNv8ild/nscioxefj6E9759jaiifaf/xekM7OvhoBnWozGP2DjNVM92
+                +jTlCVXs4GvEZS7oCmZTRu7xJM8KRVM1uUEGFlmR1BBzkYWXkxskUWH3ZcyTr1dc8jkXXK3GQDpi
+                qYUJ46z4mmeSK56lYzqXmSgVm9xMfa2EYH9vb5owRUkl/KwSvpmIlcr77D8lv5p5L7JUsVT1P4Dq
+                PBKaXqVDVPCkJuNQUVzBQue0oL/R9JL8ST4UNJULVpCzMo3k1DcACCo4AMQFW8w8PweEOSD4iiUg
+                u2IDtBIpmJh5mncZM6a8DTN20tFI30BEhgXPFZFF6FK5ZvMLENGn6bIUtLiQ/mjwePDM9gcJTwcX
+                QAEUrPGB1NTXbrcPb/MsWmniEb8iPJp5CeXpOU2Z0Gvu4a/zZ28fnhpWZbkFJWRKNwSkES4OdoDV
+                ebJc5xzcZcmkHwoGbC75wiPXPFLxzHv02CMx48sYTHly5JF5VkSsmHlDMLGgUs48TRlloh1L8zRi
+                X+5cWmTLzKxMBaxlXaJmZHTscHI82sYJkgBzocc4BGrOcgsX0hw93gtefslZwVkaQsDHjER8AZ6H
+                3amfQ1rwQblBo2I0FCuMlol2kJk3p+HlssjAV8ekLERvQyyD1A9LqbKEFYOLfHlAhvCTZv2C5Yyq
+                iTYZ2rIUtSRsoRKWlsaagtvx9xihwDr4UP069QWvwIJa+3Selcro/BRfyUeJatgKK1lxxUMmDfj7
+                qtcJjjE/9v3r6+sBCiuzhRqEWeJfyNzPiywqQyXBy3MvOK9630nKxxxCa2qvs5BWAneQc3z8FF/J
+                OZjAhQaTlmJT2/NSKXSHtq5jsJcX3O7PCLPGTh0WqPZSelttol87ECupHcRqxKBWnQbZyFQ5q80O
+                +Fs7LiYWJ480E+hm7kSVWNYaTDRN8MiECvEBkiEwOA/+yUSodTAPyN+zOCXvE65iHT6wrR4Fp2EI
+                waFI41UwuG/Uv2G/RsVZzlJqUI3Ub2GAvGHXpCLY6QMOjStck11XDmHwJHlbDe9AQVV7kaGwvjPd
+                iQ57rsjpymD/Bh3wx9UOeAtwML20wTyDrtkWwey3+n9DosyhDmEQjQsO25om81EPkRfGfcirdJHt
+                QKiAzZ1JBYVKFVjvzAB5DSM74GNKtk7/OluSt+WG57q+ZtyzceXaUwvM+21XtbsfljJ5PvOsfU7z
+                3MNBDJQiEwL3CDv3QhWi3i4ARobgaUARBCDTe/0+4L1ajImMs+szKK1Ivx/YNThmymq8iwQ+03hk
+                Z/VOtOk48SiogdtrvkxytTpN0FFfFkVW4PodoK/SKyp49DsVJduExboQmZblHOIRGNdt78BlPC+4
+                VByKSnjXtBwhcLfE8Da8jHV435/yNIedBM1B9bhbGoHKaQLvGkbrP8kirKSqMJYDi7OdA5jKyjBm
+                Uc0OvjBUiEeuUMqZh1t5Hjg8aj8hznNWZAmpViR/aU1NJRMsNOwvAKxKCK+imiMj3k58QalueUPX
+                SFHHS6ZskkFFb9HA2rIAkelCRNYwAyAPtqtFgD3MYhNICeElma9IAwsKMRSIoHNcanR0fPKo1lfV
+                M4IzLBKLEvxRD099g7lJ4QRLvpoC9gLddGM8evzEwcBeoJtujMdPnjoY2At0043x5OkzBwN7gW66
+                MZ4Nhw4G9gLddGIcD0ejBkP3At10Y4yOjhwM7AW66cY4Oj52MLAX6KYb4/jkxMHAXqCbboxHjx0L
+                6l6gm26MJ08de+heoJtujKfPHHvoXqCbToyT4cixh+4FuunCeHRyfNTYw/QC3TQYvvHtdhJQ2Q4p
+                QGU/MAGsB3qL+M8w/xnmP8P8B4d5VSM2/XmxXhhU5YopUUwB5K198dlVbYWGBYahW1dSPpZSmrSZ
+                0mUYS6MtleK2KvIdk6VQtjbbAuDUbvYbbn9qT4eQgysKeSLPyYzUp0jwVS1Y7xen4P3lkHz6fDDR
+                CAA8aGrfBgxrX4BblKn+jOjd15XrIbmPX+EH5GtT/JmZQS3bjGBGmWybr+SbkQUVchOEoXQvIDsC
+                RH802VjCqZmQhmUNubGQe60UrplFtF59bPEHfOZ8Wfn6c8Mes0gfonN05Nus6h2Sr4onDL5FxsdD
+                eG4OWmTxGaiYpb2ah4LJHHI2c3lpcWIkoA37FmOAZ8CTXZDaFSGQWJv/NPy8Gx1nw9mRyjYFhFSF
+                8e4aqN23gdy2TjN2s+liOiw7TQ90mfkSgpK6TdvKqD8qNmWuJrbi3KH09jxsv1uJtDV+m0E0hRYJ
+                DOmyEIC31YntscPzFiMzjzzcLsFD4j1w1nMBXS4feg+MUlwAq6ZG5ybCIragENggiGYGssC7ysbA
+                9ac1fzIoeSZVD8Q6JN7/L9ycnLSWcTqA6wTVTmFboN1cVYeyVFSVcptbf2u0fM8q+PAF6W3gBjNy
+                MhySBw/IvZYhuxZfU8rGOcNt6sGnYKos0u3zN9/DNpdv6Jtem/cdmd88+fjx3H9zasPHyXMbQ9ZN
+                SCulrQl8u4W2+PsdWlnDcNJvzU4jqLbSOkd3J+DbA3KHSmFd8E6LYtY0gQLTmtsqbkhAhuR5e2hM
+                vCoBeZtUcH+uaejOc7cDuHhczQpiSbQoQG0lM1G5dc+CGh+Dr0RMrhUTkJjHuo9kN/dB9J/9PSzX
+                FlwoLNXCLEnoayalW6ehTfb2DP1mVBe3ZsrO2bHnRL9A8n+vCp4ueweQxXkCTcFyQUPW8w7hxzsA
+                SdNSiAnQuIE/yI9zM9k6ia3f6hf38nGRZcC/e11panBnspmAKXP2r1+3Hxs7Vyx/q65Y/iT2qHkD
+                r+Oy6xaM7iuvW5C+7+Lruwnedv11N1HYsstEtul6wRmO3kHAuRTniiU0r5QEHfIPmt+B3bqrspcN
+                7ctH/JSyHuBcymb5Sp/ye8F/ybllm5wKQfSw1MkIYi0a1KfAzh0e/pOD8lyWfscRAmFI8QD7G03g
+                EUWLJf7Lwx9zoW+R10G2S2TvjKsogRjx9bX+VP8LRPA/0QlgkXoiAAA=
+              isTopLevelWindow: true
+            browserType:
+              $type: SingleBrowserType
+              typeValue: 3
+          browserOutputProvider:
+            msgOutputProviders:
+            - $type: HttpMessageOutputProvider
+              name: "${PATH_BASE_URL}/parabank/transfer.htm"
+              httpMethod:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: HTTPMethodTestValue
+                  method: GET
+              accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+              referer: http://path:18081/parabank/openaccount.htm
+              baseUrl: "${PATH_BASE_URL}/parabank/transfer.htm"
+              requestHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Request Header of ${PATH_BASE_URL}/parabank/transfer.htm"
+              requestBody:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Body
+                name: "Request Body of ${PATH_BASE_URL}/parabank/transfer.htm"
+              requestStub:
+                $type: StubToolOutputProvider
+                menuName: Configure Request
+                name: "Configure Request for ${PATH_BASE_URL}/parabank/transfer.htm"
+              responseHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Response Header of ${PATH_BASE_URL}/parabank/transfer.htm"
+              responseBody:
+                $type: MIMESpecificNamedToolOutputProvider
+                menuName: Body
+                name: "Response Body of ${PATH_BASE_URL}/parabank/transfer.htm"
+                type: text/html
+              responseStub:
+                $type: StubToolOutputProvider
+                menuName: Stub Request/Response
+                name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/transfer.htm"
+              trafficObject:
+                $type: ObjectOutputProvider
+                menuName: Traffic Object
+                name: "Traffic Object for ${PATH_BASE_URL}/parabank/transfer.htm"
+            - $type: HttpMessageOutputProvider
+              name: "${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+              httpMethod:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: HTTPMethodTestValue
+                  method: GET
+              accept: "application/json, text/plain, */*"
+              referer: http://path:18081/parabank/transfer.htm
+              baseUrl: "${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+              requestHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Request Header of ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+              requestBody:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Body
+                name: "Request Body of ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+              requestStub:
+                $type: StubToolOutputProvider
+                menuName: Configure Request
+                name: "Configure Request for ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+              responseHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Response Header of ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+              responseBody:
+                $type: MIMESpecificNamedToolOutputProvider
+                menuName: Body
+                name: "Response Body of ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                type: text/html
+              responseStub:
+                $type: StubToolOutputProvider
+                menuName: Stub Request/Response
+                name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+              trafficObject:
+                $type: ObjectOutputProvider
+                menuName: Traffic Object
+                name: "Traffic Object for ${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+            - $type: HttpMessageOutputProvider
+              name: https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTMxLjAuNjc3OC4yNjUSJwlJ6P_eC7-rQBIFDYFRLoISBQ2Ps4s1EgUNAo8AwyEJj4TOLFareA==?alt=proto
+              httpMethod:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: HTTPMethodTestValue
+                  method: GET
+              baseUrl: https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTMxLjAuNjc3OC4yNjUSJwlJ6P_eC7-rQBIFDYFRLoISBQ2Ps4s1EgUNAo8AwyEJj4TOLFareA==
+              hasUrlArgs: true
+              urlArgs:
+                properties:
+                - name: alt
+                  value:
+                    fixedValue:
+                      $type: StringTestValue
+                      value: proto
+              requestHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: Request Header of https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTMxLjAuNjc3OC4yNjUSJwlJ6P_eC7-rQBIFDYFRLoISBQ2Ps4s1EgUNAo8AwyEJj4TOLFareA==?alt=proto
+              requestBody:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Body
+                name: Request Body of https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTMxLjAuNjc3OC4yNjUSJwlJ6P_eC7-rQBIFDYFRLoISBQ2Ps4s1EgUNAo8AwyEJj4TOLFareA==?alt=proto
+              requestStub:
+                $type: StubToolOutputProvider
+                menuName: Configure Request
+                name: Configure Request for https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTMxLjAuNjc3OC4yNjUSJwlJ6P_eC7-rQBIFDYFRLoISBQ2Ps4s1EgUNAo8AwyEJj4TOLFareA==?alt=proto
+              responseHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: Response Header of https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTMxLjAuNjc3OC4yNjUSJwlJ6P_eC7-rQBIFDYFRLoISBQ2Ps4s1EgUNAo8AwyEJj4TOLFareA==?alt=proto
+              responseBody:
+                $type: MIMESpecificNamedToolOutputProvider
+                menuName: Body
+                name: Response Body of https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTMxLjAuNjc3OC4yNjUSJwlJ6P_eC7-rQBIFDYFRLoISBQ2Ps4s1EgUNAo8AwyEJj4TOLFareA==?alt=proto
+                type: text/html
+              responseStub:
+                $type: StubToolOutputProvider
+                menuName: Stub Request/Response
+                name: Stub Request/Response for https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTMxLjAuNjc3OC4yNjUSJwlJ6P_eC7-rQBIFDYFRLoISBQ2Ps4s1EgUNAo8AwyEJj4TOLFareA==?alt=proto
+              trafficObject:
+                $type: ObjectOutputProvider
+                menuName: Traffic Object
+                name: Traffic Object for https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTMxLjAuNjc3OC4yNjUSJwlJ6P_eC7-rQBIFDYFRLoISBQ2Ps4s1EgUNAo8AwyEJj4TOLFareA==?alt=proto
+            loadTestConfig:
+              requestConfigs:
+              - $type: LoadTestRequestConfig
+                name: "${PATH_BASE_URL}/parabank/transfer.htm"
+                httpMethod:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: HTTPMethodTestValue
+                    method: GET
+                accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3"
+                referer: http://path:18081/parabank/openaccount.htm
+                url:
+                  value: "${PATH_BASE_URL}/parabank/transfer.htm"
+                requestData:
+                  value: ""
+                responseHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Response Header
+                  name: "${PATH_BASE_URL}/parabank/transfer.htm"
+                responseBody:
+                  $type: MIMESpecificNamedToolOutputProvider
+                  menuName: Response Body
+                  name: "${PATH_BASE_URL}/parabank/transfer.htm"
+                  type: text/html
+              - $type: LoadTestRequestConfig
+                name: "${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                httpMethod:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: HTTPMethodTestValue
+                    method: GET
+                accept: "application/json, text/plain, */*"
+                referer: http://path:18081/parabank/transfer.htm
+                url:
+                  value: "${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                requestData:
+                  value: ""
+                responseHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Response Header
+                  name: "${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                responseBody:
+                  $type: MIMESpecificNamedToolOutputProvider
+                  menuName: Response Body
+                  name: "${PATH_BASE_URL}/parabank/services_proxy/bank/customers/12212/accounts"
+                  type: text/html
+            contents:
+              $type: BrowserContentsOutputProvider
+              outputTools:
+              - $type: BrowserContentsViewer
+                iconName: BrowserContentsViewer
+                name: Browser Contents Viewer
+              - $type: AccessibilityScanTool
+                allowToolbar: false
+                iconName: AccessibilityScanTool
+                name: Web Accessibility Scan
+                outputProvider:
+                  name: Errors
+                locator:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: any
+                    attributeName: id
+              name: Browser Contents
+            traffic:
+              $type: NamedToolOutputProvider
+              outputTools:
+              - $type: TrafficViewer
+                iconName: TrafficViewer
+                name: Traffic Viewer
+                showRequestHeaders: true
+                showResponseHeaders: true
+              name: HTTP Traffic
+      - $type: TestSuite
+        name: "Form: http://path:18081/parabank/transfer.htm"
+        testID: 12
+        abortOnError: 1
+        runMode: 2
+        tests:
+        - $type: BrowserTest
+          name: Select "label=13788"
+          testID: 13
+          tool:
+            $type: BrowserTestingTool
+            usesAutomaticallyGeneratedName: true
+            iconName: BrowserTest
+            name: Select "label=13788"
+            commands:
+            - windowIdentifier:
+                BrowserTestingTool_WindowName: ""
+                BrowserTestingTool_WindowIndex: 0
+              action:
+                $type: UnknownAction
+                location:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: select
+                    attributeName: id
+                    attributeValue:
+                      values:
+                      - $type: ScriptedValue
+                      fixedValue:
+                        $type: StringTestValue
+                        BrowserTestingTool_LocatorAttributeValue: toAccountId
+                inputData:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: StringTestValue
+                    BrowserTestingTool_OtherValue: label=12456
+                action: select
+            delaySettings:
+              delays:
+              - $type: ElementDelay
+                windowIdentifier:
+                  WindowName: ""
+                elementState: 1
+                specifiedLocator:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: any
+                    attributeName: ""
+            originalCommand: true
+            command:
+              windowIdentifier:
+                BrowserTestingTool_WindowName: ""
+                BrowserTestingTool_WindowIndex: 0
+              action:
+                $type: UnknownAction
+                location:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: select
+                    attributeName: id
+                    attributeValue:
+                      values:
+                      - $type: ScriptedValue
+                      fixedValue:
+                        $type: StringTestValue
+                        BrowserTestingTool_LocatorAttributeValue: toAccountId
+                inputData:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: StringTestValue
+                    BrowserTestingTool_OtherValue: label=13788
+                action: select
+            browserContents: true
+            contents:
+              windowContents:
+              - parentUrl: ""
+                charSet: windows-1252
+                url: http://path:18081/parabank/transfer.htm
+                htmlSize: 2792
+                html: !!binary |-
+                  H4sIAAAAAAAA/+1b6W4cuRH+LT0F3Vl4R7DmPiXN0Kt1LMSBYws+NggcY8Hp5sy03VeabMkDrx4o
+                  b5mq6otzUJKFJL80glRdZH3FIqtIVg+p6ZM/v33x4R+XL9lKhwE/nBKZrqTw+FTpdSCZXidy5mj5
+                  TbddpRz+i7sSqZKaOR8/XDQnztmnaPnPUzeIxdfPx/DcLB89oUXT4L8ZTKt8PG7VxVS68j15GsW6
+                  UTJNEfmh0PLou+erJBBrqI0ke+KHSZxqEemzGzRgEadhJTEPYvfr2Q2qKNBNtfLD71e+8ud+4Ov1
+                  Kaj2ZFTKuKs4/Z7Eytd+HJ2KuYqDTMuzm2mbBoEfHhxMQ6kFKzo/KzpfV6y0TpryX5l/NXNexJGW
+                  kW5+gKFzmJtzxRjiAJ9Vagwt2tfQ0KVIxa8i+sr+YB9SEamFTNlFFnlq2s4FUDTwQWCVysXMaScA
+                  mAOgrWUIfdeyhV5iqQxmDtmuVlJqZ8eNVj0E+gElyk39RDOVuqaWazn/Al1si2iZBSL9otrd1qh1
+                  UvKt0I9aX0ADDDDhQdW0TWF3CE/z2FuTcs+/Yr43c0LhR5cikgG1eYC/xp+DQ/hUsjpOSlHGpmKn
+                  g8LDxsEP0LofLrcth3BZStV2AwlmLv2Fw659T69mznDksJX0lytw5aDnsHmcejKdOR1wcSCUmjmk
+                  GfskLE37kSe/3dl0EC/jvGURQFtlSFSGdPuGJf3uPktQBbgLI8ZQUFmWlHKuSDDiHf7yWyJTX0Yu
+                  TPiVZJ6/gMhDdtpOYFlow+DyeojRUTLNR5lRgMycuXC/LtMYYvWUZWnQ2OlWDmq6mdJxKNPWl2R5
+                  xDrwE8XNVCZS6DNyGfoyC6qeyIUOZZTl3gz8svw9zlAwHWKoepy2A78Q49Xoi3mc6XzMz/GRfVQ4
+                  DHtllUyvfFeqXPx9wVnFcc6fttvX19ct7KyKF7rlxmH7i0raSRp7masVRHni8MuCe6CqNq4hotL2
+                  OnZF0WGLOiPGz/GRXYILTGlwaRbsjvY80xrDYXOsV+Avh98ezyizZU41LXDYM+Xs9Qk9WoBFrw1g
+                  UZJDC6YG530qgrVcHfC3ClxcWIx1pK7AMDMrioVli+BCU08eFYog+ACLIRg453+XgUtjMOfsr/Eq
+                  Yu9DX69o+sC22uPnrguTQ7M6qqDwMB/+Hf/VQxwnMhI5NO/1Wyhgb+Q1KxRaY8DQcYVtyusiIHKc
+                  Ym+L4nto0MVelGvY3pnuhMOeGyRinaN/BQbicX0P3AICjJrOkRfA5tsiuP3W+K9VZAnkIRJm48KH
+                  bY3UfKQi9iIPH/YqWsT3UJTC5i6VhkSlmFjv8gL2GkrugccluQz61/GSvc12IteMtTw861CuIjXF
+                  dX8zVMvdD1OZJJk5pX/Ok8TBQpwoaRwEuEeUdS90GlTbBcgoFyINNEIH2PRJswm4V4tTplbx9QWk
+                  VqzZ5GUbPq6URblNBX6mq25ZSzvRbuCsurwS3mzzZZjo9XmIgfoyTeMU27eIvoquROB7v4kgk7uy
+                  mBei0Sqbw3wEw4k2jkzDCY9Cnp/qNStLmgkmaUaHcOfEqZ7bdUpT/aepHyWwq6BrBJWbaRIMvwjh
+                  mWTIF2HsYVZVTGnVKjG1NUnqK+1DigvPUBVn7kp6zDRT4uA47Ap7PHNwW0+4YSPFDDM+F2kcsqJF
+                  9qeNqqmSgXRz8xcgViwOr7zKorx797IL0vbSNgyTCMd7KXW54OCg7xmBrWZBIqakRFUyLVAPfqy6
+                  APtZiWawPLhf2XzNalkYkFwDC8Qcm+r2+oNhNV4Fl3dcYsKYZuBlKp62c+SuhgGmf5UG5DgRO2I4
+                  GhsI5DgRO2I0nhgI5DgRO2I8OTEQyHEidsRJp2MgkONErIh+p9utEcRxInZEt9czEMhxInZEr983
+                  EMhxInZEfzAwEMhxInbEcGR4kDhOxI4YjQ0PEseJ2BHjieFB4jgRO2JyYniQOE7Eihh0uoYHieNE
+                  7Ihuz/AgcZyIHdHrGx4kjhOxI/oDw4PEcSJ2xGBoeJA4TsSOGI6MWUwcJ2JHjMaGz4njROyIyYnh
+                  QeI4ESti2OkYHiSOE7Ejuj3Dg8RxInZEf2D4gzhOxI4YDA1/EMeJ2BHDkeEP4jgRO2I0NvxBHCdi
+                  R4wnhj+I40TsiMmJMQeJ40SsiFGnY3iQOE7Ejuh2DQ8Sx4nYEb2+4UHiOBE7oj8w5iBxnIgdMRga
+                  PieOE7EjhiPD58RxInbEaGz4nDhOxI4YTwyfE8eJ2BGTE8PnxHEiVsS40zF8ThwnYkd0u4bPieNE
+                  7Ihez/A5cZyIHdEfGD4njhOxIwZDw+fEcSJ2xHBk+Jw4TsSOGI0NnxPHidgR44nhc+I4ETticmL4
+                  nDhOxIqYdDqGz4njROyIbtfwOXGciB3R6xk+J44TsSP6fcPnxHEidsRgaPicOE7EhhgO+sZem3Oc
+                  SI1o55nnZoqu43sk6Dq+JT2/IyW3vt7sS8k3Gvo/JeQ/noDvSeEfE/LHhPwxIX9MyB8T8seE/DEh
+                  f0zIHxPyx4T8AQl5ce5S8/N0+wv24mv//Kv+/FDB2TpFLVstTz3wi/pcb3U60cbjCVKdV9HRhoy8
+                  Pacv+05m3kmVBbo879gjYJyHlOeih9PyxgVacCUgi08SNmPVzYzYywLZ+Nk4RPr5mH36fHRGABBu
+                  1edJtRieJ4HcIovoaK7xE50GHbOf8GT7iH2vD1HymlbVtxnD7P1sX33RvxlbiEDtikjs3Qt4dwGJ
+                  Zvdspwnj7AF1lKahNaXkwcbLFhmLsEZ1FeD3JI2/rdt0hFdeXVBtyJ27vXb5zuMcs+/aD2Wc6dN+
+                  Bz43Rxtq8dPSKxk1KhtSqRJ4o5KmLRuW5D0QtfklooX3qs7uA9o8WQEVW/WfOp/vp8d4Hbynln0D
+                  4Artru4/AlX41pL72qnLbnZDjKal1fWgV+ani6qxpbvsIx3O7fa5qNiLuWPQN+vh5Xivks0Rv80h
+                  pGFDBU7pLA0AtzeIy6P85xuGzBz2bH8PnjHnqdGeKWha+cx5mg+KKVAOUz3m+Qzz5ELAxIaOkDGw
+                  CrwrfAxWf9qKpxySxEo3oFvHzPnfTTdjTdpacSzC1QK1uYTtkTbXqmoqKy10pvaF9Y/Oloe0gh9/
+                  wRo7WD5jg06HPX3Knmw40tb41qDsnN3fNjz4SaXO0mh//c1DzPbVG/GmsWn7PY3fvU3w37f+h5c2
+                  /Bjr3E5RGSZsY0nb6vDtHtoT73eMyhbCWH4rc+qOkpe2Lbp7Ab59Qt4jU9juuNWjuGrmEwWqydpi
+                  3jDOOuz5ZtEpc4oFyNnVgvtzpYOY5yYDWLwCJlNWqtjQALmVioMirBulaB5j0mO4uBZGwMJ8Sjyq
+                  3d0HMX4ODzBdW/iBxlTNjcNQvJZKmXka+uTgINdfl1Jym1eVdWXZc0YPsPi/16kfLRtHsIr7IZBU
+                  JoFwZcM5hh/nCHoaZUFwBjpu4A/aY9z23bjdVD1VD+aF3kUcg/3mFeA8Bzcq6wqoyu/T0eP+q1jG
+                  tcW/FNcW/2Dl9a0dnOUC6S0I+zXSW0APu0z6YIW3XSm9Wyls2VmoNvU6/AJL71BgXDT3tQxFUgwS
+                  MOxvIrkDvXH/s7zAt3mhF1+lyggwLjrHyZpuzjn83+yyNJudBwGjYkWLEcw1r1XdpjLuxeI/DmjH
+                  NOk3LGEwDQVeBPtBFzhMi3SJ/0bw+zygm9nbIvt7VN7DLmYJzJE2XZWf0r8V8P8AbE6YO84xAAA=
+                isTopLevelWindow: true
+              browserType:
+                $type: SingleBrowserType
+                typeValue: 3
+            browserOutputProvider:
+              contents:
+                $type: BrowserContentsOutputProvider
+                outputTools:
+                - $type: BrowserContentsViewer
+                  iconName: BrowserContentsViewer
+                  name: Browser Contents Viewer
+                name: Browser Contents
+              traffic:
+                $type: NamedToolOutputProvider
+                outputTools:
+                - $type: TrafficViewer
+                  iconName: TrafficViewer
+                  name: Traffic Viewer
+                  showRequestHeaders: true
+                  showResponseHeaders: true
+                name: HTTP Traffic
+        - $type: BrowserTest
+          name: Type "200"
+          testID: 14
+          tool:
+            $type: BrowserTestingTool
+            usesAutomaticallyGeneratedName: true
+            iconName: BrowserTest
+            name: Type "200"
+            commands:
+            - windowIdentifier:
+                BrowserTestingTool_WindowName: ""
+                BrowserTestingTool_WindowIndex: 0
+              action:
+                $type: TypeAction
+                location:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: input
+                    attributeName: id
+                    attributeValue:
+                      values:
+                      - $type: ScriptedValue
+                      fixedValue:
+                        $type: StringTestValue
+                        BrowserTestingTool_LocatorAttributeValue: amount
+                inputData:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: StringTestValue
+                    BrowserTestingTool_TypeValue: 200
+            delaySettings:
+              delays:
+              - $type: ElementDelay
+                windowIdentifier:
+                  WindowName: ""
+                elementState: 1
+                specifiedLocator:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: any
+                    attributeName: ""
+            originalCommand: true
+            command:
+              windowIdentifier:
+                BrowserTestingTool_WindowName: ""
+                BrowserTestingTool_WindowIndex: 0
+              action:
+                $type: TypeAction
+                location:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: input
+                    attributeName: id
+                    attributeValue:
+                      values:
+                      - $type: ScriptedValue
+                      fixedValue:
+                        $type: StringTestValue
+                        BrowserTestingTool_LocatorAttributeValue: amount
+                inputData:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: StringTestValue
+                    BrowserTestingTool_TypeValue: 200
+            browserContents: true
+            contents:
+              windowContents:
+              - parentUrl: ""
+                charSet: windows-1252
+                url: http://path:18081/parabank/transfer.htm
+                htmlSize: 2796
+                html: !!binary |-
+                  H4sIAAAAAAAA/+1b6W4cuRH+LT0F3Vl4R7DmPiXN0Kt1LMSBYws+NggcY8Hp5sy03VeabMkDrx4o
+                  b5mq6otzUJKFJL/UhlVdZH3FIqtIVovU9Mmf37748I/Ll2ylw4AfTolMV1J4fKr0OpBMrxM5c7T8
+                  ptuuUg7/xV2JVEnNnI8fLpoT5+xTtPznqRvE4uvnY3hvlq+e0KJp8N8MplW+HrfqYipd+Z48jWLd
+                  KJmmiPxQaHn03fNVEog11EaSPfHDJE61iPTZDRqwiNOwkpgHsfv17AZVFOimWvnh9ytf+XM/8PX6
+                  FFR7Mipl3FWcfk9i5Ws/jk7FXMVBpuXZzbRNg8APDw6modSCFZ2fFZ2vK1ZaJ035r8y/mjkv4kjL
+                  SDc/wNA5zM25YgxxgM8qNYYW7Wto6FKk4lcRfWV/sA+piNRCpuwiizw1becCKBr4ILBK5WLmtBMA
+                  zAHQ1jKEvmvZQi+xVAYzh2xXKym1s+NGqx4C/YAS5aZ+oplKXVPLtZx/gS62RbTMApF+Ue1ua9Q6
+                  KflW6EetL6ABBpjwoGraprA7hLd57K1JuedfMd+bOaHwo0sRyYDaPMD/xo+DQ3gqWR0npShjU7HT
+                  QeFh4+AHaN0Pl9uWQ7gspWq7gQQzl/7CYde+p1czZzhy2Er6yxW4ctBz2DxOPZnOnA64OBBKzRzS
+                  jH0Slqb9yJPf7mw6iJdx3rIIoK0yJCpDun3Dkn53nyWoAtyFEWMoqCxLSjlXJBjxDn/5LZGpLyMX
+                  JvxKMs9fQOQhO20nsCy0YXB5PcToKJnmo8woQGbOXLhfl2kMsXrKsjRo7HQrBzXdTOk4lGnrS7I8
+                  Yh34F8XNVCZS6DNyGfoyC6qeyIUOZZTl3gz8svw9zlAwHWKoep22A78Q49Xoi3mc6XzMz/GVfVQ4
+                  DHtllUyvfFeqXPx9wVnFcc6fttvX19ct7KyKF7rlxmH7i0raSRp7masVRHni8MuCe6CqNq4hotL2
+                  OnZF0WGLOiPGz/GVXYILTGlwaRbsjvY80xrDYXOsV+Avh98ezyizZU41LXDYM+Xs9Qm9WoBFrw1g
+                  UZJDC6YG530qgrVcHfB/Fbi4sBjrSF2BYWZWFAvLFsGFpp48KhRB8AEWQzBwzv8uA5fGYM7ZX+NV
+                  xN6Hvl7R9IFttcfPXRcmh2Z1VEHhYT78O/6rhzhOZCRyaN7rt1DA3shrVii0xoCh4wrblNdFQOQ4
+                  xd4WxffQoIu9KNewvTPdCYc9N0jEOkf/CgzE4/oeuAUEGDWdIy+AzbdFcPut8V+ryBLIQyTMxoUP
+                  2xqp+UhF7EUePuxVtIjvoSiFzV0qDYlKMbHe5QXsNZTcA49Lchn0r+Mle5vtRK4Za3l41qFcRWqK
+                  6/5mqJa7H6YySTJzSv+cJ4mDhThR0jgIcI8o617oNKi2C5BRLkQaaIQOsOmTZhNwrxanTK3i6wtI
+                  rVizycs2fFwpi3KbCnymq25ZSzvRbuCsurwS3mzzZZjo9XmIgfoyTeMU27eIvoquROB7v4kgk7uy
+                  mBei0Sqbw3wEw4k2jkzDCY9Cnp/qNStLmgkmaUaHcOfEqZ7bdUpT/aepHyWwq6BrBJWbaRIMvwjh
+                  nWTIF2HsYVZVTGnVKjG1NcDGmbuSHjNNg5S4KXFQrHayKxyBmdPrdHCnT7hhNoURM56LNA5ZYQT7
+                  00bVVMlAunmPFiBWrBevvMrIvMfQfJL6SvuQjd9tNnXej9AFS6nLNQj9sGdQtpoFiZjyFFXJtEA9
+                  uLbqAmxxJZrBiuF+ZfM1q2VhQHINLBBzbKrb6w+G1ZAVXN5xiTlkmoHjqXjazpG7GgaYEVYakONE
+                  7IjhaGwgkONE7IjReGIgkONE7Ijx5MRAIMeJ2BEnEDA1AjlOxIrod7rdGkEcJ2JHdHs9A4EcJ2JH
+                  9Pp9A4EcJ2JH9AcDA4EcJ2JHDEeGB4njROyI0djwIHGciB0xnhgeJI4TsSMmJ4YHieNErIhBp2t4
+                  kDhOxI7o9gwPEseJ2BG9vuFB4jgRO6I/MDxIHCdiRwyGhgeJ40TsiOHImMXEcSJ2xGhs+Jw4TsSO
+                  mJwYHiSOE7Eihp2O4UHiOBE7otszPEgcJ2JH9AeGP4jjROyIwdDwB3GciB0xHBn+II4TsSNGY8Mf
+                  xHEidsR4YviDOE7EjpicGHOQOE7Eihh1OoYHieNE7Ihu1/AgcZyIHdHrGx4kjhOxI/oDYw4Sx4nY
+                  EYOh4XPiOBE7YjgyfE4cJ2JHjMaGz4njROyI8cTwOXGciB0xOTF8ThwnYkWMOx3D58RxInZEt2v4
+                  nDhOxI7o9QyfE8eJ2BH9geFz4jgRO2IwNHxOHCdiRwxHhs+J40TsiNHY8DlxnIgdMZ4YPieOE7Ej
+                  JieGz4njRKyISadj+Jw4TsSO6HYNnxPHidgRvZ7hc+I4ETui3zd8ThwnYkcMhobPieNEbIjhoG/s
+                  tTnHidSIdp55bqboOr5Hgq7jW9Lz+388IFuk73sT8o1m/k/p+I+n33sS+Md0/DEdf0zHH9Pxx3T8
+                  MR1/TMcf0/HHdPwxHX9AOl4cxNT8PN3+9XpxDpD/7j8/ZXC2jlXLVstjEPw1fa63Oq5o43kFqc6r
+                  6KxDRt6e45h9RzXvpMoCXR6A7BEwDkjKg9LDaXkFAy24EpDFJwmbseqqRuxlgWz8bJwq/XzMPn0+
+                  OiMACLfqA6ZaDA+YQG6RRXRW1/iJjoeO2U941H3EvtenKnlNq+rbjGH2fravvujfjC1EoHZFJPbu
+                  BXy7gESze7bThHHygDpK09CaUvJg41OLjEVYo7ob8HuSxt/WbTrTK+8yqDbkzt1eu/zmcY7Zd+2H
+                  Ms70ab8Dz83Rhlp8Wnolo0ZlQypVAl9U0rRlw5K8B6I2v0S08KLV2X1Am+cqoGKr/lPn8/30GJ+D
+                  99SybwBcod3V/UegCt9acl87ddnNbojRtLS6HvTK/LhRNbZ0l32k07rdPhcVezF3DPpmPXwc71Wy
+                  OeK3OYQ0bKjAKZ2lAeD2BnF5tv98w5CZw57t78Ez5jw12jMFTSufOU/zQTEFymGqxzyfYZ5cCJjY
+                  0BEyBlaBd4WPwepPW/GUQ5JY6QZ065g5/7vpZqxJWyuORbhaoDaXsD3S5lpVTWWlhc7UvrD+0dny
+                  kFbw8RessYPlMzbodNjTp+zJhiNtjW8Nys5h/m3Dg08qdZZG++tvHmK2r96IN41N2+9p/O71gv++
+                  9T+8tOFjrHM7RWWYsI0lbavDt3toT7zfMSpbCGP5rcypO0pe2rbo7gX49gl5j0xhu+NWj+KqmU8U
+                  qCZri3nDOOuw55tFp8wpFiBnVwvuz5UOYp6bDGDxTphMWaliQwPkVioOirBulKJ5jEmP4eJaGAEL
+                  8ynxqHZ3H8T4OTzAdG3hBxpTNTcOQ/FaKmXmaeiTg4Ncf11KyW1eVdaVZc8ZvcDi/16nfrRsHMEq
+                  7odAUpkEwpUN5xj+OUfQ0ygLgjPQcQM/0B7j+u/GdafqrXoxb/gu4hjsN+8E5zm4UVlXQFV+wY5e
+                  99/NMu4x/qW4x/gHK+9z7eAsN0pvQdjvld4Cetjt0gcrvO2O6d1KYcvOQrWp1+EXWHqHAuPmua9l
+                  KJJikIBhfxPJHeiNC6Hljb7NG774KVVGgHHzOU7WdJXO4f9ml6XZ7DwIGBUrWoxgrnmt6i6VcVEW
+                  /5JAO6ZJv2EJg2ko8GbYD7rAYVqkS/y7gt/nAV3V3hbZ36PyYnYxS2COtOnu/JT+zoD/B0ijGczf
+                  MQAA
+                isTopLevelWindow: true
+              browserType:
+                $type: SingleBrowserType
+                typeValue: 3
+            browserOutputProvider:
+              contents:
+                $type: BrowserContentsOutputProvider
+                outputTools:
+                - $type: BrowserContentsViewer
+                  iconName: BrowserContentsViewer
+                  name: Browser Contents Viewer
+                name: Browser Contents
+              traffic:
+                $type: NamedToolOutputProvider
+                outputTools:
+                - $type: TrafficViewer
+                  iconName: TrafficViewer
+                  name: Traffic Viewer
+                  showRequestHeaders: true
+                  showResponseHeaders: true
+                name: HTTP Traffic
+        - $type: BrowserTest
+          name: Click "Transfer"
+          testID: 15
+          tool:
+            $type: BrowserTestingTool
+            usesAutomaticallyGeneratedName: true
+            iconName: BrowserTest
+            name: Click "Transfer"
+            commands:
+            - windowIdentifier:
+                BrowserTestingTool_WindowName: ""
+                BrowserTestingTool_WindowIndex: 0
+              action:
+                $type: ClickAction
+                location:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: input
+                    attributeName: value
+                    attributeValue:
+                      values:
+                      - $type: ScriptedValue
+                      fixedValue:
+                        $type: StringTestValue
+                        BrowserTestingTool_LocatorAttributeValue: Transfer
+            delaySettings:
+              delays:
+              - $type: ElementDelay
+                windowIdentifier:
+                  WindowName: ""
+                elementState: 1
+                specifiedLocator:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: any
+                    attributeName: ""
+            originalCommand: true
+            command:
+              windowIdentifier:
+                BrowserTestingTool_WindowName: ""
+                BrowserTestingTool_WindowIndex: 0
+              action:
+                $type: ClickAction
+                location:
+                  criteria:
+                    $type: AttributeCriteria
+                    elementName: input
+                    attributeName: value
+                    attributeValue:
+                      values:
+                      - $type: ScriptedValue
+                      fixedValue:
+                        $type: StringTestValue
+                        BrowserTestingTool_LocatorAttributeValue: Transfer
+            browserContents: true
+            contents:
+              windowContents:
+              - parentUrl: ""
+                charSet: windows-1252
+                url: http://path:18081/parabank/transfer.htm
+                htmlSize: 2064
+                html: !!binary |-
+                  H4sIAAAAAAAA/7VZe2/bOBL/O/kUE23RddBYctIH7vzqZXMtrotuGzTpHg7dYkFLtMWUEnUklcTI
+                  5gPtt9whJephy44bYB0k5mNmOI/fDB8ZH/z749nl/87fQKwTPt0f269xTEk0HSu95BT0MqMTT9Nb
+                  HYRKedN/hTGRimrwPl++7f/DG31JF78NQy7It69H2O67ZkQ06Tf6t42O75pHfj1sR2MW0WEqdM91
+                  +iRlCdH08C5iKuNkibMphQOWZEJqkurRvVFgLmRSUcy4CL+N7o2IkruvYpbcXTPFZowzvRyi6Iim
+                  jiaMhbzLhGKaiXRIZkrwXNPR/TiwTpju7+2NE6oJlMZPSuPriVjrrE//n7PriXcmUk1T3b9E13kQ
+                  Fr3Sh8bBo0pMQ4pmGhc6J5L8RNJv8AdcSpKqOZXwNk8jNQ4KAkPKGRLEks4nXpAhwwwZAk0TtF1T
+                  30QJJOUTz+quYkq1txbGjXIs03cIUaFkmQYlw6aUGzq7QhMDki5yTuSVCo79V/4/Xd9PWOpfoQR0
+                  sOVHUePAwm4fWzMRLa3wiF0DiyZeQlh6TlLK7Zp75rfxZ28fPxWtFpkjBRiTNQNJZBbHOODqLFms
+                  ao5wWVAVhJyimgs29+CGRTqeeC9feRBTtogxlC9OPJgJGVE58QYYYk6UmnhWsrGJbFiapRG9fXBp
+                  LhaiWJlwXMtBolLk+HlDk+fHXZoYERgug5iGgEqzzNGFJDOI96ZvbjMqGU1DTPiYQsTmiDzTHQcZ
+                  loUAnTutXWwCRWXhZbAAmXgzEn5bSIFYHUIueW/NrIKpH+ZKi4RK/ypbHMIAf1LRlzSjRI9syEws
+                  c15ZQuc6oWleRJMzN35hMhRVRwxVzXHAWUk2rbxPZiLXhc9PTRM+K+OGTlpF5TULqSrIL8reRnKT
+                  88MguLm58Y2xSsy1H4okuFJZkEkR5aFWiPLMm56XvUeKCkwNIZW09yIkpcEbxDUwfmqacI4haFJj
+                  SHO+7u1ZrrWBQ9vXMcbLm27Hs6FZUadKC+P2XHmdMbHNDYyl1Q3GcqRgLTs1c2FTCVZXHcxvBVxT
+                  WBp1pJ4wMGtOlIVl5csUmjp5VEI4v8RiiArOpv+lPLQ+mE3hZxGncJEwHdv0wW31ZHoahpgcGmpU
+                  4eB+4f61+NUuFhlNScFaWP0RB+ADvYFS4EYMNGRcmzXpTQmIgk/Bx3J4Bwm63IsKCas704PsuOfy
+                  jCwL7p+wg3hc7sA3R4DZpQvOt9gttkUM+1b81yLyDM8hFLNxznBbs2I+2yE4K+AD79K52EGQxM2d
+                  Ko0HlTKxPhUD8B5HduA3JdmB/r1YwMd8DblNrBXwrKFcIVWaut+Gqtv9zFEmyyaei89plnlm0CSK
+                  FJybPcLNnWnJq+0CaVSISEOJaACMD/p95Hs3H4KKxc1bPFpBv98594mqnGsz6zRgpo5WM11LgP2M
+                  42M3Z/epBqzOBB5lqKYHmCPHxbKGATNpD79URlLrCZIYHDdXmCFAWLrwpk9OBgN/MMDTBRJPISYK
+                  ZhTzxuFY0gjmUiRQphb8UIs142WOvIs6pR+fPH/x0snWokuIFg+JePHyVSnCt2aZQlEZekGpy2/8
+                  1uwaj6yAR1xIhMTdGQ+cjCvf8RQwsZGhmCFd0TFkHeF7IyUKtfOubu6P3YnM6HJNJCCmYALVyQ13
+                  Mk57PzZA9uMRfPl6OLIMSOzXeKvJDN6Qbp6nNnV7TywajuCJ2fkO4c5FGaCY8SvkTTBqOR11zZf2
+                  TWBOuFonoca6MxFRpOgfj9aWWFBdFcNJrZrRxlHuVS3LZ5Q1bL3qqPA7lpbbZWBT3B1t8LB7cnJ8
+                  EpS4UN4R3GmWUMz/4fMBfu4PW2LNx8djV9qrdJBUZVjgaFOXliaFBaRW33H45t412oXJbyEdRazM
+                  fxl83U1OA+w7SulyAJ5pwnh3D1TwrSm71qnH7tchls9wj94YepRLtV1C9VZkOxttBVq3uZzo5HnA
+                  6e15n0WdQtoe3xYQK6ElwqQ0HtCRrxPErkS+biky8eBZtwXPwHvaWK9J2NTymfe0cEqTwLmp9nmR
+                  YRGdE0xsNMQqg1XgUxlj1PrLCp4KFry86x6adQTe35dujZq0UnE2EFcFql3COqibtapKZaUJHpy7
+                  YP292fKYVcyHzaG3xjudwIvBAJ4+hYNWIDctvuKUN0mml6eWo9h/trnHfCTVuUy75+8fozZTH8iH
+                  Xlv3HZV/l14TzqJfCc/p36X9d5c282nUubUhBxNolbQVg7dHqAPvD3hlhaNRfit1akNtlFY1ergA
+                  b0/IHU4Kq4ZvjKipmkWi4LTVtswbmMIAXreHhuCVBchbl2L250qG7bxudpDXXBHxGOxEtCTg2UoJ
+                  XsK650gLjOGh1hTXUgkszEPbN2LX90GDn/09c1zDm5E2RzW8vibkPVWqeU4zMdnbK+TXoyzNcl1M
+                  uTk39hpsA4v/hZZ41u0dYhVnCX5JmnES0p53hD/eIVqa5pyPUMY9/jH6NF4DW7efqlU1mg9+cyFQ
+                  /+YTIZ5z25P1BE4V923b7L6qNZ41/lM+a/wB7nq3xrfhgWkLx+Znpi1Mj3tserTAbU9ODwvFLTtP
+                  VFsu3t/N6AMCGg/RTNOEZKWTsAO/kOwB7tb7kLvgtx/8zHXJIaDxECqypb1Ze9M/4dypDaecgx1W
+                  thhhrkXVrQsa72bmHwvaa6r0qxkBTEOih98dAg80kQvzb4bfZ9y+3K6SdFvk3mnLLMEcCexT+tj+
+                  22H6FwB3N9LuGQAA
+                isTopLevelWindow: true
+              browserType:
+                $type: SingleBrowserType
+                typeValue: 3
+            browserOutputProvider:
+              msgOutputProviders:
+              - $type: HttpMessageOutputProvider
+                name: "${PATH_BASE_URL}/parabank/services_proxy/bank/transfer?fromAccountId=12345&toAccountId=12456&amount=200"
+                unparsedPostData: ""
+                httpMethod:
+                  values:
+                  - $type: ScriptedValue
+                  fixedValue:
+                    $type: HTTPMethodTestValue
+                    method: POST
+                accept: "application/json, text/plain, */*"
+                referer: http://path:18081/parabank/transfer.htm
+                contentType: application/json;charset=UTF-8
+                baseUrl: "${PATH_BASE_URL}/parabank/services_proxy/bank/transfer"
+                hasUrlArgs: true
+                urlArgs:
+                  properties:
+                  - name: fromAccountId
+                    value:
+                      fixedValue:
+                        $type: StringTestValue
+                        value: 12345
+                  - name: toAccountId
+                    value:
+                      fixedValue:
+                        $type: StringTestValue
+                        value: 12456
+                  - name: amount
+                    value:
+                      fixedValue:
+                        $type: StringTestValue
+                        value: 200
+                requestHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Header
+                  name: "Request Header of ${PATH_BASE_URL}/parabank/services_proxy/bank/transfer?fromAccountId=12345&toAccountId=12456&amount=200"
+                requestBody:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Body
+                  name: "Request Body of ${PATH_BASE_URL}/parabank/services_proxy/bank/transfer?fromAccountId=12345&toAccountId=12456&amount=200"
+                requestStub:
+                  $type: StubToolOutputProvider
+                  menuName: Configure Request
+                  name: "Configure Request for ${PATH_BASE_URL}/parabank/services_proxy/bank/transfer?fromAccountId=12345&toAccountId=12456&amount=200"
+                responseHeader:
+                  $type: HTTPNamedToolOutputProvider
+                  menuName: Header
+                  name: "Response Header of ${PATH_BASE_URL}/parabank/services_proxy/bank/transfer?fromAccountId=12345&toAccountId=12456&amount=200"
+                responseBody:
+                  $type: MIMESpecificNamedToolOutputProvider
+                  menuName: Body
+                  name: "Response Body of ${PATH_BASE_URL}/parabank/services_proxy/bank/transfer?fromAccountId=12345&toAccountId=12456&amount=200"
+                  type: text/html
+                responseStub:
+                  $type: StubToolOutputProvider
+                  menuName: Stub Request/Response
+                  name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/services_proxy/bank/transfer?fromAccountId=12345&toAccountId=12456&amount=200"
+                trafficObject:
+                  $type: ObjectOutputProvider
+                  menuName: Traffic Object
+                  name: "Traffic Object for ${PATH_BASE_URL}/parabank/services_proxy/bank/transfer?fromAccountId=12345&toAccountId=12456&amount=200"
+              loadTestConfig:
+                requestConfigs:
+                - $type: LoadTestRequestConfig
+                  name: "${PATH_BASE_URL}/parabank/services_proxy/bank/transfer?fromAccountId=12345&toAccountId=13788&amount=200"
+                  httpMethod:
+                    values:
+                    - $type: ScriptedValue
+                    fixedValue:
+                      $type: HTTPMethodTestValue
+                      method: POST
+                  accept: "application/json, text/plain, */*"
+                  referer: http://path:18081/parabank/transfer.htm
+                  contentType: application/json;charset=UTF-8
+                  url:
+                    value: "${PATH_BASE_URL}/parabank/services_proxy/bank/transfer?fromAccountId=12345&toAccountId=13788&amount=200"
+                  requestData:
+                    value: ""
+                  responseHeader:
+                    $type: HTTPNamedToolOutputProvider
+                    menuName: Response Header
+                    name: "${PATH_BASE_URL}/parabank/services_proxy/bank/transfer?fromAccountId=12345&toAccountId=13788&amount=200"
+                  responseBody:
+                    $type: MIMESpecificNamedToolOutputProvider
+                    menuName: Response Body
+                    name: "${PATH_BASE_URL}/parabank/services_proxy/bank/transfer?fromAccountId=12345&toAccountId=13788&amount=200"
+                    type: text/html
+              contents:
+                $type: BrowserContentsOutputProvider
+                outputTools:
+                - $type: BrowserContentsViewer
+                  iconName: BrowserContentsViewer
+                  name: Browser Contents Viewer
+                name: Browser Contents
+              traffic:
+                $type: NamedToolOutputProvider
+                outputTools:
+                - $type: TrafficViewer
+                  iconName: TrafficViewer
+                  name: Traffic Viewer
+                  showRequestHeaders: true
+                  showResponseHeaders: true
+                name: HTTP Traffic
+      - $type: BrowserTest
+        name: Click "Log Out"
+        testID: 16
+        tool:
+          $type: BrowserTestingTool
+          usesAutomaticallyGeneratedName: true
+          iconName: BrowserTest
+          name: Click "Log Out"
+          commands:
+          - windowIdentifier:
+              BrowserTestingTool_WindowName: ""
+              BrowserTestingTool_WindowIndex: 0
+            action:
+              $type: ClickAction
+              location:
+                criteria:
+                  $type: AttributeCriteria
+                  elementName: a
+                  attributeName: text
+                  attributeValue:
+                    values:
+                    - $type: ScriptedValue
+                    fixedValue:
+                      $type: StringTestValue
+                      BrowserTestingTool_LocatorAttributeValue: Log Out
+          delaySettings:
+            delays:
+            - $type: PageLoadDelay
+            - $type: ElementDelay
+              windowIdentifier:
+                WindowName: ""
+              elementState: 1
+              specifiedLocator:
+                criteria:
+                  $type: AttributeCriteria
+                  elementName: any
+                  attributeName: ""
+          originalCommand: true
+          command:
+            windowIdentifier:
+              BrowserTestingTool_WindowName: ""
+              BrowserTestingTool_WindowIndex: 0
+            action:
+              $type: ClickAction
+              location:
+                criteria:
+                  $type: AttributeCriteria
+                  elementName: a
+                  attributeName: text
+                  attributeValue:
+                    values:
+                    - $type: ScriptedValue
+                    fixedValue:
+                      $type: StringTestValue
+                      BrowserTestingTool_LocatorAttributeValue: Log Out
+          browserContents: true
+          contents:
+            windowContents:
+            - parentUrl: ""
+              charSet: windows-1252
+              url: http://path:18081/parabank/index.htm?ConnType=JDBC
+              htmlSize: 1499
+              html: !!binary |-
+                H4sIAAAAAAAA/6VYe28UNxD/O/kUxpUQSNxtEgJq7/aWhgACiZATCUVVWyHvru/WOa/t2t5cTsAH
+                6rfs2Pu8d0kT5c6PmbHn9ZtxwgevLs+vfx+/RpnNeXQY+q8woySNQmMXnCK7UHSELb2zQWIMjn5N
+                MqINtQh/un7T+xkP/xDTPwcJl2T21xMY9+phSizpdeZ3nUm/Hj7pt8t+NWMpHQhpH9WTHhEsJ5Y+
+                /poyozhZwK6g6AHLldSWCDv87i4wkTpvKGIuk9nwuxNRcfdMxvKvt8ywmHFmFwMQnVJR0ySZ1F+V
+                NMwyKQYkNpIXlg6/h4E3QnR4cBDm1BJUKT+qlG83MmtVj/5dsNsRPpfCUmF712A6jJJyVtnQGXjY
+                iOlIsczCQWOiyUsiZugb+kx5InMKo0vBGajs1pmYhkFJ6phgfYYyTScjHChgjYEksDQHK1jad/5C
+                mvIR9lqYjFKL1xy6VY5n+gEhJtFMWWR00pUyp/ENKBsQMS040TcmOO4/7/9Sz/s5E/0bkACm9vwg
+                Kgx8AB7CKJbpAkkB4ZGOcCqTIgdT9rmcAldhqBYkp/0JrJtHj4flNVJ2ixhQ54SJMRGU++UD91d+
+                HBzCT0NmpaqpEArJmhVI6m4IboMrsny6qh5E15SaIOEUdJmyCUZzltpshJ89xyijbJqB509PMIql
+                Tqke4SOICE6MGWEv2SlOthzNRErv9h4NxpDlyYTDWXUENRc5ftq5ydPjTTdxIsCnLqw6ApqbqZou
+                IcolCI5e3ymqGRUJ4ENGUcomE6rdNAwUoEgAxo1aEztvUl1aGfkoGuGYJLOploVIB6jQ/NGaWiVT
+                z3mxf6Omj9ER/ArZ01RRYofeXc6PBW+0oBML4VGUnuSsXr9yyQzXhiBrhmHAWUUWNZYnsSxsae8z
+                N0SfjDPBRlqIvVuWUFOSX1WzreQOHgZBMJ/P+05RIye2D9kd3BgVKC3TIrEG0kDhaFzN7ikqcHBD
+                GmnvZUIqhbeI68T3mRuiMZi/Sw3uLPi6tePCWhcKy7bOALFwtDuWHc3KdZqUcGYvDN7oEz/cwlhp
+                3WGsVkrWatIylzpVgXrQhQf310Sug58OhrQbLta6GxWy1F8OYsLsJDovjAVtNXrvEAtw7aSTFh7F
+                OtjjShhygFZtQUInznddM5bI53RCUHYyCWLGl1fXXgB4yH2EKgrj6FMFjmEQRz4p/ZY7us15jz5M
+                KIj0Fs8bUPAbuLpQjbUY3RJewIJDB2+89sgxsM0BW37oSFUxbT623d147B7Zpohz1ipURWwtClyC
+                3omOwDBwHigRr40jLuWsUGUYvZF6Ki3yZyEmJvJFGVFqlUnTKTOW6pLtYzVriDtxtxI5ZZS1202w
+                aIffyxEHIWYUEbV6NSLh6KGIjRpCQYXdqJuzLcmhD5ZuApXQDq0V4MD1BWoRbQf4BXWteDE3KVzs
+                M7NZqskcvQFc34+dq+zXmggDheSe7OcZTWbQJXHo53ZA8Tb2CzKj6BX1XaBZQ4p1I9q53G5Hv1n1
+                bf/NlC69X3yZk5Q/JLkafvEhfJfDxV4yzgGVF/s12i7jLEmg1lr0FgJR6v8lapuXKkM1zUIudbcU
+                LBfMj1Dd0QVQtDmRnUbvoWs1Fn2gc5AL867Z6S10fma13tTmhjPgsOOj4ORpcHJ0ctoUL48TXQ0F
+                CHd3+Ok5brvtdwZ9kHP0kfYuFRU0Xap/20U8wxHc9UHToG9w1A7u02Xu2kW1fc2GIrzVurXQTZZd
+                hpRm1Ay63fBESgCqbutcwWy72W7AVtkZrOm4se6/rer+N1Rrtca3pQPbwbG9D9vBdL9u7N4Cd/Vk
+                +4VCUSpysyzXl6Ii3yOg85Rj8CgkVRW7ggm6IGoP91IDdV5OVjpiVzPrCOi8EqRa+HKFo3/QuL42
+                OoPk8MsGnpPObTTtt21Cm+jukW5x90q/uRVUGETs4IddAO8aoqfuyf4l5v5Zs0qyWaP6EVNlCeRI
+                4LpBoPT/I/kX9xW9bToRAAA=
+              isTopLevelWindow: true
+            browserType:
+              $type: SingleBrowserType
+              typeValue: 3
+          browserOutputProvider:
+            msgOutputProviders:
+            - $type: HttpMessageOutputProvider
+              name: "${PATH_BASE_URL}/parabank/logout.htm"
+              httpMethod:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: HTTPMethodTestValue
+                  method: GET
+              accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+              referer: http://path:18081/parabank/transfer.htm
+              baseUrl: "${PATH_BASE_URL}/parabank/logout.htm"
+              requestHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Request Header of ${PATH_BASE_URL}/parabank/logout.htm"
+              requestBody:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Body
+                name: "Request Body of ${PATH_BASE_URL}/parabank/logout.htm"
+              requestStub:
+                $type: StubToolOutputProvider
+                menuName: Configure Request
+                name: "Configure Request for ${PATH_BASE_URL}/parabank/logout.htm"
+              responseHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Response Header of ${PATH_BASE_URL}/parabank/logout.htm"
+              responseBody:
+                $type: MIMESpecificNamedToolOutputProvider
+                menuName: Body
+                name: "Response Body of ${PATH_BASE_URL}/parabank/logout.htm"
+                type: text/html
+              responseStub:
+                $type: StubToolOutputProvider
+                menuName: Stub Request/Response
+                name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/logout.htm"
+              trafficObject:
+                $type: ObjectOutputProvider
+                menuName: Traffic Object
+                name: "Traffic Object for ${PATH_BASE_URL}/parabank/logout.htm"
+            - $type: HttpMessageOutputProvider
+              name: "${PATH_BASE_URL}/parabank/index.htm?ConnType=JDBC"
+              httpMethod:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: HTTPMethodTestValue
+                  method: GET
+              accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+              referer: http://path:18081/parabank/transfer.htm
+              baseUrl: "${PATH_BASE_URL}/parabank/index.htm"
+              hasUrlArgs: true
+              urlArgs:
+                properties:
+                - name: ConnType
+                  value:
+                    fixedValue:
+                      $type: StringTestValue
+                      value: JDBC
+              requestHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Request Header of ${PATH_BASE_URL}/parabank/index.htm?ConnType=JDBC"
+              requestBody:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Body
+                name: "Request Body of ${PATH_BASE_URL}/parabank/index.htm?ConnType=JDBC"
+              requestStub:
+                $type: StubToolOutputProvider
+                menuName: Configure Request
+                name: "Configure Request for ${PATH_BASE_URL}/parabank/index.htm?ConnType=JDBC"
+              responseHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Response Header of ${PATH_BASE_URL}/parabank/index.htm?ConnType=JDBC"
+              responseBody:
+                $type: MIMESpecificNamedToolOutputProvider
+                menuName: Body
+                name: "Response Body of ${PATH_BASE_URL}/parabank/index.htm?ConnType=JDBC"
+                type: text/html
+              responseStub:
+                $type: StubToolOutputProvider
+                menuName: Stub Request/Response
+                name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/index.htm?ConnType=JDBC"
+              trafficObject:
+                $type: ObjectOutputProvider
+                menuName: Traffic Object
+                name: "Traffic Object for ${PATH_BASE_URL}/parabank/index.htm?ConnType=JDBC"
+            - $type: HttpMessageOutputProvider
+              name: "${PATH_BASE_URL}/parabank/images/header-main.jpg"
+              httpMethod:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: HTTPMethodTestValue
+                  method: GET
+              accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+              referer: http://path:18081/parabank/index.htm?ConnType=JDBC
+              baseUrl: "${PATH_BASE_URL}/parabank/images/header-main.jpg"
+              requestHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Request Header of ${PATH_BASE_URL}/parabank/images/header-main.jpg"
+              requestBody:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Body
+                name: "Request Body of ${PATH_BASE_URL}/parabank/images/header-main.jpg"
+              requestStub:
+                $type: StubToolOutputProvider
+                menuName: Configure Request
+                name: "Configure Request for ${PATH_BASE_URL}/parabank/images/header-main.jpg"
+              responseHeader:
+                $type: HTTPNamedToolOutputProvider
+                menuName: Header
+                name: "Response Header of ${PATH_BASE_URL}/parabank/images/header-main.jpg"
+              responseBody:
+                $type: MIMESpecificNamedToolOutputProvider
+                menuName: Body
+                name: "Response Body of ${PATH_BASE_URL}/parabank/images/header-main.jpg"
+                type: text/html
+              responseStub:
+                $type: StubToolOutputProvider
+                menuName: Stub Request/Response
+                name: "Stub Request/Response for ${PATH_BASE_URL}/parabank/images/header-main.jpg"
+              trafficObject:
+                $type: ObjectOutputProvider
+                menuName: Traffic Object
+                name: "Traffic Object for ${PATH_BASE_URL}/parabank/images/header-main.jpg"
+            contents:
+              $type: BrowserContentsOutputProvider
+              outputTools:
+              - $type: BrowserContentsViewer
+                iconName: BrowserContentsViewer
+                name: Browser Contents Viewer
+              name: Browser Contents
+            traffic:
+              $type: NamedToolOutputProvider
+              outputTools:
+              - $type: TrafficViewer
+                iconName: TrafficViewer
+                name: Traffic Viewer
+                showRequestHeaders: true
+                showResponseHeaders: true
+              name: HTTP Traffic

@@ -1,0 +1,1781 @@
+---
+parasoftVersion: 2025.1.0
+productVersion: 10.7.2
+schemaVersion: 5
+suite:
+  $type: TestSuite
+  name: Responder Suite
+  hasEnvironmentConfig: true
+  lastModifiedBy: rmartinez
+  dataSources:
+  - id: ds_1743657028752_1986566345
+    impl:
+      $type: CSVDataSource
+      file: true
+      fileObj:
+        path: Check_Consistent_Status_generated_data_source.csv
+      data: true
+      columnNames:
+      - categoryName
+      - CategoryDescription
+      - itemName
+      - itemDescription
+    name: Generated Data Source
+    useAllRows: true
+    lastRow: -1
+  tests:
+  - $type: ClientTesterTest
+    name: Literal Message Responder
+    testID: 2
+    tool:
+      $type: MessageResponder
+      iconName: TestClient
+      name: Statuses Match
+      properties:
+      - $type: JNDIProperties
+        msgExpiration:
+          $type: JMSMessageExpiration
+        bytesMessageReadMethod:
+          string: readUTF()
+        responseCorrelation:
+          correlationId:
+            name: JMSCorrelationID
+            value:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+          messageSelector: ""
+        queueProperties:
+          jmsDestination:
+            name: JMSDestination
+            value:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+          jmsReplyTo:
+            name: JMSReplyTo
+            value:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: JMS_ResponseQueue
+        msgType:
+          string: javax.jms.TextMessage
+        useP2P:
+          bool: true
+        connProperties:
+          jmsFactory:
+            name: Connection Factory
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: MQ_JMS_MANAGER
+          jndiFactory:
+            name: Initial Context
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: com.sun.jndi.fscontext.RefFSContextFactory
+          providerURL:
+            name: Provider URL
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: file:/C:/JNDI-Directory
+          auth:
+            service:
+              name: Service
+              value:
+                fixedValue:
+                  $type: StringTestValue
+            username:
+              name: Username
+              value:
+                fixedValue:
+                  $type: StringTestValue
+            password:
+              name: Password
+              value:
+                fixedValue:
+                  $type: PasswordTestValue
+        useSync: true
+      - $type: SonicMQJNDIProperties
+        msgExpiration:
+          $type: JMSMessageExpiration
+        bytesMessageReadMethod:
+          string: readUTF()
+        responseCorrelation:
+          correlationId:
+            name: JMSCorrelationID
+            value:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+          messageSelector: ""
+        queueProperties:
+          jmsDestination:
+            name: JMSDestination
+            value:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+          jmsReplyTo:
+            name: JMSReplyTo
+            value:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: JMS_ResponseQueue
+        msgType:
+          string: progress.message.jclient.MultipartMessage
+        useP2P:
+          bool: true
+        connProperties:
+          initialContextProps:
+          - name: java.naming.security.credentials
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: Administrator
+          - name: java.naming.security.principal
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: Administrator
+          jmsFactory:
+            name: Connection Factory
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: ConnectionFactory
+          jndiFactory:
+            name: Initial Context
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: com.sonicsw.jndi.mfcontext.MFContextFactory
+          providerURL:
+            name: Provider URL
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: "tcp://[hostname]:2506"
+          auth:
+            service:
+              name: Service
+              value:
+                fixedValue:
+                  $type: StringTestValue
+            username:
+              name: Username
+              value:
+                fixedValue:
+                  $type: StringTestValue
+                  value: Administrator
+            password:
+              name: Password
+              value:
+                fixedValue:
+                  $type: PasswordTestValue
+        useSync: true
+        partContentID:
+          string: part1
+      - $type: TIBCOProperties
+        listenOnly: true
+        timeLimit:
+          name: Time Limit
+          value:
+            fixedValue:
+              $type: StringTestValue
+              value: 0
+        inbox: false
+        service:
+          name: ""
+          value:
+            fixedValue:
+              $type: StringTestValue
+        network:
+          name: ""
+          value:
+            fixedValue:
+              $type: StringTestValue
+        daemon:
+          name: DAEMON
+          value:
+            fixedValue:
+              $type: StringTestValue
+              value: DAEMON
+        sendSubject:
+          name: Send Subject
+          value:
+            fixedValue:
+              $type: StringTestValue
+              value: Send Subject
+        replySubject:
+          name: Reply Field Name
+          value:
+            fixedValue:
+              $type: StringTestValue
+              value: Reply Field Name
+        sendFieldName:
+          name: Send Field Name
+          value:
+            fixedValue:
+              $type: StringTestValue
+              value: Send Field Name
+        replyFieldName:
+          name: Reply Field Name
+          value:
+            fixedValue:
+              $type: StringTestValue
+              value: Reply Field Name
+      - $type: MQProperties
+        mqrfh2fields:
+          version:
+            name: Version
+            value:
+              fixedValue:
+                $type: StringTestValue
+          encoding:
+            name: Encoding
+            value:
+              fixedValue:
+                $type: StringTestValue
+          codedCharSetId:
+            name: CodedCharSetId
+            value:
+              fixedValue:
+                $type: StringTestValue
+          format:
+            name: Format
+            value:
+              fixedValue:
+                $type: StringTestValue
+          flags:
+            name: Flags
+            value:
+              fixedValue:
+                $type: StringTestValue
+          nameValueCodedCharSetId:
+            name: NameValueCodedCharSetId
+            value:
+              fixedValue:
+                $type: StringTestValue
+        mcd:
+          msd:
+            name: Message Service Domain
+            value:
+              fixedValue:
+                $type: StringTestValue
+          set:
+            name: Message Set
+            value:
+              fixedValue:
+                $type: StringTestValue
+          type:
+            name: Message Type
+            value:
+              fixedValue:
+                $type: StringTestValue
+          fmt:
+            name: Output Format
+            value:
+              fixedValue:
+                $type: StringTestValue
+        psc:
+          subIdentity:
+            name: SubIdentity
+            value:
+              fixedValue:
+                $type: StringTestValue
+          qName:
+            name: QName
+            value:
+              fixedValue:
+                $type: StringTestValue
+          qMgrName:
+            name: QMgrName
+            value:
+              fixedValue:
+                $type: StringTestValue
+          subPoint:
+            name: SubPoint
+            value:
+              fixedValue:
+                $type: StringTestValue
+          filter:
+            name: Filter
+            value:
+              fixedValue:
+                $type: StringTestValue
+          subName:
+            name: SubName
+            value:
+              fixedValue:
+                $type: StringTestValue
+          subUserData:
+            name: SubUserData
+            value:
+              fixedValue:
+                $type: StringTestValue
+        jms:
+          destination:
+            name: Destination
+            value:
+              fixedValue:
+                $type: StringTestValue
+          replyTo:
+            name: Reply To
+            value:
+              fixedValue:
+                $type: StringTestValue
+          timestamp:
+            name: Timestamp
+            value:
+              fixedValue:
+                $type: StringTestValue
+          expiration:
+            name: Expiration
+            value:
+              fixedValue:
+                $type: StringTestValue
+          correlationId:
+            name: Correlation Id
+            value:
+              fixedValue:
+                $type: StringTestValue
+          priority:
+            name: Priority
+            value:
+              fixedValue:
+                $type: StringTestValue
+          deliveryMode:
+            name: Delivery Mode
+            value:
+              fixedValue:
+                $type: StringTestValue
+        mqQueueManager:
+          ccsid:
+            name: CCSID
+            value:
+              fixedValue:
+                $type: StringTestValue
+        listenOnly: true
+        mqSSL:
+          peerName:
+            name: Peer Name
+            value:
+              fixedValue:
+                $type: StringTestValue
+          cipherSuite:
+            $type: EnumNameValuePair
+            name: CipherSuite
+            value:
+              fixedValue:
+                $type: StringTestValue
+        conn:
+          putManagerId:
+            name: Put Manager Id
+            value:
+              fixedValue:
+                $type: StringTestValue
+          getManagerId:
+            name: Get Manager Id
+            value:
+              fixedValue:
+                $type: StringTestValue
+          listenOnly: true
+          channel:
+            name: Channel
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: CHANNEL1
+          host:
+            name: Host
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: host
+          port:
+            name: Port
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: 1414
+          manager:
+            name: Queue Manager
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: queue.manager.1
+          putQueue:
+            name: Put Queue
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: PutQueue
+          getQueue:
+            name: Get Queue
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: GetQueue
+          auth:
+            service:
+              name: Service
+              value:
+                fixedValue:
+                  $type: StringTestValue
+            username:
+              name: Username
+              value:
+                fixedValue:
+                  $type: StringTestValue
+            password:
+              name: Password
+              value:
+                fixedValue:
+                  $type: PasswordTestValue
+        mqpmMisc:
+          applicationIdData:
+            name: Application ID data
+            value:
+              fixedValue:
+                $type: StringTestValue
+          correlationID:
+            name: Correlation ID
+            value:
+              fixedValue:
+                $type: StringTestValue
+          expiry:
+            name: Expiry (in tenths of a second)
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: -1
+          messageSequenceNumber:
+            name: Message sequence number
+            value:
+              fixedValue:
+                $type: StringTestValue
+          replyToQueueManagerName:
+            name: Reply queue manager name
+            value:
+              fixedValue:
+                $type: StringTestValue
+          replyToQueueName:
+            name: Reply queue name
+            value:
+              fixedValue:
+                $type: StringTestValue
+          putApplicationName:
+            name: Put application name
+            value:
+              fixedValue:
+                $type: StringTestValue
+          applicationOriginData:
+            name: Originating application data
+            value:
+              fixedValue:
+                $type: StringTestValue
+          userId:
+            name: User ID
+            value:
+              fixedValue:
+                $type: StringTestValue
+        mqgmMisc:
+          correlationID:
+            name: Correlation Id
+            value:
+              fixedValue:
+                $type: StringTestValue
+          waitInterval:
+            name: Wait Interval(in milliseconds)
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: -1
+      parlayKeys:
+      - name: sessionID
+        value:
+          fixedValue:
+            $type: StringTestValue
+      - name: requestNumber
+        value:
+          fixedValue:
+            $type: StringTestValue
+      parlayXKeys:
+      - name: correlator
+        value:
+          fixedValue:
+            $type: StringTestValue
+      scpKeys:
+      - name: conversationID
+        value:
+          fixedValue:
+            $type: StringTestValue
+      wsaKeys:
+      - name: MessageID
+        value:
+          values:
+          - $type: MessageIDTestValue
+          fixedValue:
+            $type: StringTestValue
+      preRequestHeader:
+        $type: NamedToolOutputProvider
+        menuName: Transport Header
+        name: Pre-correlation Incoming Transport Header
+      xmlPreRequestOutput:
+        $type: NamedXMLToolOutputProvider
+        outputTools:
+        - $type: XMLtoDataSource
+          allowToolbar: false
+          iconName: XMLDataBank
+          name: XML Data Bank
+          selectedXPaths:
+          - elementOption: 1
+            contentOption: 1
+            XMLDataBank_ExtractXPath: "/root/Status2[1]/text()"
+            mode: 1
+          xmlMessage: true
+          virtualDSCreator:
+            writableColumns:
+            - customName: extractedStatus
+        menuName: Payload
+        name: Pre-correlation Incoming Request
+      preRequestAttachmentOutputProvider:
+        menuName: Attachment
+        name: Pre-correlation Incoming Attachment
+      jmsOutputProvider:
+        $type: JMSOutputProvider
+        name: Incoming JMS Message
+        menuName: Incoming JMS Message
+      attachmentOutputProvider:
+        menuName: Attachment
+        name: Incoming Attachment
+      requestHeader:
+        $type: NamedToolOutputProvider
+        menuName: Transport Header
+        name: Incoming Transport Header
+      responseHeader:
+        $type: NamedToolOutputProvider
+        menuName: Transport Header
+        name: Outgoing Transport Header
+      xmlResponseOutput:
+        $type: ResponderXMLToolOutputProvider
+        menuName: Payload
+        name: Outgoing Response
+      trafficObjectOutput:
+        $type: ObjectOutputProvider
+        name: Traffic Object
+      mode: 1
+      timeout: 30
+      fileResponderExcludes:
+        properties:
+        - $type: StringNameValuePair
+          name: '*'
+          value:
+            fixedValue:
+              $type: StringTestValue
+              value: "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}([.][0-9]{1,3})?(([+-][0-9]{2}:[0-9]{2})|Z)?"
+          string: ""
+      fileResponderCacheUUID: 99c41610-cb37-4c1d-8997-f034e0480b4f
+      definitionType: 0
+      incomingConversionDelegate:
+        conversionOptions:
+          options:
+          - normalizeSpace
+          - "false"
+      hasServiceInfo: true
+      serviceInfo:
+        serviceDescriptor:
+          $type: StandardServiceDescriptor
+          location: ""
+      poxFormInputValue:
+        value:
+          $type: ElementValue
+          writeType: true
+          type:
+            $type: ElementType
+            localName: ""
+            bodyType:
+              $type: ComplexType
+              name: anonymous
+              compositor: true
+              compositorObj:
+                $type: SequenceCompositor
+          replacedColumn: ""
+          values:
+          - $type: ComplexValue
+            replacedColumn: ""
+            compositorValue: true
+            compositorValueObj:
+              replacedColumn: ""
+              values:
+                $type: CompositorValueSetCollectionSet
+                set:
+                - $type: CompositorValueSet
+      responseMessageType: Plain XML
+      messageForwardProvider:
+        $type: MessageForwardOutputProvider
+        menuName: Traffic
+        name: Traffic
+      clientTesterSoapCall: true
+      soapCall:
+        $type: ClientTesterSoapCall
+        soapMethod: true
+        soapMethodObj:
+          beautify: false
+          serviceAddress:
+            $type: SOAPServiceAddress
+            address: ""
+        inputMode: 2
+        inputUsable: true
+        literal:
+          use: 1
+          text:
+            ClientTester_LiteralMessage: Both statuses match each other
+            type: text/plain
+          dataSource:
+            columnName: 1. Status2
+        userMethod: true
+        xmlBuilder: true
+        formXML:
+          rootNodeExists: true
+          rootNode:
+            $type: XMLElementNode
+            value: ""
+            name: Envelope
+            namespace: true
+            prefix: SOAP-ENV
+            uri: http://schemas.xmlsoap.org/soap/envelope/
+            childNodes:
+            - $type: XMLNamespaceNode
+              prefix: SOAP-ENV
+              uri: http://schemas.xmlsoap.org/soap/envelope/
+            - $type: XMLNamespaceNode
+              prefix: xsd
+              uri: http://www.w3.org/2001/XMLSchema
+            - $type: XMLNamespaceNode
+              prefix: xsi
+              uri: http://www.w3.org/2001/XMLSchema-instance
+            - $type: XMLElementNode
+              value: ""
+              name: Body
+              namespace: true
+              prefix: SOAP-ENV
+              uri: http://schemas.xmlsoap.org/soap/envelope/
+              childNodes:
+              - $type: XMLElementNode
+                value: ""
+                name: Placeholder
+                childNodes:
+                - $type: XMLNamespaceNode
+                  prefix: ""
+                  uri: ""
+                - $type: XMLAttributeNode
+                  value: http://schemas.xmlsoap.org/soap/encoding/
+                  name: encodingStyle
+                  namespace: true
+                  prefix: SOAP-ENV
+                  uri: http://schemas.xmlsoap.org/soap/envelope/
+        formJsonResource:
+          httpMethod: GET
+        formJson:
+          value:
+            $type: ElementValue
+            writeType: true
+            type:
+              $type: ElementType
+              localName: root
+              bodyType:
+                $type: ComplexType
+                attributes:
+                - ns: ""
+                  name: type
+                  fixed: object
+                  contentType:
+                    $type: StringType
+                  required: true
+                name: rootType
+                compositor: true
+                compositorObj:
+                  $type: AllCompositor
+            replacedColumn: ""
+            values:
+            - $type: ComplexValue
+              replacedColumn: ""
+              attributes:
+              - replacedColumn: ""
+                value:
+                  $type: StringValue
+                  replacedColumn: ""
+                  value: object
+                useValue: true
+              compositorValue: true
+              compositorValueObj:
+                replacedColumn: ""
+                values:
+                  $type: CompositorValueSetCollectionSet
+                  set:
+                  - $type: CompositorValueSet
+          elementTypeName: root
+        jsonBuilder:
+          hasValue: true
+          value:
+            $type: JSONObjectValue
+            nameIsNull: true
+      customCorrelationCondition:
+        $type: UserMethodCorrelationCondition
+        enableCorrelation: false
+      correlationConditionSet:
+        conditions:
+        - false
+        - $type: HttpMethodsCorrelationCondition
+          enableCorrelation: false
+          matchList: ""
+        - false
+        - $type: UrlPathCorrelationCondition
+          enableCorrelation: false
+        - false
+        - $type: UrlParamCorrelationCondition
+          enableCorrelation: false
+        - false
+        - $type: HeaderCorrelationCondition
+          enableCorrelation: false
+          nameValuePairs:
+          - SOAPAction
+          - SOAPAction
+        - false
+        - $type: XMLMessageCorrelationCondition
+          xPathExpressions:
+          - "/root/Status1/text()=\"${extractedStatus}\""
+      serviceOptions:
+        failoverOptions:
+          bool: true
+        responseHeaderTemplate:
+          template: ""
+        requestHeaderTemplate:
+          response: false
+          template: ""
+        requestMessageTemplate:
+          response: false
+          template: |-
+            <?xml version="1.0" encoding="UTF-8"?>
+            <root>
+             <Status1>true</Status1>
+             <Status2>true</Status2>
+            </root>
+        responseMessageTemplate:
+          template: ""
+        stubHeaderProperties:
+          headers:
+          - $type: StubHTTPHeader
+          - $type: StubJMSHeader
+          - $type: StubMQHeader
+            mqrfh2fields:
+              version:
+                name: Version
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              encoding:
+                name: Encoding
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              codedCharSetId:
+                name: CodedCharSetId
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              format:
+                name: Format
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              flags:
+                name: Flags
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              nameValueCodedCharSetId:
+                name: NameValueCodedCharSetId
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+            mcd:
+              msd:
+                name: Message Service Domain
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              set:
+                name: Message Set
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              type:
+                name: Message Type
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              fmt:
+                name: Output Format
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+            psc:
+              subIdentity:
+                name: SubIdentity
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              qName:
+                name: QName
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              qMgrName:
+                name: QMgrName
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              subPoint:
+                name: SubPoint
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              filter:
+                name: Filter
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              subName:
+                name: SubName
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              subUserData:
+                name: SubUserData
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+            jms:
+              destination:
+                name: Destination
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              replyTo:
+                name: Reply To
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              timestamp:
+                name: Timestamp
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              expiration:
+                name: Expiration
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              correlationId:
+                name: Correlation Id
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              priority:
+                name: Priority
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              deliveryMode:
+                name: Delivery Mode
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+        msgPattern:
+          bool: true
+        returnStatusOptions:
+          returnStatus:
+            name: ""
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: 500
+        timeOptions:
+          thinkTime:
+            name: ""
+            value:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: 0
+  - $type: ClientTesterTest
+    name: Literal Message Responder 2
+    testID: 3
+    tool:
+      $type: MessageResponder
+      iconName: TestClient
+      name: Statuses Do Not Match
+      properties:
+      - $type: JNDIProperties
+        msgExpiration:
+          $type: JMSMessageExpiration
+        bytesMessageReadMethod:
+          string: readUTF()
+        responseCorrelation:
+          correlationId:
+            name: JMSCorrelationID
+            value:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+          messageSelector: ""
+        queueProperties:
+          jmsDestination:
+            name: JMSDestination
+            value:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+          jmsReplyTo:
+            name: JMSReplyTo
+            value:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: JMS_ResponseQueue
+        msgType:
+          string: javax.jms.TextMessage
+        useP2P:
+          bool: true
+        connProperties:
+          jmsFactory:
+            name: Connection Factory
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: MQ_JMS_MANAGER
+          jndiFactory:
+            name: Initial Context
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: com.sun.jndi.fscontext.RefFSContextFactory
+          providerURL:
+            name: Provider URL
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: file:/C:/JNDI-Directory
+          auth:
+            service:
+              name: Service
+              value:
+                fixedValue:
+                  $type: StringTestValue
+            username:
+              name: Username
+              value:
+                fixedValue:
+                  $type: StringTestValue
+            password:
+              name: Password
+              value:
+                fixedValue:
+                  $type: PasswordTestValue
+        useSync: true
+      - $type: SonicMQJNDIProperties
+        msgExpiration:
+          $type: JMSMessageExpiration
+        bytesMessageReadMethod:
+          string: readUTF()
+        responseCorrelation:
+          correlationId:
+            name: JMSCorrelationID
+            value:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+          messageSelector: ""
+        queueProperties:
+          jmsDestination:
+            name: JMSDestination
+            value:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+          jmsReplyTo:
+            name: JMSReplyTo
+            value:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: JMS_ResponseQueue
+        msgType:
+          string: progress.message.jclient.MultipartMessage
+        useP2P:
+          bool: true
+        connProperties:
+          initialContextProps:
+          - name: java.naming.security.credentials
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: Administrator
+          - name: java.naming.security.principal
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: Administrator
+          jmsFactory:
+            name: Connection Factory
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: ConnectionFactory
+          jndiFactory:
+            name: Initial Context
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: com.sonicsw.jndi.mfcontext.MFContextFactory
+          providerURL:
+            name: Provider URL
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: "tcp://[hostname]:2506"
+          auth:
+            service:
+              name: Service
+              value:
+                fixedValue:
+                  $type: StringTestValue
+            username:
+              name: Username
+              value:
+                fixedValue:
+                  $type: StringTestValue
+                  value: Administrator
+            password:
+              name: Password
+              value:
+                fixedValue:
+                  $type: PasswordTestValue
+        useSync: true
+        partContentID:
+          string: part1
+      - $type: TIBCOProperties
+        listenOnly: true
+        timeLimit:
+          name: Time Limit
+          value:
+            fixedValue:
+              $type: StringTestValue
+              value: 0
+        inbox: false
+        service:
+          name: ""
+          value:
+            fixedValue:
+              $type: StringTestValue
+        network:
+          name: ""
+          value:
+            fixedValue:
+              $type: StringTestValue
+        daemon:
+          name: DAEMON
+          value:
+            fixedValue:
+              $type: StringTestValue
+              value: DAEMON
+        sendSubject:
+          name: Send Subject
+          value:
+            fixedValue:
+              $type: StringTestValue
+              value: Send Subject
+        replySubject:
+          name: Reply Field Name
+          value:
+            fixedValue:
+              $type: StringTestValue
+              value: Reply Field Name
+        sendFieldName:
+          name: Send Field Name
+          value:
+            fixedValue:
+              $type: StringTestValue
+              value: Send Field Name
+        replyFieldName:
+          name: Reply Field Name
+          value:
+            fixedValue:
+              $type: StringTestValue
+              value: Reply Field Name
+      - $type: MQProperties
+        mqrfh2fields:
+          version:
+            name: Version
+            value:
+              fixedValue:
+                $type: StringTestValue
+          encoding:
+            name: Encoding
+            value:
+              fixedValue:
+                $type: StringTestValue
+          codedCharSetId:
+            name: CodedCharSetId
+            value:
+              fixedValue:
+                $type: StringTestValue
+          format:
+            name: Format
+            value:
+              fixedValue:
+                $type: StringTestValue
+          flags:
+            name: Flags
+            value:
+              fixedValue:
+                $type: StringTestValue
+          nameValueCodedCharSetId:
+            name: NameValueCodedCharSetId
+            value:
+              fixedValue:
+                $type: StringTestValue
+        mcd:
+          msd:
+            name: Message Service Domain
+            value:
+              fixedValue:
+                $type: StringTestValue
+          set:
+            name: Message Set
+            value:
+              fixedValue:
+                $type: StringTestValue
+          type:
+            name: Message Type
+            value:
+              fixedValue:
+                $type: StringTestValue
+          fmt:
+            name: Output Format
+            value:
+              fixedValue:
+                $type: StringTestValue
+        psc:
+          subIdentity:
+            name: SubIdentity
+            value:
+              fixedValue:
+                $type: StringTestValue
+          qName:
+            name: QName
+            value:
+              fixedValue:
+                $type: StringTestValue
+          qMgrName:
+            name: QMgrName
+            value:
+              fixedValue:
+                $type: StringTestValue
+          subPoint:
+            name: SubPoint
+            value:
+              fixedValue:
+                $type: StringTestValue
+          filter:
+            name: Filter
+            value:
+              fixedValue:
+                $type: StringTestValue
+          subName:
+            name: SubName
+            value:
+              fixedValue:
+                $type: StringTestValue
+          subUserData:
+            name: SubUserData
+            value:
+              fixedValue:
+                $type: StringTestValue
+        jms:
+          destination:
+            name: Destination
+            value:
+              fixedValue:
+                $type: StringTestValue
+          replyTo:
+            name: Reply To
+            value:
+              fixedValue:
+                $type: StringTestValue
+          timestamp:
+            name: Timestamp
+            value:
+              fixedValue:
+                $type: StringTestValue
+          expiration:
+            name: Expiration
+            value:
+              fixedValue:
+                $type: StringTestValue
+          correlationId:
+            name: Correlation Id
+            value:
+              fixedValue:
+                $type: StringTestValue
+          priority:
+            name: Priority
+            value:
+              fixedValue:
+                $type: StringTestValue
+          deliveryMode:
+            name: Delivery Mode
+            value:
+              fixedValue:
+                $type: StringTestValue
+        mqQueueManager:
+          ccsid:
+            name: CCSID
+            value:
+              fixedValue:
+                $type: StringTestValue
+        listenOnly: true
+        mqSSL:
+          peerName:
+            name: Peer Name
+            value:
+              fixedValue:
+                $type: StringTestValue
+          cipherSuite:
+            $type: EnumNameValuePair
+            name: CipherSuite
+            value:
+              fixedValue:
+                $type: StringTestValue
+        conn:
+          putManagerId:
+            name: Put Manager Id
+            value:
+              fixedValue:
+                $type: StringTestValue
+          getManagerId:
+            name: Get Manager Id
+            value:
+              fixedValue:
+                $type: StringTestValue
+          listenOnly: true
+          channel:
+            name: Channel
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: CHANNEL1
+          host:
+            name: Host
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: host
+          port:
+            name: Port
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: 1414
+          manager:
+            name: Queue Manager
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: queue.manager.1
+          putQueue:
+            name: Put Queue
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: PutQueue
+          getQueue:
+            name: Get Queue
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: GetQueue
+          auth:
+            service:
+              name: Service
+              value:
+                fixedValue:
+                  $type: StringTestValue
+            username:
+              name: Username
+              value:
+                fixedValue:
+                  $type: StringTestValue
+            password:
+              name: Password
+              value:
+                fixedValue:
+                  $type: PasswordTestValue
+        mqpmMisc:
+          applicationIdData:
+            name: Application ID data
+            value:
+              fixedValue:
+                $type: StringTestValue
+          correlationID:
+            name: Correlation ID
+            value:
+              fixedValue:
+                $type: StringTestValue
+          expiry:
+            name: Expiry (in tenths of a second)
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: -1
+          messageSequenceNumber:
+            name: Message sequence number
+            value:
+              fixedValue:
+                $type: StringTestValue
+          replyToQueueManagerName:
+            name: Reply queue manager name
+            value:
+              fixedValue:
+                $type: StringTestValue
+          replyToQueueName:
+            name: Reply queue name
+            value:
+              fixedValue:
+                $type: StringTestValue
+          putApplicationName:
+            name: Put application name
+            value:
+              fixedValue:
+                $type: StringTestValue
+          applicationOriginData:
+            name: Originating application data
+            value:
+              fixedValue:
+                $type: StringTestValue
+          userId:
+            name: User ID
+            value:
+              fixedValue:
+                $type: StringTestValue
+        mqgmMisc:
+          correlationID:
+            name: Correlation Id
+            value:
+              fixedValue:
+                $type: StringTestValue
+          waitInterval:
+            name: Wait Interval(in milliseconds)
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: -1
+      parlayKeys:
+      - name: sessionID
+        value:
+          fixedValue:
+            $type: StringTestValue
+      - name: requestNumber
+        value:
+          fixedValue:
+            $type: StringTestValue
+      parlayXKeys:
+      - name: correlator
+        value:
+          fixedValue:
+            $type: StringTestValue
+      scpKeys:
+      - name: conversationID
+        value:
+          fixedValue:
+            $type: StringTestValue
+      wsaKeys:
+      - name: MessageID
+        value:
+          values:
+          - $type: MessageIDTestValue
+          fixedValue:
+            $type: StringTestValue
+      preRequestHeader:
+        $type: NamedToolOutputProvider
+        menuName: Transport Header
+        name: Pre-correlation Incoming Transport Header
+      xmlPreRequestOutput:
+        $type: NamedXMLToolOutputProvider
+        menuName: Payload
+        name: Pre-correlation Incoming Request
+      preRequestAttachmentOutputProvider:
+        menuName: Attachment
+        name: Pre-correlation Incoming Attachment
+      jmsOutputProvider:
+        $type: JMSOutputProvider
+        name: Incoming JMS Message
+        menuName: Incoming JMS Message
+      attachmentOutputProvider:
+        menuName: Attachment
+        name: Incoming Attachment
+      requestHeader:
+        $type: NamedToolOutputProvider
+        menuName: Transport Header
+        name: Incoming Transport Header
+      responseHeader:
+        $type: NamedToolOutputProvider
+        menuName: Transport Header
+        name: Outgoing Transport Header
+      xmlResponseOutput:
+        $type: ResponderXMLToolOutputProvider
+        menuName: Payload
+        name: Outgoing Response
+      trafficObjectOutput:
+        $type: ObjectOutputProvider
+        name: Traffic Object
+      mode: 1
+      timeout: 30
+      fileResponderExcludes:
+        properties:
+        - $type: StringNameValuePair
+          name: '*'
+          value:
+            fixedValue:
+              $type: StringTestValue
+              value: "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}([.][0-9]{1,3})?(([+-][0-9]{2}:[0-9]{2})|Z)?"
+          string: ""
+      fileResponderCacheUUID: 99c41610-cb37-4c1d-8997-f034e0480b4f
+      definitionType: 0
+      incomingConversionDelegate:
+        conversionOptions:
+          options:
+          - normalizeSpace
+          - "false"
+      hasServiceInfo: true
+      serviceInfo:
+        serviceDescriptor:
+          $type: StandardServiceDescriptor
+          location: ""
+      poxFormInputValue:
+        value:
+          $type: ElementValue
+          writeType: true
+          hasReference: true
+          qnameAsString: ":"
+          replacedColumn: ""
+          values:
+          - $type: ComplexValue
+            replacedColumn: ""
+            compositorValue: true
+            compositorValueObj:
+              replacedColumn: ""
+              values:
+                $type: CompositorValueSetCollectionSet
+                set:
+                - $type: CompositorValueSet
+      responseMessageType: Plain XML
+      messageForwardProvider:
+        $type: MessageForwardOutputProvider
+        menuName: Traffic
+        name: Traffic
+      clientTesterSoapCall: true
+      soapCall:
+        $type: ClientTesterSoapCall
+        soapMethod: true
+        soapMethodObj:
+          beautify: false
+          serviceAddress:
+            $type: SOAPServiceAddress
+            address: ""
+        inputMode: 2
+        inputUsable: true
+        literal:
+          use: 1
+          text:
+            ClientTester_LiteralMessage: Statuses do not match each other
+            type: text/plain
+          dataSource:
+            columnName: extractedStatus
+        userMethod: true
+        xmlBuilder: true
+        formXML:
+          rootNodeExists: true
+          rootNode:
+            $type: XMLElementNode
+            value: ""
+            name: Envelope
+            namespace: true
+            prefix: SOAP-ENV
+            uri: http://schemas.xmlsoap.org/soap/envelope/
+            childNodes:
+            - $type: XMLNamespaceNode
+              prefix: SOAP-ENV
+              uri: http://schemas.xmlsoap.org/soap/envelope/
+            - $type: XMLNamespaceNode
+              prefix: xsd
+              uri: http://www.w3.org/2001/XMLSchema
+            - $type: XMLNamespaceNode
+              prefix: xsi
+              uri: http://www.w3.org/2001/XMLSchema-instance
+            - $type: XMLElementNode
+              value: ""
+              name: Body
+              namespace: true
+              prefix: SOAP-ENV
+              uri: http://schemas.xmlsoap.org/soap/envelope/
+              childNodes:
+              - $type: XMLElementNode
+                value: ""
+                name: Placeholder
+                childNodes:
+                - $type: XMLNamespaceNode
+                  prefix: ""
+                  uri: ""
+                - $type: XMLAttributeNode
+                  value: http://schemas.xmlsoap.org/soap/encoding/
+                  name: encodingStyle
+                  namespace: true
+                  prefix: SOAP-ENV
+                  uri: http://schemas.xmlsoap.org/soap/envelope/
+        formJsonResource:
+          httpMethod: GET
+        formJson:
+          value:
+            $type: ElementValue
+            writeType: true
+            hasReference: true
+            qnameAsString: :root
+            replacedColumn: ""
+            values:
+            - $type: ComplexValue
+              replacedColumn: ""
+              attributes:
+              - replacedColumn: ""
+                value:
+                  $type: StringValue
+                  replacedColumn: ""
+                  value: object
+                useValue: true
+              compositorValue: true
+              compositorValueObj:
+                replacedColumn: ""
+                values:
+                  $type: CompositorValueSetCollectionSet
+                  set:
+                  - $type: CompositorValueSet
+          elementTypeName: root
+        jsonBuilder:
+          hasValue: true
+          value:
+            $type: JSONObjectValue
+            nameIsNull: true
+      customCorrelationCondition:
+        $type: UserMethodCorrelationCondition
+        enableCorrelation: false
+      correlationConditionSet:
+        conditions:
+        - false
+        - $type: HttpMethodsCorrelationCondition
+          enableCorrelation: false
+          matchList: ""
+        - false
+        - $type: UrlPathCorrelationCondition
+          enableCorrelation: false
+        - false
+        - $type: UrlParamCorrelationCondition
+          enableCorrelation: false
+        - false
+        - $type: HeaderCorrelationCondition
+          enableCorrelation: false
+          nameValuePairs:
+          - SOAPAction
+          - SOAPAction
+        - false
+        - $type: XMLMessageCorrelationCondition
+          enableCorrelation: false
+      serviceOptions:
+        failoverOptions:
+          bool: true
+        responseHeaderTemplate:
+          template: ""
+        requestHeaderTemplate:
+          response: false
+          template: ""
+        requestMessageTemplate:
+          response: false
+          template: ""
+        responseMessageTemplate:
+          template: ""
+        stubHeaderProperties:
+          headers:
+          - $type: StubHTTPHeader
+          - $type: StubJMSHeader
+          - $type: StubMQHeader
+            mqrfh2fields:
+              version:
+                name: Version
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              encoding:
+                name: Encoding
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              codedCharSetId:
+                name: CodedCharSetId
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              format:
+                name: Format
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              flags:
+                name: Flags
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              nameValueCodedCharSetId:
+                name: NameValueCodedCharSetId
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+            mcd:
+              msd:
+                name: Message Service Domain
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              set:
+                name: Message Set
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              type:
+                name: Message Type
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              fmt:
+                name: Output Format
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+            psc:
+              subIdentity:
+                name: SubIdentity
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              qName:
+                name: QName
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              qMgrName:
+                name: QMgrName
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              subPoint:
+                name: SubPoint
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              filter:
+                name: Filter
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              subName:
+                name: SubName
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              subUserData:
+                name: SubUserData
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+            jms:
+              destination:
+                name: Destination
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              replyTo:
+                name: Reply To
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              timestamp:
+                name: Timestamp
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              expiration:
+                name: Expiration
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              correlationId:
+                name: Correlation Id
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              priority:
+                name: Priority
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+              deliveryMode:
+                name: Delivery Mode
+                value:
+                  fixedValue:
+                    $type: StringTestValue
+        msgPattern:
+          bool: true
+        returnStatusOptions:
+          returnStatus:
+            name: ""
+            value:
+              fixedValue:
+                $type: StringTestValue
+                value: 500
+        timeOptions:
+          thinkTime:
+            name: ""
+            value:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: 0

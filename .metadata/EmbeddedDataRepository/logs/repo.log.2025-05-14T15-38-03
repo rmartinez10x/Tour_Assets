@@ -1,0 +1,84 @@
+2025-05-13T09:10:33.381-0700 I CONTROL  [initandlisten] MongoDB starting : pid=31032 port=9100 dbpath=C:\Users\rmartinez\parasoft\soavirt_workspaces\Demo_WS_2025\.metadata\EmbeddedDataRepository\repositories 64-bit host=path
+2025-05-13T09:10:33.381-0700 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2025-05-13T09:10:33.382-0700 I CONTROL  [initandlisten] db version v3.6.8
+2025-05-13T09:10:33.382-0700 I CONTROL  [initandlisten] git version: 6bc9ed599c3fa164703346a22bad17e33fa913e4
+2025-05-13T09:10:33.382-0700 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2o-fips  27 Mar 2018
+2025-05-13T09:10:33.382-0700 I CONTROL  [initandlisten] allocator: tcmalloc
+2025-05-13T09:10:33.382-0700 I CONTROL  [initandlisten] modules: none
+2025-05-13T09:10:33.382-0700 I CONTROL  [initandlisten] build environment:
+2025-05-13T09:10:33.383-0700 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2025-05-13T09:10:33.383-0700 I CONTROL  [initandlisten]     distarch: x86_64
+2025-05-13T09:10:33.383-0700 I CONTROL  [initandlisten]     target_arch: x86_64
+2025-05-13T09:10:33.383-0700 I CONTROL  [initandlisten] options: { net: { bindIpAll: true, ipv6: true, port: 9100 }, security: { authorization: "enabled" }, storage: { dbPath: "C:\Users\rmartinez\parasoft\soavirt_workspaces\Demo_WS_2025\.metadata\EmbeddedDataRepository\repositories" }, systemLog: { destination: "file", path: "C:\Users\rmartinez\parasoft\soavirt_workspaces\Demo_WS_2025\.metadata\EmbeddedDataRepository\logs\repo.log" } }
+2025-05-13T09:10:33.385-0700 I -        [initandlisten] Detected data files in C:\Users\rmartinez\parasoft\soavirt_workspaces\Demo_WS_2025\.metadata\EmbeddedDataRepository\repositories created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2025-05-13T09:10:33.386-0700 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=15758M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),cache_cursors=false,compatibility=(release="3.0",require_max="3.0"),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2025-05-13T09:10:33.588-0700 I STORAGE  [initandlisten] WiredTiger message [1747152633:588707][31032:140736689047072], txn-recover: Main recovery loop: starting at 13/20608
+2025-05-13T09:10:33.758-0700 I STORAGE  [initandlisten] WiredTiger message [1747152633:757623][31032:140736689047072], txn-recover: Recovering log 13 through 14
+2025-05-13T09:10:33.864-0700 I STORAGE  [initandlisten] WiredTiger message [1747152633:864766][31032:140736689047072], txn-recover: Recovering log 14 through 14
+2025-05-13T09:10:33.940-0700 I STORAGE  [initandlisten] WiredTiger message [1747152633:940120][31032:140736689047072], txn-recover: Set global recovery timestamp: 0
+2025-05-13T09:10:34.591-0700 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/rmartinez/parasoft/soavirt_workspaces/Demo_WS_2025/.metadata/EmbeddedDataRepository/repositories/diagnostic.data'
+2025-05-13T09:10:34.596-0700 I NETWORK  [initandlisten] waiting for connections on port 9100
+2025-05-13T09:10:34.626-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:59751 #1 (1 connection now open)
+2025-05-13T09:10:34.639-0700 I NETWORK  [conn1] received client metadata from 127.0.0.1:59751 conn1: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.8" }, os: { type: "Windows", name: "Microsoft Windows 10", architecture: "x86_64", version: "10.0 (build 26100)" } }
+2025-05-13T09:10:34.644-0700 I ACCESS   [conn1] Unauthorized: not authorized on admin to execute command { createUser: "parasoft_embedded_repo", pwd: "xxx", roles: [ { role: "root", db: "admin" } ], digestPassword: false, writeConcern: { w: "majority", wtimeout: 600000.0 }, $db: "admin" }
+2025-05-13T09:10:34.658-0700 I NETWORK  [conn1] end connection 127.0.0.1:59751 (0 connections now open)
+2025-05-13T09:11:13.408-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:59772 #2 (1 connection now open)
+2025-05-13T09:11:13.411-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:59773 #3 (2 connections now open)
+2025-05-13T09:11:13.423-0700 I NETWORK  [conn2] received client metadata from 127.0.0.1:59772 conn2: { driver: { name: "mongo-java-driver|sync", version: "4.7.2" }, os: { type: "Windows", name: "Windows 11", architecture: "amd64", version: "10.0" }, platform: "Java/Azul Systems, Inc./21.0.7+6-LTS" }
+2025-05-13T09:11:13.423-0700 I NETWORK  [conn3] received client metadata from 127.0.0.1:59773 conn3: { driver: { name: "mongo-java-driver|sync", version: "4.7.2" }, os: { type: "Windows", name: "Windows 11", architecture: "amd64", version: "10.0" }, platform: "Java/Azul Systems, Inc./21.0.7+6-LTS" }
+2025-05-13T09:11:13.486-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:59774 #4 (3 connections now open)
+2025-05-13T09:11:13.493-0700 I NETWORK  [conn4] received client metadata from 127.0.0.1:59774 conn4: { driver: { name: "mongo-java-driver|sync", version: "4.7.2" }, os: { type: "Windows", name: "Windows 11", architecture: "amd64", version: "10.0" }, platform: "Java/Azul Systems, Inc./21.0.7+6-LTS" }
+2025-05-13T09:11:13.527-0700 I ACCESS   [conn4] Successfully authenticated as principal parasoft_embedded_repo on admin
+2025-05-13T09:11:13.607-0700 I NETWORK  [conn4] end connection 127.0.0.1:59774 (2 connections now open)
+2025-05-13T09:11:13.608-0700 I NETWORK  [conn2] end connection 127.0.0.1:59772 (1 connection now open)
+2025-05-13T09:11:13.608-0700 I NETWORK  [conn3] end connection 127.0.0.1:59773 (0 connections now open)
+2025-05-13T09:11:13.615-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:59775 #5 (1 connection now open)
+2025-05-13T09:11:13.616-0700 I NETWORK  [conn5] received client metadata from 127.0.0.1:59775 conn5: { driver: { name: "mongo-java-driver|sync", version: "4.7.2" }, os: { type: "Windows", name: "Windows 11", architecture: "amd64", version: "10.0" }, platform: "Java/Azul Systems, Inc./21.0.7+6-LTS" }
+2025-05-13T09:11:13.618-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:59776 #6 (2 connections now open)
+2025-05-13T09:11:13.619-0700 I NETWORK  [conn6] received client metadata from 127.0.0.1:59776 conn6: { driver: { name: "mongo-java-driver|sync", version: "4.7.2" }, os: { type: "Windows", name: "Windows 11", architecture: "amd64", version: "10.0" }, platform: "Java/Azul Systems, Inc./21.0.7+6-LTS" }
+2025-05-13T09:11:13.630-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:59777 #7 (3 connections now open)
+2025-05-13T09:11:13.631-0700 I NETWORK  [conn7] received client metadata from 127.0.0.1:59777 conn7: { driver: { name: "mongo-java-driver|sync", version: "4.7.2" }, os: { type: "Windows", name: "Windows 11", architecture: "amd64", version: "10.0" }, platform: "Java/Azul Systems, Inc./21.0.7+6-LTS" }
+2025-05-13T09:11:13.655-0700 I ACCESS   [conn7] Successfully authenticated as principal parasoft_embedded_repo on admin
+2025-05-13T09:11:13.715-0700 I NETWORK  [conn7] end connection 127.0.0.1:59777 (2 connections now open)
+2025-05-13T09:11:13.715-0700 I NETWORK  [conn5] end connection 127.0.0.1:59775 (1 connection now open)
+2025-05-13T09:11:13.716-0700 I NETWORK  [conn6] end connection 127.0.0.1:59776 (0 connections now open)
+2025-05-13T09:11:14.506-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:59778 #8 (1 connection now open)
+2025-05-13T09:11:14.507-0700 I NETWORK  [conn8] received client metadata from 127.0.0.1:59778 conn8: { driver: { name: "mongo-java-driver|sync", version: "4.7.2" }, os: { type: "Windows", name: "Windows 11", architecture: "amd64", version: "10.0" }, platform: "Java/Azul Systems, Inc./21.0.7+6-LTS" }
+2025-05-13T09:11:14.508-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:59779 #9 (2 connections now open)
+2025-05-13T09:11:14.509-0700 I NETWORK  [conn9] received client metadata from 127.0.0.1:59779 conn9: { driver: { name: "mongo-java-driver|sync", version: "4.7.2" }, os: { type: "Windows", name: "Windows 11", architecture: "amd64", version: "10.0" }, platform: "Java/Azul Systems, Inc./21.0.7+6-LTS" }
+2025-05-13T09:11:14.513-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:59780 #10 (3 connections now open)
+2025-05-13T09:11:14.514-0700 I NETWORK  [conn10] received client metadata from 127.0.0.1:59780 conn10: { driver: { name: "mongo-java-driver|sync", version: "4.7.2" }, os: { type: "Windows", name: "Windows 11", architecture: "amd64", version: "10.0" }, platform: "Java/Azul Systems, Inc./21.0.7+6-LTS" }
+2025-05-13T09:11:14.528-0700 I ACCESS   [conn10] Successfully authenticated as principal parasoft_embedded_repo on admin
+2025-05-13T09:11:14.532-0700 I NETWORK  [conn10] end connection 127.0.0.1:59780 (2 connections now open)
+2025-05-13T09:11:14.532-0700 I NETWORK  [conn8] end connection 127.0.0.1:59778 (1 connection now open)
+2025-05-13T09:11:14.532-0700 I NETWORK  [conn9] end connection 127.0.0.1:59779 (0 connections now open)
+2025-05-13T09:27:27.737-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:62498 #11 (1 connection now open)
+2025-05-13T09:27:27.739-0700 I NETWORK  [conn11] received client metadata from 127.0.0.1:62498 conn11: { driver: { name: "mongo-java-driver|sync", version: "4.7.2" }, os: { type: "Windows", name: "Windows 11", architecture: "amd64", version: "10.0" }, platform: "Java/Azul Systems, Inc./21.0.7+6-LTS" }
+2025-05-13T09:27:27.741-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:62499 #12 (2 connections now open)
+2025-05-13T09:27:27.742-0700 I NETWORK  [conn12] received client metadata from 127.0.0.1:62499 conn12: { driver: { name: "mongo-java-driver|sync", version: "4.7.2" }, os: { type: "Windows", name: "Windows 11", architecture: "amd64", version: "10.0" }, platform: "Java/Azul Systems, Inc./21.0.7+6-LTS" }
+2025-05-13T09:27:27.748-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:62500 #13 (3 connections now open)
+2025-05-13T09:27:27.752-0700 I NETWORK  [conn13] received client metadata from 127.0.0.1:62500 conn13: { driver: { name: "mongo-java-driver|sync", version: "4.7.2" }, os: { type: "Windows", name: "Windows 11", architecture: "amd64", version: "10.0" }, platform: "Java/Azul Systems, Inc./21.0.7+6-LTS" }
+2025-05-13T09:27:27.786-0700 I ACCESS   [conn13] Successfully authenticated as principal parasoft_embedded_repo on admin
+2025-05-13T09:27:27.790-0700 I NETWORK  [conn13] end connection 127.0.0.1:62500 (2 connections now open)
+2025-05-13T09:27:27.790-0700 I NETWORK  [conn11] end connection 127.0.0.1:62498 (1 connection now open)
+2025-05-13T09:27:27.790-0700 I NETWORK  [conn12] end connection 127.0.0.1:62499 (0 connections now open)
+2025-05-13T10:11:02.528-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:50663 #14 (1 connection now open)
+2025-05-13T10:11:02.530-0700 I NETWORK  [conn14] received client metadata from 127.0.0.1:50663 conn14: { driver: { name: "mongo-java-driver|sync", version: "4.7.2" }, os: { type: "Windows", name: "Windows 11", architecture: "amd64", version: "10.0" }, platform: "Java/Azul Systems, Inc./21.0.7+6-LTS" }
+2025-05-13T10:11:02.533-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:50664 #15 (2 connections now open)
+2025-05-13T10:11:02.535-0700 I NETWORK  [conn15] received client metadata from 127.0.0.1:50664 conn15: { driver: { name: "mongo-java-driver|sync", version: "4.7.2" }, os: { type: "Windows", name: "Windows 11", architecture: "amd64", version: "10.0" }, platform: "Java/Azul Systems, Inc./21.0.7+6-LTS" }
+2025-05-13T10:11:02.540-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:50665 #16 (3 connections now open)
+2025-05-13T10:11:02.542-0700 I NETWORK  [conn16] received client metadata from 127.0.0.1:50665 conn16: { driver: { name: "mongo-java-driver|sync", version: "4.7.2" }, os: { type: "Windows", name: "Windows 11", architecture: "amd64", version: "10.0" }, platform: "Java/Azul Systems, Inc./21.0.7+6-LTS" }
+2025-05-13T10:11:02.565-0700 I ACCESS   [conn16] Successfully authenticated as principal parasoft_embedded_repo on admin
+2025-05-13T10:11:02.569-0700 I NETWORK  [conn16] end connection 127.0.0.1:50665 (2 connections now open)
+2025-05-13T10:11:02.569-0700 I NETWORK  [conn14] end connection 127.0.0.1:50663 (1 connection now open)
+2025-05-13T10:11:02.569-0700 I NETWORK  [conn15] end connection 127.0.0.1:50664 (0 connections now open)
+2025-05-13T16:05:45.241-0700 I NETWORK  [listener] connection accepted from 127.0.0.1:51114 #17 (1 connection now open)
+2025-05-13T16:05:45.242-0700 I NETWORK  [conn17] received client metadata from 127.0.0.1:51114 conn17: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.8" }, os: { type: "Windows", name: "Microsoft Windows 10", architecture: "x86_64", version: "10.0 (build 26100)" } }
+2025-05-13T16:05:45.269-0700 I ACCESS   [conn17] Successfully authenticated as principal parasoft_embedded_repo on admin
+2025-05-13T16:05:45.277-0700 I COMMAND  [conn17] terminating, shutdown command received
+2025-05-13T16:05:45.277-0700 I NETWORK  [conn17] shutdown: going to close listening sockets...
+2025-05-13T16:05:45.279-0700 I FTDC     [conn17] Shutting down full-time diagnostic data capture
+2025-05-13T16:05:45.282-0700 I STORAGE  [conn17] WiredTigerKVEngine shutting down
+2025-05-13T16:05:45.375-0700 I STORAGE  [conn17] shutdown: removing fs lock...
+2025-05-13T16:05:45.375-0700 I CONTROL  [conn17] now exiting
+2025-05-13T16:05:45.375-0700 I CONTROL  [conn17] shutting down with code:0

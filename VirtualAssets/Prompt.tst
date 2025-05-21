@@ -1,0 +1,1778 @@
+---
+parasoftVersion: 2025.1.0
+productVersion: 10.7.2
+schemaVersion: 3
+suite:
+  $type: TestSuite
+  name: Test Suite
+  hasEnvironmentConfig: true
+  lastModifiedBy: rmartinez
+  authentications:
+  - $type: BasicAuthentication
+    name: Basic
+    username:
+      fixedValue:
+        $type: StringTestValue
+        username: purchaser
+    password:
+      fixedValue:
+        $type: PasswordTestValue
+        password: AwAAACx4YXhJU3NQdUtXUkFoUCtIMld0c1lib0JWN3EwSW9ialFiaXhxWndPMi9vPQ==
+  performance:
+    groups:
+    - name: /v1/assets/categories - POST
+    - id: 1
+      name: /v1/assets/items - POST
+    - id: 2
+      name: "/v1/assets/items/{itemId} - GET"
+    - id: 3
+      name: "/v1/assets/items/{itemId} - DELETE"
+    - id: 4
+      name: "/v1/assets/categories/{categoryId} - DELETE"
+    - id: 5
+      name: /v1/assets/categories - GET
+  notes: |-
+    Created from: http://localhost:4040/pda/api-docs/v1
+    Timestamp: 2025-03-20 07:43:52
+  dataSources:
+  - id: ds_1742481934861_898729853
+    impl:
+      $type: CSVDataSource
+      file: true
+      fileObj:
+        path: Prompt_generated_data_source.csv
+      data: true
+      columnNames:
+      - categoryName
+      - CategoryDescription
+      - itemName
+      - itemDescription
+    name: Generated Data Source
+    useAllRows: true
+  tests:
+  - $type: TestSuite
+    name: /pda/api-docs/v1
+    testID: 1
+    tests:
+    - $type: TestSuite
+      name: "This scenario tests creation of a category and an item, verification\
+        \ of the item, and cleanup by deleting the item and category."
+      testID: 2
+      notes: "Generated using a LLM provider with the following prompt:\nCreate the\
+        \ following test scenario: \r\n1. Create a new category \r\n2. Add an item\
+        \ to it \r\n3. Verify the item \r\n4. Delete the item \r\n5. Delete the category\
+        \ \r\n6. Verify categories"
+      tests:
+      - $type: RESTClientToolTest
+        name: /v1/assets/categories - POST
+        testID: 3
+        performanceGroup: 0
+        tool:
+          $type: RESTClient
+          dataSourceNames:
+          - Generated Data Source
+          iconName: RESTClient
+          name: /v1/assets/categories - POST
+          outputTools:
+          - $type: GenericDataBank
+            iconName: XMLDataBank
+            name: JSON Data Bank
+            wrappedTool:
+              $type: XMLtoDataSource
+              iconName: XMLDataBank
+              name: XML Data Bank
+              selectedXPaths:
+              - elementOption: 1
+                contentOption: 1
+                XMLDataBank_ExtractXPath: "/root/data[1]/id[1]/text()"
+                mode: 1
+              canonicalizeOutput: true
+              xmlMessage: true
+              virtualDSCreator:
+                writableColumns:
+                - customName: "Test 1: id"
+            conversionStrategy:
+              dataFormatName: JSON
+              conversionStrategyId: JSON
+              conversionStrategyClassName: com.parasoft.xml.convert.json.JsonConversionStrategy
+          formJson:
+            builtFromSchema: true
+            value:
+              $type: ElementValue
+              writeType: true
+              type:
+                $type: ElementType
+                localName: root
+                bodyType:
+                  $type: ComplexType
+                  attributes:
+                  - ns: ""
+                    name: type
+                    defaultValue: object
+                    fixed: object
+                    contentType:
+                      $type: StringType
+                      _id: 1
+                    required: true
+                  name: /components/schemas/CategoryDTO
+                  compositor: true
+                  compositorObj:
+                    $type: AllCompositor
+                    types:
+                    - $type: ElementType
+                      minOccurs: 0
+                      localName: name
+                      bodyType:
+                        $type: ComplexType
+                        _id: 2
+                        attributes:
+                        - ns: ""
+                          name: type
+                          defaultValue: string
+                          fixed: string
+                          contentType:
+                            $type: StringType
+                            _ref: 1
+                          required: true
+                        content: true
+                        contentObj:
+                          $type: StringType
+                          _ref: 1
+                        namespace: urn:parasoft:json
+                        name: string
+                        compositor: true
+                        compositorObj:
+                          $type: SequenceCompositor
+                    - $type: ElementType
+                      minOccurs: 0
+                      localName: description
+                      bodyType:
+                        $type: ComplexType
+                        _ref: 2
+                    - $type: ElementType
+                      minOccurs: 0
+                      localName: imagePath
+                      bodyType:
+                        $type: ComplexType
+                        _ref: 2
+              replacedColumn: ""
+              values:
+              - $type: ComplexValue
+                replacedColumn: ""
+                attributes:
+                - replacedColumn: ""
+                  value:
+                    $type: StringValue
+                    replacedColumn: ""
+                    value: object
+                  useValue: true
+                compositorValue: true
+                compositorValueObj:
+                  replacedColumn: ""
+                  values:
+                    $type: CompositorValueSetCollectionSet
+                    set:
+                    - $type: CompositorValueSet
+                      values:
+                      - $type: ElementValue
+                        replacedColumn: ""
+                        values:
+                        - $type: ComplexValue
+                          replacedColumn: ""
+                          allowArrayExclude: true
+                          attributes:
+                          - replacedColumn: ""
+                            value:
+                              $type: StringValue
+                              replacedColumn: ""
+                              value: string
+                            useValue: true
+                          contentValue: true
+                          contentValueObj:
+                            $type: StringValue
+                            replacedColumn: ""
+                            mode: 3
+                            columnName: categoryName
+                            value: Sunset Over Lake
+                          compositorValue: true
+                          compositorValueObj:
+                            replacedColumn: ""
+                            values:
+                              $type: CompositorValueSetCollectionSet
+                              set:
+                              - $type: CompositorValueSet
+                      - $type: ElementValue
+                        replacedColumn: ""
+                        values:
+                        - $type: ComplexValue
+                          replacedColumn: ""
+                          allowArrayExclude: true
+                          attributes:
+                          - replacedColumn: ""
+                            value:
+                              $type: StringValue
+                              replacedColumn: ""
+                              value: string
+                            useValue: true
+                          contentValue: true
+                          contentValueObj:
+                            $type: StringValue
+                            replacedColumn: ""
+                            mode: 3
+                            columnName: CategoryDescription
+                            value: A beautiful sunset view over a serene lake.
+                          compositorValue: true
+                          compositorValueObj:
+                            replacedColumn: ""
+                            values:
+                              $type: CompositorValueSetCollectionSet
+                              set:
+                              - $type: CompositorValueSet
+                      - $type: ElementValue
+                        replacedColumn: ""
+                        values:
+                        - $type: ComplexValue
+                          replacedColumn: ""
+                          allowArrayExclude: true
+                          attributes:
+                          - replacedColumn: ""
+                            value:
+                              $type: StringValue
+                              replacedColumn: ""
+                              value: string
+                            useValue: true
+                          contentValue: true
+                          contentValueObj:
+                            $type: StringValue
+                            replacedColumn: ""
+                            value: /images/sunset-lake.jpg
+                          compositorValue: true
+                          compositorValueObj:
+                            replacedColumn: ""
+                            values:
+                              $type: CompositorValueSetCollectionSet
+                              set:
+                              - $type: CompositorValueSet
+            elementTypeName: root
+          hasServiceInfo: true
+          serviceInfo:
+            serviceDescriptor:
+              $type: StandardServiceDescriptor
+              location: http://localhost:4040/pda/api-docs/v1
+          jsonBuilder:
+            hasValue: true
+            value:
+              $type: JSONObjectValue
+              nameIsNull: true
+          schemaURL:
+            MessagingClient_SchemaLocation: http://localhost:4040/pda/api-docs/v1
+          formInput:
+            value:
+              $type: ElementValue
+              writeType: true
+              type:
+                $type: ElementType
+                localName: ""
+                bodyType:
+                  $type: ComplexType
+                  name: anonymous
+                  compositor: true
+                  compositorObj:
+                    $type: SequenceCompositor
+              replacedColumn: ""
+              values:
+              - $type: ComplexValue
+                replacedColumn: ""
+                compositorValue: true
+                compositorValueObj:
+                  replacedColumn: ""
+                  values:
+                    $type: CompositorValueSetCollectionSet
+                    set:
+                    - $type: CompositorValueSet
+          jmsMessageOutputProvider:
+            $type: JMSMessageOutputProvider
+            jmsOutputProviderRequest:
+              $type: JMSOutputProvider
+              name: Request Object
+              menuName: Object
+            jmsOutputProviderResponse:
+              $type: JMSOutputProvider
+              name: Response Message Object
+              menuName: Message Object
+          validResponseRange:
+            validResponseRange:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                validResponseRange: 200
+          router:
+            values:
+            - $type: ScriptedValue
+            fixedValue:
+              $type: StringTestValue
+              HTTPClient_Endpoint: http://localhost:4040/v1/assets/categories
+          transportProperties:
+            manager:
+              protocol: 1
+              properties:
+              - $type: HTTPClientHTTPProperties
+                followRedirects:
+                  bool: true
+                common:
+                  auth:
+                    useDefault: false
+                    authName: Basic
+                  method:
+                    values:
+                    - $type: ScriptedValue
+                    fixedValue:
+                      $type: HTTPMethodTestValue
+                      method: POST
+                  httpHeaders:
+                    properties:
+                    - name: Accept
+                      value:
+                        values:
+                        - $type: ScriptedValue
+                        fixedValue:
+                          $type: StringTestValue
+                          value: application/json
+                protocol: 1
+                keepAlive1_1:
+                  bool: true
+            messageExchangePattern:
+              inverted: true
+          outputProviders:
+            requestHeader:
+              $type: HTTPNamedToolOutputProvider
+              menuName: Transport Header
+              name: Request Transport Header
+            responseHeader:
+              $type: HTTPNamedToolOutputProvider
+              menuName: Transport Header
+              name: Response Transport Header
+            xmlRequestOutput:
+              $type: NamedXMLToolOutputProvider
+              menuName: Traffic
+              name: Request Traffic
+            trafficOutput:
+              m_name: Traffic Stream
+            objectOutput:
+              $type: ObjectOutputProvider
+              outputTools:
+              - $type: TrafficViewer
+                iconName: TrafficViewer
+                name: Traffic Viewer
+              name: Traffic Object
+          literal:
+            use: 1
+            text:
+              MessagingClient_LiteralMessage: "{\"name\":\"Sunset Over Lake\",\"description\"\
+                :\"A beautiful sunset view over a serene lake.\",\"imagePath\":\"\
+                /images/sunset-lake.jpg\"}"
+              type: application/json
+          mode: Form JSON
+          literalQuery:
+            isPropertiesRef: true
+          literalPath:
+            pathElements:
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: v1
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: assets
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: categories
+          resourceMethod:
+            resourceId: /v1/assets/categories
+            httpMethod: POST
+          resourceMode: 3
+          baseUrl:
+            values:
+            - $type: ScriptedValue
+            - $type: WadlTestValue
+              value: http://localhost:4040
+            fixedValue:
+              $type: StringTestValue
+              value: http://localhost:4040
+            selectedIndex: 1
+      - $type: RESTClientToolTest
+        name: /v1/assets/items - POST
+        testID: 4
+        performanceGroup: 1
+        tool:
+          $type: RESTClient
+          dataSourceNames:
+          - Generated Data Source
+          iconName: RESTClient
+          name: /v1/assets/items - POST
+          outputTools:
+          - $type: GenericDataBank
+            iconName: XMLDataBank
+            name: JSON Data Bank
+            wrappedTool:
+              $type: XMLtoDataSource
+              iconName: XMLDataBank
+              name: XML Data Bank
+              selectedXPaths:
+              - elementOption: 1
+                contentOption: 1
+                XMLDataBank_ExtractXPath: "/root/data[1]/id[1]/text()"
+                mode: 1
+              - elementOption: 1
+                contentOption: 1
+                XMLDataBank_ExtractXPath: "/root/data[1]/categoryId[1]/text()"
+                mode: 1
+              canonicalizeOutput: true
+              xmlMessage: true
+              virtualDSCreator:
+                writableColumns:
+                - customName: "Test 2: id"
+                - customName: "Test 2: categoryId"
+            conversionStrategy:
+              dataFormatName: JSON
+              conversionStrategyId: JSON
+              conversionStrategyClassName: com.parasoft.xml.convert.json.JsonConversionStrategy
+          formJson:
+            builtFromSchema: true
+            value:
+              $type: ElementValue
+              writeType: true
+              type:
+                $type: ElementType
+                localName: root
+                bodyType:
+                  $type: ComplexType
+                  attributes:
+                  - ns: ""
+                    name: type
+                    defaultValue: object
+                    fixed: object
+                    contentType:
+                      $type: StringType
+                      _id: 1
+                    required: true
+                  name: /components/schemas/ItemsDTO
+                  compositor: true
+                  compositorObj:
+                    $type: AllCompositor
+                    types:
+                    - $type: ElementType
+                      minOccurs: 0
+                      localName: name
+                      bodyType:
+                        $type: ComplexType
+                        _id: 2
+                        attributes:
+                        - ns: ""
+                          name: type
+                          defaultValue: string
+                          fixed: string
+                          contentType:
+                            $type: StringType
+                            _ref: 1
+                          required: true
+                        content: true
+                        contentObj:
+                          $type: StringType
+                          _ref: 1
+                        namespace: urn:parasoft:json
+                        name: string
+                        compositor: true
+                        compositorObj:
+                          $type: SequenceCompositor
+                    - $type: ElementType
+                      minOccurs: 0
+                      localName: description
+                      bodyType:
+                        $type: ComplexType
+                        _ref: 2
+                    - $type: ElementType
+                      minOccurs: 0
+                      localName: categoryId
+                      bodyType:
+                        $type: ComplexType
+                        attributes:
+                        - ns: ""
+                          name: type
+                          defaultValue: number
+                          fixed: number
+                          contentType:
+                            $type: StringType
+                            _ref: 1
+                          required: true
+                        content: true
+                        contentObj:
+                          $type: LongType
+                        namespace: urn:parasoft:json
+                        name: number
+                        compositor: true
+                        compositorObj:
+                          $type: SequenceCompositor
+                    - $type: ElementType
+                      minOccurs: 0
+                      localName: inStock
+                      bodyType:
+                        $type: ComplexType
+                        attributes:
+                        - ns: ""
+                          name: type
+                          defaultValue: number
+                          fixed: number
+                          contentType:
+                            $type: StringType
+                            _ref: 1
+                          required: true
+                        content: true
+                        contentObj:
+                          $type: IntegerType
+                        namespace: urn:parasoft:json
+                        name: number
+                        compositor: true
+                        compositorObj:
+                          $type: SequenceCompositor
+                    - $type: ElementType
+                      minOccurs: 0
+                      localName: imagePath
+                      bodyType:
+                        $type: ComplexType
+                        _ref: 2
+                    - $type: ElementType
+                      minOccurs: 0
+                      localName: region
+                      bodyType:
+                        $type: ComplexType
+                        attributes:
+                        - ns: ""
+                          name: type
+                          defaultValue: enum
+                          fixed: enum
+                          contentType:
+                            $type: StringType
+                            _ref: 1
+                          required: true
+                        content: true
+                        contentObj:
+                          $type: EnumType
+                          values:
+                          - '"UNITED_STATES"'
+                          - '"UNITED_KINGDOM"'
+                          - '"GERMANY"'
+                          - '"FRANCE"'
+                          - '"JAPAN"'
+                          - '"SOUTH_KOREA"'
+                          - '"SPAIN"'
+                          - '"AUSTRALIA"'
+                          - '"MERCURY"'
+                          - '"VENUS"'
+                          - '"EARTH"'
+                          - '"MARS"'
+                          - '"JUPITER"'
+                          - '"SATURN"'
+                          - '"URANUS"'
+                          - '"NEPTUNE"'
+                          - '"LOCATION_1"'
+                          - '"LOCATION_2"'
+                          - '"LOCATION_3"'
+                          - '"LOCATION_4"'
+                          - '"LOCATION_5"'
+                          - '"LOCATION_6"'
+                          - '"LOCATION_7"'
+                          - '"LOCATION_8"'
+                          baseType: anonymous
+                        name: /components/schemas/ItemsDTO/properties/region
+                        compositor: true
+                        compositorObj:
+                          $type: SequenceCompositor
+              replacedColumn: ""
+              values:
+              - $type: ComplexValue
+                replacedColumn: ""
+                attributes:
+                - replacedColumn: ""
+                  value:
+                    $type: StringValue
+                    replacedColumn: ""
+                    value: object
+                  useValue: true
+                compositorValue: true
+                compositorValueObj:
+                  replacedColumn: ""
+                  values:
+                    $type: CompositorValueSetCollectionSet
+                    set:
+                    - $type: CompositorValueSet
+                      values:
+                      - $type: ElementValue
+                        replacedColumn: ""
+                        values:
+                        - $type: ComplexValue
+                          replacedColumn: ""
+                          allowArrayExclude: true
+                          attributes:
+                          - replacedColumn: ""
+                            value:
+                              $type: StringValue
+                              replacedColumn: ""
+                              value: string
+                            useValue: true
+                          contentValue: true
+                          contentValueObj:
+                            $type: StringValue
+                            replacedColumn: ""
+                            mode: 3
+                            columnName: itemName
+                            value: Wireless Headphones
+                          compositorValue: true
+                          compositorValueObj:
+                            replacedColumn: ""
+                            values:
+                              $type: CompositorValueSetCollectionSet
+                              set:
+                              - $type: CompositorValueSet
+                      - $type: ElementValue
+                        replacedColumn: ""
+                        values:
+                        - $type: ComplexValue
+                          replacedColumn: ""
+                          allowArrayExclude: true
+                          attributes:
+                          - replacedColumn: ""
+                            value:
+                              $type: StringValue
+                              replacedColumn: ""
+                              value: string
+                            useValue: true
+                          contentValue: true
+                          contentValueObj:
+                            $type: StringValue
+                            replacedColumn: ""
+                            mode: 3
+                            columnName: itemDescription
+                            value: Noise-cancelling over-ear headphones with 20-hour
+                              battery life.
+                          compositorValue: true
+                          compositorValueObj:
+                            replacedColumn: ""
+                            values:
+                              $type: CompositorValueSetCollectionSet
+                              set:
+                              - $type: CompositorValueSet
+                      - $type: ElementValue
+                        replacedColumn: ""
+                        mode: 3
+                        columnName: "Test 1: id"
+                        values:
+                        - $type: ComplexValue
+                          replacedColumn: ""
+                          allowArrayExclude: true
+                          attributes:
+                          - replacedColumn: ""
+                            value:
+                              $type: StringValue
+                              replacedColumn: ""
+                              value: number
+                            useValue: true
+                          contentValue: true
+                          contentValueObj:
+                            $type: LongValue
+                            replacedColumn: ""
+                            mode: 3
+                            columnName: "Test 1: id"
+                            value: 7
+                          compositorValue: true
+                          compositorValueObj:
+                            replacedColumn: ""
+                            values:
+                              $type: CompositorValueSetCollectionSet
+                              set:
+                              - $type: CompositorValueSet
+                      - $type: ElementValue
+                        replacedColumn: ""
+                        values:
+                        - $type: ComplexValue
+                          replacedColumn: ""
+                          allowArrayExclude: true
+                          attributes:
+                          - replacedColumn: ""
+                            value:
+                              $type: StringValue
+                              replacedColumn: ""
+                              value: number
+                            useValue: true
+                          contentValue: true
+                          contentValueObj:
+                            $type: IntegerValue
+                            replacedColumn: ""
+                            value: 150
+                          compositorValue: true
+                          compositorValueObj:
+                            replacedColumn: ""
+                            values:
+                              $type: CompositorValueSetCollectionSet
+                              set:
+                              - $type: CompositorValueSet
+                      - $type: ElementValue
+                        replacedColumn: ""
+                        values:
+                        - $type: ComplexValue
+                          replacedColumn: ""
+                          allowArrayExclude: true
+                          attributes:
+                          - replacedColumn: ""
+                            value:
+                              $type: StringValue
+                              replacedColumn: ""
+                              value: string
+                            useValue: true
+                          contentValue: true
+                          contentValueObj:
+                            $type: StringValue
+                            replacedColumn: ""
+                            value: /images/headphones.jpg
+                          compositorValue: true
+                          compositorValueObj:
+                            replacedColumn: ""
+                            values:
+                              $type: CompositorValueSetCollectionSet
+                              set:
+                              - $type: CompositorValueSet
+                      - $type: ElementValue
+                        replacedColumn: ""
+                        values:
+                        - $type: ComplexValue
+                          replacedColumn: ""
+                          allowArrayExclude: true
+                          attributes:
+                          - replacedColumn: ""
+                            value:
+                              $type: StringValue
+                              replacedColumn: ""
+                              value: enum
+                            useValue: true
+                          contentValue: true
+                          contentValueObj:
+                            $type: EnumValue
+                            replacedColumn: ""
+                            selectedIdx: 16
+                          compositorValue: true
+                          compositorValueObj:
+                            replacedColumn: ""
+                            values:
+                              $type: CompositorValueSetCollectionSet
+                              set:
+                              - $type: CompositorValueSet
+            elementTypeName: root
+          hasServiceInfo: true
+          serviceInfo:
+            serviceDescriptor:
+              $type: StandardServiceDescriptor
+              location: http://localhost:4040/pda/api-docs/v1
+          jsonBuilder:
+            hasValue: true
+            value:
+              $type: JSONObjectValue
+              nameIsNull: true
+          schemaURL:
+            MessagingClient_SchemaLocation: http://localhost:4040/pda/api-docs/v1
+          formInput:
+            value:
+              $type: ElementValue
+              writeType: true
+              hasReference: true
+              qnameAsString: ":"
+              replacedColumn: ""
+              values:
+              - $type: ComplexValue
+                replacedColumn: ""
+                compositorValue: true
+                compositorValueObj:
+                  replacedColumn: ""
+                  values:
+                    $type: CompositorValueSetCollectionSet
+                    set:
+                    - $type: CompositorValueSet
+          jmsMessageOutputProvider:
+            $type: JMSMessageOutputProvider
+            jmsOutputProviderRequest:
+              $type: JMSOutputProvider
+              name: Request Object
+              menuName: Object
+            jmsOutputProviderResponse:
+              $type: JMSOutputProvider
+              name: Response Message Object
+              menuName: Message Object
+          validResponseRange:
+            validResponseRange:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                validResponseRange: 200
+          router:
+            values:
+            - $type: ScriptedValue
+            fixedValue:
+              $type: StringTestValue
+              HTTPClient_Endpoint: http://localhost:4040/v1/assets/items
+          transportProperties:
+            manager:
+              protocol: 1
+              properties:
+              - $type: HTTPClientHTTPProperties
+                followRedirects:
+                  bool: true
+                common:
+                  auth:
+                    useDefault: false
+                    authName: Basic
+                  method:
+                    values:
+                    - $type: ScriptedValue
+                    fixedValue:
+                      $type: HTTPMethodTestValue
+                      method: POST
+                  httpHeaders:
+                    properties:
+                    - name: Accept
+                      value:
+                        values:
+                        - $type: ScriptedValue
+                        fixedValue:
+                          $type: StringTestValue
+                          value: application/json
+                protocol: 1
+                keepAlive1_1:
+                  bool: true
+            messageExchangePattern:
+              inverted: true
+          outputProviders:
+            requestHeader:
+              $type: HTTPNamedToolOutputProvider
+              menuName: Transport Header
+              name: Request Transport Header
+            responseHeader:
+              $type: HTTPNamedToolOutputProvider
+              menuName: Transport Header
+              name: Response Transport Header
+            xmlRequestOutput:
+              $type: NamedXMLToolOutputProvider
+              menuName: Traffic
+              name: Request Traffic
+            trafficOutput:
+              m_name: Traffic Stream
+            objectOutput:
+              $type: ObjectOutputProvider
+              outputTools:
+              - $type: TrafficViewer
+                iconName: TrafficViewer
+                name: Traffic Viewer
+              name: Traffic Object
+          literal:
+            use: 1
+            text:
+              MessagingClient_LiteralMessage: "{\"name\":\"Wireless Headphones\",\"\
+                description\":\"Noise-cancelling over-ear headphones with 20-hour\
+                \ battery life.\",\"categoryId\":7,\"inStock\":150,\"imagePath\":\"\
+                /images/headphones.jpg\",\"region\":\"UNITED_STATES\"}"
+              type: application/json
+          mode: Form JSON
+          literalQuery:
+            isPropertiesRef: true
+          literalPath:
+            pathElements:
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: v1
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: assets
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: items
+          resourceMethod:
+            resourceId: /v1/assets/items
+            httpMethod: POST
+          resourceMode: 3
+          baseUrl:
+            values:
+            - $type: ScriptedValue
+            - $type: WadlTestValue
+              value: http://localhost:4040
+            fixedValue:
+              $type: StringTestValue
+              value: http://localhost:4040
+            selectedIndex: 1
+      - $type: RESTClientToolTest
+        name: "/v1/assets/items/{itemId} - GET"
+        testID: 5
+        performanceGroup: 2
+        tool:
+          $type: RESTClient
+          iconName: RESTClient
+          name: "/v1/assets/items/{itemId} - GET"
+          formJson:
+            value:
+              $type: ElementValue
+              writeType: true
+              type:
+                $type: ElementType
+                localName: root
+                bodyType:
+                  $type: ComplexType
+                  attributes:
+                  - ns: ""
+                    name: type
+                    fixed: object
+                    contentType:
+                      $type: StringType
+                    required: true
+                  name: rootType
+                  compositor: true
+                  compositorObj:
+                    $type: AllCompositor
+              replacedColumn: ""
+              values:
+              - $type: ComplexValue
+                replacedColumn: ""
+                attributes:
+                - replacedColumn: ""
+                  value:
+                    $type: StringValue
+                    replacedColumn: ""
+                    value: object
+                  useValue: true
+                compositorValue: true
+                compositorValueObj:
+                  replacedColumn: ""
+                  values:
+                    $type: CompositorValueSetCollectionSet
+                    set:
+                    - $type: CompositorValueSet
+            elementTypeName: root
+          hasServiceInfo: true
+          serviceInfo:
+            serviceDescriptor:
+              $type: StandardServiceDescriptor
+              location: http://localhost:4040/pda/api-docs/v1
+          jsonBuilder:
+            hasValue: true
+            value:
+              $type: JSONObjectValue
+              nameIsNull: true
+          xmlBuilder: false
+          schemaURL:
+            MessagingClient_SchemaLocation: http://localhost:4040/pda/api-docs/v1
+          formInput:
+            value:
+              $type: ElementValue
+              writeType: true
+              hasReference: true
+              qnameAsString: ":"
+              replacedColumn: ""
+              values:
+              - $type: ComplexValue
+                replacedColumn: ""
+                compositorValue: true
+                compositorValueObj:
+                  replacedColumn: ""
+                  values:
+                    $type: CompositorValueSetCollectionSet
+                    set:
+                    - $type: CompositorValueSet
+          jmsMessageOutputProvider:
+            $type: JMSMessageOutputProvider
+            jmsOutputProviderRequest:
+              $type: JMSOutputProvider
+              name: Request Object
+              menuName: Object
+            jmsOutputProviderResponse:
+              $type: JMSOutputProvider
+              name: Response Message Object
+              menuName: Message Object
+          validResponseRange:
+            validResponseRange:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                validResponseRange: 200
+          router:
+            values:
+            - $type: ScriptedValue
+            fixedValue:
+              $type: StringTestValue
+              HTTPClient_Endpoint: "http://localhost:4040/v1/assets/items/{itemId}"
+          transportProperties:
+            manager:
+              protocol: 1
+              properties:
+              - $type: HTTPClientHTTPProperties
+                followRedirects:
+                  bool: true
+                common:
+                  auth:
+                    useDefault: false
+                    authName: Basic
+                  method:
+                    values:
+                    - $type: ScriptedValue
+                    fixedValue:
+                      $type: HTTPMethodTestValue
+                      method: GET
+                  httpHeaders:
+                    properties:
+                    - name: Accept
+                      value:
+                        values:
+                        - $type: ScriptedValue
+                        fixedValue:
+                          $type: StringTestValue
+                          value: application/json
+                protocol: 1
+                keepAlive1_1:
+                  bool: true
+            messageExchangePattern:
+              inverted: true
+          outputProviders:
+            requestHeader:
+              $type: HTTPNamedToolOutputProvider
+              menuName: Transport Header
+              name: Request Transport Header
+            responseHeader:
+              $type: HTTPNamedToolOutputProvider
+              menuName: Transport Header
+              name: Response Transport Header
+            xmlRequestOutput:
+              $type: NamedXMLToolOutputProvider
+              menuName: Traffic
+              name: Request Traffic
+            trafficOutput:
+              m_name: Traffic Stream
+            objectOutput:
+              $type: ObjectOutputProvider
+              outputTools:
+              - $type: TrafficViewer
+                iconName: TrafficViewer
+                name: Traffic Viewer
+              name: Traffic Object
+          literal:
+            use: 1
+            text:
+              MessagingClient_LiteralMessage: ""
+              type: application/json
+          mode: Literal
+          literalQuery:
+            isPropertiesRef: true
+          literalPath:
+            pathElements:
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: v1
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: assets
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: items
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: "{itemId}"
+          constrainedPath:
+            pathParameters:
+            - $type: ElementValue
+              writeType: true
+              type:
+                $type: ElementType
+                defaultValue: 0
+                localName: itemId
+                bodyType:
+                  $type: LongType
+              replacedColumn: ""
+              values:
+              - $type: LongValue
+                replacedColumn: ""
+                mode: 3
+                columnName: "Test 2: id"
+                value: 0
+          resourceMethod:
+            resourceId: "/v1/assets/items/{itemId}"
+            httpMethod: GET
+          resourceMode: 3
+          baseUrl:
+            values:
+            - $type: ScriptedValue
+            - $type: WadlTestValue
+              value: http://localhost:4040
+            fixedValue:
+              $type: StringTestValue
+              value: http://localhost:4040
+            selectedIndex: 1
+      - $type: RESTClientToolTest
+        name: "/v1/assets/items/{itemId} - DELETE"
+        testID: 6
+        performanceGroup: 3
+        tool:
+          $type: RESTClient
+          iconName: RESTClient
+          name: "/v1/assets/items/{itemId} - DELETE"
+          formJson:
+            value:
+              $type: ElementValue
+              writeType: true
+              hasReference: true
+              qnameAsString: :root
+              replacedColumn: ""
+              values:
+              - $type: ComplexValue
+                replacedColumn: ""
+                attributes:
+                - replacedColumn: ""
+                  value:
+                    $type: StringValue
+                    replacedColumn: ""
+                    value: object
+                  useValue: true
+                compositorValue: true
+                compositorValueObj:
+                  replacedColumn: ""
+                  values:
+                    $type: CompositorValueSetCollectionSet
+                    set:
+                    - $type: CompositorValueSet
+            elementTypeName: root
+          hasServiceInfo: true
+          serviceInfo:
+            serviceDescriptor:
+              $type: StandardServiceDescriptor
+              location: http://localhost:4040/pda/api-docs/v1
+          jsonBuilder:
+            hasValue: true
+            value:
+              $type: JSONObjectValue
+              nameIsNull: true
+          xmlBuilder: false
+          schemaURL:
+            MessagingClient_SchemaLocation: http://localhost:4040/pda/api-docs/v1
+          formInput:
+            value:
+              $type: ElementValue
+              writeType: true
+              hasReference: true
+              qnameAsString: ":"
+              replacedColumn: ""
+              values:
+              - $type: ComplexValue
+                replacedColumn: ""
+                compositorValue: true
+                compositorValueObj:
+                  replacedColumn: ""
+                  values:
+                    $type: CompositorValueSetCollectionSet
+                    set:
+                    - $type: CompositorValueSet
+          jmsMessageOutputProvider:
+            $type: JMSMessageOutputProvider
+            jmsOutputProviderRequest:
+              $type: JMSOutputProvider
+              name: Request Object
+              menuName: Object
+            jmsOutputProviderResponse:
+              $type: JMSOutputProvider
+              name: Response Message Object
+              menuName: Message Object
+          validResponseRange:
+            validResponseRange:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                validResponseRange: 200
+          router:
+            values:
+            - $type: ScriptedValue
+            fixedValue:
+              $type: StringTestValue
+              HTTPClient_Endpoint: "http://localhost:4040/v1/assets/items/{itemId}"
+          transportProperties:
+            manager:
+              protocol: 1
+              properties:
+              - $type: HTTPClientHTTPProperties
+                followRedirects:
+                  bool: true
+                common:
+                  auth:
+                    useDefault: false
+                    authName: Basic
+                  method:
+                    values:
+                    - $type: ScriptedValue
+                    fixedValue:
+                      $type: HTTPMethodTestValue
+                      method: DELETE
+                  httpHeaders:
+                    properties:
+                    - name: Accept
+                      value:
+                        values:
+                        - $type: ScriptedValue
+                        fixedValue:
+                          $type: StringTestValue
+                          value: application/json
+                protocol: 1
+                keepAlive1_1:
+                  bool: true
+            messageExchangePattern:
+              inverted: true
+          outputProviders:
+            requestHeader:
+              $type: HTTPNamedToolOutputProvider
+              menuName: Transport Header
+              name: Request Transport Header
+            responseHeader:
+              $type: HTTPNamedToolOutputProvider
+              menuName: Transport Header
+              name: Response Transport Header
+            xmlRequestOutput:
+              $type: NamedXMLToolOutputProvider
+              menuName: Traffic
+              name: Request Traffic
+            trafficOutput:
+              m_name: Traffic Stream
+            objectOutput:
+              $type: ObjectOutputProvider
+              outputTools:
+              - $type: TrafficViewer
+                iconName: TrafficViewer
+                name: Traffic Viewer
+              name: Traffic Object
+          literal:
+            use: 1
+            text:
+              MessagingClient_LiteralMessage: ""
+              type: application/json
+          mode: Literal
+          literalQuery:
+            isPropertiesRef: true
+          literalPath:
+            pathElements:
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: v1
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: assets
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: items
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: "{itemId}"
+          constrainedPath:
+            pathParameters:
+            - $type: ElementValue
+              writeType: true
+              hasReference: true
+              qnameAsString: :itemId
+              replacedColumn: ""
+              values:
+              - $type: LongValue
+                replacedColumn: ""
+                mode: 3
+                columnName: "Test 2: id"
+                value: 0
+          resourceMethod:
+            resourceId: "/v1/assets/items/{itemId}"
+            httpMethod: DELETE
+          resourceMode: 3
+          baseUrl:
+            values:
+            - $type: ScriptedValue
+            - $type: WadlTestValue
+              value: http://localhost:4040
+            fixedValue:
+              $type: StringTestValue
+              value: http://localhost:4040
+            selectedIndex: 1
+      - $type: RESTClientToolTest
+        name: "/v1/assets/categories/{categoryId} - DELETE"
+        testID: 7
+        performanceGroup: 4
+        tool:
+          $type: RESTClient
+          iconName: RESTClient
+          name: "/v1/assets/categories/{categoryId} - DELETE"
+          formJson:
+            value:
+              $type: ElementValue
+              writeType: true
+              hasReference: true
+              qnameAsString: :root
+              replacedColumn: ""
+              values:
+              - $type: ComplexValue
+                replacedColumn: ""
+                attributes:
+                - replacedColumn: ""
+                  value:
+                    $type: StringValue
+                    replacedColumn: ""
+                    value: object
+                  useValue: true
+                compositorValue: true
+                compositorValueObj:
+                  replacedColumn: ""
+                  values:
+                    $type: CompositorValueSetCollectionSet
+                    set:
+                    - $type: CompositorValueSet
+            elementTypeName: root
+          hasServiceInfo: true
+          serviceInfo:
+            serviceDescriptor:
+              $type: StandardServiceDescriptor
+              location: http://localhost:4040/pda/api-docs/v1
+          jsonBuilder:
+            hasValue: true
+            value:
+              $type: JSONObjectValue
+              nameIsNull: true
+          xmlBuilder: false
+          schemaURL:
+            MessagingClient_SchemaLocation: http://localhost:4040/pda/api-docs/v1
+          formInput:
+            value:
+              $type: ElementValue
+              writeType: true
+              hasReference: true
+              qnameAsString: ":"
+              replacedColumn: ""
+              values:
+              - $type: ComplexValue
+                replacedColumn: ""
+                compositorValue: true
+                compositorValueObj:
+                  replacedColumn: ""
+                  values:
+                    $type: CompositorValueSetCollectionSet
+                    set:
+                    - $type: CompositorValueSet
+          jmsMessageOutputProvider:
+            $type: JMSMessageOutputProvider
+            jmsOutputProviderRequest:
+              $type: JMSOutputProvider
+              name: Request Object
+              menuName: Object
+            jmsOutputProviderResponse:
+              $type: JMSOutputProvider
+              name: Response Message Object
+              menuName: Message Object
+          validResponseRange:
+            validResponseRange:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                validResponseRange: 200
+          router:
+            values:
+            - $type: ScriptedValue
+            fixedValue:
+              $type: StringTestValue
+              HTTPClient_Endpoint: "http://localhost:4040/v1/assets/categories/{categoryId}"
+          transportProperties:
+            manager:
+              protocol: 1
+              properties:
+              - $type: HTTPClientHTTPProperties
+                followRedirects:
+                  bool: true
+                common:
+                  auth:
+                    useDefault: false
+                    authName: Basic
+                  method:
+                    values:
+                    - $type: ScriptedValue
+                    fixedValue:
+                      $type: HTTPMethodTestValue
+                      method: DELETE
+                  httpHeaders:
+                    properties:
+                    - name: Accept
+                      value:
+                        values:
+                        - $type: ScriptedValue
+                        fixedValue:
+                          $type: StringTestValue
+                          value: application/json
+                protocol: 1
+                keepAlive1_1:
+                  bool: true
+            messageExchangePattern:
+              inverted: true
+          outputProviders:
+            requestHeader:
+              $type: HTTPNamedToolOutputProvider
+              menuName: Transport Header
+              name: Request Transport Header
+            responseHeader:
+              $type: HTTPNamedToolOutputProvider
+              menuName: Transport Header
+              name: Response Transport Header
+            xmlRequestOutput:
+              $type: NamedXMLToolOutputProvider
+              menuName: Traffic
+              name: Request Traffic
+            trafficOutput:
+              m_name: Traffic Stream
+            objectOutput:
+              $type: ObjectOutputProvider
+              outputTools:
+              - $type: TrafficViewer
+                iconName: TrafficViewer
+                name: Traffic Viewer
+              name: Traffic Object
+          literal:
+            use: 1
+            text:
+              MessagingClient_LiteralMessage: ""
+              type: application/json
+          mode: Literal
+          literalQuery:
+            isPropertiesRef: true
+          literalPath:
+            pathElements:
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: v1
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: assets
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: categories
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: "{categoryId}"
+          constrainedPath:
+            pathParameters:
+            - $type: ElementValue
+              writeType: true
+              type:
+                $type: ElementType
+                defaultValue: 0
+                localName: categoryId
+                bodyType:
+                  $type: LongType
+              replacedColumn: ""
+              values:
+              - $type: LongValue
+                replacedColumn: ""
+                mode: 3
+                columnName: "Test 2: categoryId"
+                value: 0
+          resourceMethod:
+            resourceId: "/v1/assets/categories/{categoryId}"
+            httpMethod: DELETE
+          resourceMode: 3
+          baseUrl:
+            values:
+            - $type: ScriptedValue
+            - $type: WadlTestValue
+              value: http://localhost:4040
+            fixedValue:
+              $type: StringTestValue
+              value: http://localhost:4040
+            selectedIndex: 1
+      - $type: RESTClientToolTest
+        name: /v1/assets/categories - GET
+        testID: 8
+        performanceGroup: 5
+        tool:
+          $type: RESTClient
+          iconName: RESTClient
+          name: /v1/assets/categories - GET
+          formJson:
+            value:
+              $type: ElementValue
+              writeType: true
+              hasReference: true
+              qnameAsString: :root
+              replacedColumn: ""
+              values:
+              - $type: ComplexValue
+                replacedColumn: ""
+                attributes:
+                - replacedColumn: ""
+                  value:
+                    $type: StringValue
+                    replacedColumn: ""
+                    value: object
+                  useValue: true
+                compositorValue: true
+                compositorValueObj:
+                  replacedColumn: ""
+                  values:
+                    $type: CompositorValueSetCollectionSet
+                    set:
+                    - $type: CompositorValueSet
+            elementTypeName: root
+          hasServiceInfo: true
+          serviceInfo:
+            serviceDescriptor:
+              $type: StandardServiceDescriptor
+              location: http://localhost:4040/pda/api-docs/v1
+          jsonBuilder:
+            hasValue: true
+            value:
+              $type: JSONObjectValue
+              nameIsNull: true
+          xmlBuilder: false
+          schemaURL:
+            MessagingClient_SchemaLocation: http://localhost:4040/pda/api-docs/v1
+          formInput:
+            value:
+              $type: ElementValue
+              writeType: true
+              hasReference: true
+              qnameAsString: ":"
+              replacedColumn: ""
+              values:
+              - $type: ComplexValue
+                replacedColumn: ""
+                compositorValue: true
+                compositorValueObj:
+                  replacedColumn: ""
+                  values:
+                    $type: CompositorValueSetCollectionSet
+                    set:
+                    - $type: CompositorValueSet
+          jmsMessageOutputProvider:
+            $type: JMSMessageOutputProvider
+            jmsOutputProviderRequest:
+              $type: JMSOutputProvider
+              name: Request Object
+              menuName: Object
+            jmsOutputProviderResponse:
+              $type: JMSOutputProvider
+              name: Response Message Object
+              menuName: Message Object
+          validResponseRange:
+            validResponseRange:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                validResponseRange: 200
+          router:
+            values:
+            - $type: ScriptedValue
+            fixedValue:
+              $type: StringTestValue
+              HTTPClient_Endpoint: http://localhost:4040/v1/assets/categories?searchString=&page=0&size=2147483647&sort=%5B%22name%2CASC%22%5D
+          urlParameters:
+            properties:
+            - $type: QueryParameterNameValuePair
+              name: searchString
+              value:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: StringTestValue
+              hasEqualsForEmptyValue: true
+            - name: page
+              value:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: StringTestValue
+                  value: 0
+            - name: size
+              value:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: StringTestValue
+                  value: 2147483647
+            - name: sort
+              value:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: StringTestValue
+                  value: "[\"name,ASC\"]"
+          transportProperties:
+            manager:
+              protocol: 1
+              properties:
+              - $type: HTTPClientHTTPProperties
+                followRedirects:
+                  bool: true
+                common:
+                  auth:
+                    useDefault: false
+                    authName: Basic
+                  method:
+                    values:
+                    - $type: ScriptedValue
+                    fixedValue:
+                      $type: HTTPMethodTestValue
+                      method: GET
+                  httpHeaders:
+                    properties:
+                    - name: Accept
+                      value:
+                        values:
+                        - $type: ScriptedValue
+                        fixedValue:
+                          $type: StringTestValue
+                          value: application/json
+                protocol: 1
+                keepAlive1_1:
+                  bool: true
+            messageExchangePattern:
+              inverted: true
+          outputProviders:
+            requestHeader:
+              $type: HTTPNamedToolOutputProvider
+              menuName: Transport Header
+              name: Request Transport Header
+            responseHeader:
+              $type: HTTPNamedToolOutputProvider
+              menuName: Transport Header
+              name: Response Transport Header
+            xmlRequestOutput:
+              $type: NamedXMLToolOutputProvider
+              menuName: Traffic
+              name: Request Traffic
+            trafficOutput:
+              m_name: Traffic Stream
+            objectOutput:
+              $type: ObjectOutputProvider
+              outputTools:
+              - $type: TrafficViewer
+                iconName: TrafficViewer
+                name: Traffic Viewer
+              name: Traffic Object
+          literal:
+            use: 1
+            text:
+              MessagingClient_LiteralMessage: ""
+              type: application/json
+          mode: Literal
+          literalQuery:
+            isPropertiesRef: true
+          constrainedQuery:
+            parameters:
+            - $type: ElementValue
+              writeType: true
+              type:
+                $type: ElementType
+                minOccurs: 0
+                localName: searchString
+                bodyType:
+                  $type: StringType
+              replacedColumn: ""
+            - $type: ElementValue
+              writeType: true
+              type:
+                $type: ElementType
+                defaultValue: 0
+                minOccurs: 0
+                localName: page
+                bodyType:
+                  $type: BigIntegerType
+              replacedColumn: ""
+            - $type: ElementValue
+              writeType: true
+              type:
+                $type: ElementType
+                defaultValue: 2147483647
+                minOccurs: 0
+                localName: size
+                bodyType:
+                  $type: BigIntegerType
+              replacedColumn: ""
+            - $type: ElementValue
+              writeType: true
+              type:
+                $type: ElementType
+                defaultValue: "[\"name,ASC\"]"
+                minOccurs: 0
+                maxOccurs: -1
+                localName: sort
+                bodyType:
+                  $type: StringType
+              replacedColumn: ""
+          literalPath:
+            pathElements:
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: v1
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: assets
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: categories
+          resourceMethod:
+            resourceId: /v1/assets/categories
+            httpMethod: GET
+          resourceMode: 3
+          baseUrl:
+            values:
+            - $type: ScriptedValue
+            - $type: WadlTestValue
+              value: http://localhost:4040
+            fixedValue:
+              $type: StringTestValue
+              value: http://localhost:4040
+            selectedIndex: 1

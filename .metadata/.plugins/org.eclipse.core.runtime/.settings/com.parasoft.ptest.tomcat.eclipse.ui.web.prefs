@@ -1,0 +1,7 @@
+com.parasoft.xtest.tomcat.web.editors.AddServerDialog.host=34.221.35.46
+com.parasoft.xtest.tomcat.web.editors.AddServerDialog.name=34.221.35.46
+com.parasoft.xtest.tomcat.web.editors.AddServerDialog.password=vlNh3vuNm1BMexCCPtMBP3WqMN7kkis0Xvs0mlHU+N4\=
+com.parasoft.xtest.tomcat.web.editors.AddServerDialog.user_name=demo
+eclipse.preferences.version=1
+ptest.preferences.version=1
+remote_virt_servers_xml=<?xml version\="1.0" encoding\="UTF-8"?>\n<root xmlVersion\="5">\n <RemoteStubServersConfiguration className\="com.parasoft.stub.deployment.RemoteStubServersConfiguration" version\="1.2">\n </RemoteStubServersConfiguration>\n</root>\n

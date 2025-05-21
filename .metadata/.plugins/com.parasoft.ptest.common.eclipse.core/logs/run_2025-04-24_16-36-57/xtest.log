@@ -1,0 +1,124 @@
+[ERROR] [16:38:09,962] unexpected field "parlayKeys" at com.parasoft.logging.LoggerUtil.error(LoggerUtil.java:52)
+java.io.IOException: unexpected field "parlayKeys"
+	at com.parasoft.serialization.jackson.JacksonSerializationInput.unexpectedToken(JacksonSerializationInput.java:699) ~[?:?]
+	at com.parasoft.serialization.jackson.JacksonSerializationInput.checkCurrentThenAdvance(JacksonSerializationInput.java:687) ~[?:?]
+	at com.parasoft.serialization.jackson.JacksonSerializationInput.endClass(JacksonSerializationInput.java:251) ~[?:?]
+	at com.parasoft.tool.Tool.readFrom(Tool.java:243) ~[?:?]
+	at webtool.test.ToolTest.readTool(ToolTest.java:548) ~[?:?]
+	at webtool.test.ToolTest.readExternal(ToolTest.java:427) ~[?:?]
+	at webtool.soap.parlay.CallBackToolTest.readExternal(CallBackToolTest.java:143) ~[?:?]
+	at webtool.soap.client.ClientTesterTest.readExternal(ClientTesterTest.java:45) ~[?:?]
+	at webtool.scripting.DefaultContext.readFrom(DefaultContext.java:245) ~[?:?]
+	at webtool.test.TestSuite.readExternal(TestSuite.java:2032) ~[?:?]
+	at webtool.scripting.DefaultContext.readFrom(DefaultContext.java:245) ~[?:?]
+	at webtool.test.TestOpenUtil.readFrom(TestOpenUtil.java:231) ~[?:?]
+	at webtool.test.TestOpenUtil.readFrom(TestOpenUtil.java:203) ~[?:?]
+	at webtool.test.TestOpenUtil.importTest(TestOpenUtil.java:87) ~[?:?]
+	at webtool.test.TestOpenUtil.importTest(TestOpenUtil.java:66) ~[?:?]
+	at webtool.tomcat.test.StubTestSuite.getTestSuite(StubTestSuite.java:89) ~[?:?]
+	at webtool.tomcat.test.StubTestSuite.getTestSuite(StubTestSuite.java:71) ~[?:?]
+	at webtool.tomcat.test.StubTestSuite.loadDefaults(StubTestSuite.java:54) ~[?:?]
+	at com.parasoft.stub.deployment.StubDeploymentManager$DeployAction.loadTestSuiteDefaults(StubDeploymentManager.java:1804) ~[?:?]
+	at com.parasoft.stub.deployment.StubDeploymentManager$DeployAction.runInternal(StubDeploymentManager.java:1760) ~[?:?]
+	at com.parasoft.stub.deployment.StubDeploymentManager$LockableAction.run(StubDeploymentManager.java:1891) ~[?:?]
+	at com.parasoft.stub.deployment.StubDeploymentManager$DeployAction.run(StubDeploymentManager.java:1748) ~[?:?]
+	at com.parasoft.stub.deployment.StubDeploymentManager.deployStubs(StubDeploymentManager.java:283) ~[?:?]
+	at webtool.tomcat.test.StubExecutorManager.deployStubs(StubExecutorManager.java:926) ~[?:?]
+	at webtool.tomcat.test.StubExecutorManager.deployStubs(StubExecutorManager.java:922) ~[?:?]
+	at webtool.tomcat.TomcatPlugIn.deployStubs(TomcatPlugIn.java:216) ~[?:?]
+	at webtool.tomcat.TomcatServer.lambda$1(TomcatServer.java:184) ~[?:?]
+	at java.lang.Thread.run(Thread.java:1583) ~[?:?]
+[ERROR] [16:38:10,004] 	unexpected field "parlayKeys" at com.parasoft.stub.deployment.StubDeploymentManager.formatError(StubDeploymentManager.java:366)
+[ERROR] [16:38:11,665] unexpected field "parlayKeys" at com.parasoft.logging.LoggerUtil.error(LoggerUtil.java:52)
+java.io.IOException: unexpected field "parlayKeys"
+	at com.parasoft.serialization.jackson.JacksonSerializationInput.unexpectedToken(JacksonSerializationInput.java:699) ~[?:?]
+	at com.parasoft.serialization.jackson.JacksonSerializationInput.checkCurrentThenAdvance(JacksonSerializationInput.java:687) ~[?:?]
+	at com.parasoft.serialization.jackson.JacksonSerializationInput.endClass(JacksonSerializationInput.java:251) ~[?:?]
+	at com.parasoft.tool.Tool.readFrom(Tool.java:243) ~[?:?]
+	at webtool.test.ToolTest.readTool(ToolTest.java:548) ~[?:?]
+	at webtool.test.ToolTest.readExternal(ToolTest.java:427) ~[?:?]
+	at webtool.soap.parlay.CallBackToolTest.readExternal(CallBackToolTest.java:143) ~[?:?]
+	at webtool.soap.client.ClientTesterTest.readExternal(ClientTesterTest.java:45) ~[?:?]
+	at webtool.scripting.DefaultContext.readFrom(DefaultContext.java:245) ~[?:?]
+	at webtool.test.TestSuite.readExternal(TestSuite.java:2032) ~[?:?]
+	at webtool.scripting.DefaultContext.readFrom(DefaultContext.java:245) ~[?:?]
+	at webtool.test.TestOpenUtil.readFrom(TestOpenUtil.java:231) ~[?:?]
+	at webtool.test.TestOpenUtil.readFrom(TestOpenUtil.java:203) ~[?:?]
+	at webtool.test.TestOpenUtil.importTest(TestOpenUtil.java:87) ~[?:?]
+	at webtool.test.TestOpenUtil.importTest(TestOpenUtil.java:66) ~[?:?]
+	at webtool.tomcat.test.StubTestSuite.getTestSuite(StubTestSuite.java:89) ~[?:?]
+	at webtool.tomcat.test.StubTestSuite.getTestSuite(StubTestSuite.java:71) ~[?:?]
+	at webtool.tomcat.test.StubTestSuite.loadDefaults(StubTestSuite.java:54) ~[?:?]
+	at com.parasoft.stub.deployment.StubDeploymentManager$DeployAction.loadTestSuiteDefaults(StubDeploymentManager.java:1804) ~[?:?]
+	at com.parasoft.stub.deployment.StubDeploymentManager$DeployAction.runInternal(StubDeploymentManager.java:1760) ~[?:?]
+	at com.parasoft.stub.deployment.StubDeploymentManager$LockableAction.run(StubDeploymentManager.java:1891) ~[?:?]
+	at com.parasoft.stub.deployment.StubDeploymentManager$DeployAction.run(StubDeploymentManager.java:1748) ~[?:?]
+	at com.parasoft.stub.deployment.StubDeploymentManager.deployStubs(StubDeploymentManager.java:283) ~[?:?]
+	at webtool.tomcat.test.StubExecutorManager.deployStubs(StubExecutorManager.java:926) ~[?:?]
+	at webtool.tomcat.test.StubExecutorManager.deployStubs(StubExecutorManager.java:922) ~[?:?]
+	at webtool.tomcat.TomcatPlugIn.deployStubs(TomcatPlugIn.java:216) ~[?:?]
+	at webtool.tomcat.TomcatServer.lambda$1(TomcatServer.java:184) ~[?:?]
+	at java.lang.Thread.run(Thread.java:1583) ~[?:?]
+[ERROR] [16:38:11,675] 	unexpected field "parlayKeys" at com.parasoft.stub.deployment.StubDeploymentManager.formatError(StubDeploymentManager.java:366)
+[ERROR] [16:38:45,847] Can't provide location of project: Sandbox at com.parasoft.ptest.common.variables.ProjectLocationsResolver.resolveProject(ProjectLocationsResolver.java:71)
+[ERROR] [16:38:45,851] Can't provide location of project: Sandbox at com.parasoft.ptest.common.variables.ProjectLocationsResolver.resolveProject(ProjectLocationsResolver.java:71)
+[ERROR] [17:36:41,111] Error code:null  Cause:java.net.SocketException: Connection reset
+Connection reset at com.parasoft.stub.jms.AbstractJMSVirtualizeMessageHandlerWorker.doRun(AbstractJMSVirtualizeMessageHandlerWorker.java:234)
+[ERROR] [17:36:41,111] Error code:null  Cause:java.net.SocketException: Connection reset
+Connection reset at com.parasoft.stub.jms.AbstractJMSVirtualizeMessageHandlerWorker.doRun(AbstractJMSVirtualizeMessageHandlerWorker.java:234)
+[ERROR] [17:36:41,122] javax.jms.JMSException thrown while invoking JMS MessageConsumer.receive(1000):
+	Connection reset
+	Connection reset
+	java.net.SocketException	Connection reset
+ at com.parasoft.stub.jms.Logger.logJMSException(Logger.java:51)
+javax.jms.JMSException: Connection reset
+	at org.apache.activemq.util.JMSExceptionSupport.create(JMSExceptionSupport.java:91) ~[?:?]
+	at org.apache.activemq.ActiveMQMessageConsumer.dequeue(ActiveMQMessageConsumer.java:503) ~[?:?]
+	at org.apache.activemq.ActiveMQMessageConsumer.receive(ActiveMQMessageConsumer.java:664) ~[?:?]
+	at com.parasoft.stub.jms.AbstractJMSVirtualizeMessageHandlerWorker.doRun(AbstractJMSVirtualizeMessageHandlerWorker.java:228) ~[?:?]
+	at com.parasoft.stub.AbstractMessageHandlerWorker$1.run(AbstractMessageHandlerWorker.java:35) ~[?:?]
+Caused by: java.net.SocketException: Connection reset
+	at sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:318) ~[?:?]
+	at sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346) ~[?:?]
+	at sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796) ~[?:?]
+	at java.net.Socket$SocketInputStream.read(Socket.java:1109) ~[?:?]
+	at org.apache.activemq.transport.tcp.TcpBufferedInputStream.fill(TcpBufferedInputStream.java:50) ~[?:?]
+	at org.apache.activemq.transport.tcp.TcpTransport$2.fill(TcpTransport.java:635) ~[?:?]
+	at org.apache.activemq.transport.tcp.TcpBufferedInputStream.readStream(TcpBufferedInputStream.java:73) ~[?:?]
+	at org.apache.activemq.transport.tcp.TcpBufferedInputStream.read(TcpBufferedInputStream.java:94) ~[?:?]
+	at org.apache.activemq.transport.tcp.TcpTransport$2.read(TcpTransport.java:625) ~[?:?]
+	at java.io.DataInputStream.readFully(DataInputStream.java:208) ~[?:?]
+	at java.io.DataInputStream.readInt(DataInputStream.java:385) ~[?:?]
+	at org.apache.activemq.openwire.OpenWireFormat.unmarshal(OpenWireFormat.java:289) ~[?:?]
+	at org.apache.activemq.transport.tcp.TcpTransport.readCommand(TcpTransport.java:241) ~[?:?]
+	at org.apache.activemq.transport.tcp.TcpTransport.doRun(TcpTransport.java:233) ~[?:?]
+	at org.apache.activemq.transport.tcp.TcpTransport.run(TcpTransport.java:216) ~[?:?]
+	at java.lang.Thread.run(Thread.java:1583) ~[?:?]
+[ERROR] [17:36:41,122] javax.jms.JMSException thrown while invoking JMS MessageConsumer.receive(1000):
+	Connection reset
+	Connection reset
+	java.net.SocketException	Connection reset
+ at com.parasoft.stub.jms.Logger.logJMSException(Logger.java:51)
+javax.jms.JMSException: Connection reset
+	at org.apache.activemq.util.JMSExceptionSupport.create(JMSExceptionSupport.java:91) ~[?:?]
+	at org.apache.activemq.ActiveMQMessageConsumer.dequeue(ActiveMQMessageConsumer.java:503) ~[?:?]
+	at org.apache.activemq.ActiveMQMessageConsumer.receive(ActiveMQMessageConsumer.java:664) ~[?:?]
+	at com.parasoft.stub.jms.AbstractJMSVirtualizeMessageHandlerWorker.doRun(AbstractJMSVirtualizeMessageHandlerWorker.java:228) ~[?:?]
+	at com.parasoft.stub.AbstractMessageHandlerWorker$1.run(AbstractMessageHandlerWorker.java:35) ~[?:?]
+Caused by: java.net.SocketException: Connection reset
+	at sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:318) ~[?:?]
+	at sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346) ~[?:?]
+	at sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796) ~[?:?]
+	at java.net.Socket$SocketInputStream.read(Socket.java:1109) ~[?:?]
+	at org.apache.activemq.transport.tcp.TcpBufferedInputStream.fill(TcpBufferedInputStream.java:50) ~[?:?]
+	at org.apache.activemq.transport.tcp.TcpTransport$2.fill(TcpTransport.java:635) ~[?:?]
+	at org.apache.activemq.transport.tcp.TcpBufferedInputStream.readStream(TcpBufferedInputStream.java:73) ~[?:?]
+	at org.apache.activemq.transport.tcp.TcpBufferedInputStream.read(TcpBufferedInputStream.java:94) ~[?:?]
+	at org.apache.activemq.transport.tcp.TcpTransport$2.read(TcpTransport.java:625) ~[?:?]
+	at java.io.DataInputStream.readFully(DataInputStream.java:208) ~[?:?]
+	at java.io.DataInputStream.readInt(DataInputStream.java:385) ~[?:?]
+	at org.apache.activemq.openwire.OpenWireFormat.unmarshal(OpenWireFormat.java:289) ~[?:?]
+	at org.apache.activemq.transport.tcp.TcpTransport.readCommand(TcpTransport.java:241) ~[?:?]
+	at org.apache.activemq.transport.tcp.TcpTransport.doRun(TcpTransport.java:233) ~[?:?]
+	at org.apache.activemq.transport.tcp.TcpTransport.run(TcpTransport.java:216) ~[?:?]
+	at java.lang.Thread.run(Thread.java:1583) ~[?:?]
