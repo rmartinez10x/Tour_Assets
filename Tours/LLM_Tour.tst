@@ -586,7 +586,7 @@ suite:
                           contentValueObj:
                             $type: StringValue
                             replacedColumn: ""
-                            value: Test
+                            value: A Song of Fire and Ice
                           compositorValue: true
                           compositorValueObj:
                             replacedColumn: ""
@@ -610,7 +610,7 @@ suite:
                           contentValueObj:
                             $type: StringValue
                             replacedColumn: ""
-                            value: Temp item
+                            value: Collection of books
                           compositorValue: true
                           compositorValueObj:
                             replacedColumn: ""
@@ -638,7 +638,7 @@ suite:
                             replacedColumn: ""
                             mode: 3
                             columnName: "Test 1: id"
-                            value: 4
+                            value: 168
                           compositorValue: true
                           compositorValueObj:
                             replacedColumn: ""
@@ -688,7 +688,7 @@ suite:
                           contentValueObj:
                             $type: EnumValue
                             replacedColumn: ""
-                            selectedIdx: 18
+                            selectedIdx: 20
                           compositorValue: true
                           compositorValueObj:
                             replacedColumn: ""
@@ -701,7 +701,7 @@ suite:
           serviceInfo:
             serviceDescriptor:
               $type: StandardServiceDescriptor
-              location: http://localhost:4040/pda/api-docs/v1
+              location: http://localhost:8080/pda/api-docs/v1
           jsonBuilder:
             hasValue: true
             value:
@@ -1691,6 +1691,252 @@ suite:
           resourceMethod:
             resourceId: /v1/assets/categories
             httpMethod: GET
+          resourceMode: 3
+          baseUrl:
+            values:
+            - $type: ScriptedValue
+            - $type: WadlTestValue
+              value: http://localhost:8080
+            fixedValue:
+              $type: StringTestValue
+              value: "${BASEURL}"
+      - $type: RESTClientToolTest
+        name: /v1/assets/categories - GET 2
+        testID: 9
+        performanceGroup: 5
+        tool:
+          $type: RESTClient
+          iconName: RESTClient
+          name: /v1/assets/categories - GET 2
+          outputTools:
+          - $type: GenericAssertionTool
+            iconName: XMLAssertor
+            name: JSON Assertor
+            wrappedTool:
+              $type: XMLAssertionTool
+              iconName: XMLAssertor
+              name: XML Assertor
+              assertions:
+              - $type: ValueAssertion
+                timestamp: 1748463341283
+                name: Value Assertion
+                extractEntireElement: true
+                Assertion_XPath: /root/status/string()
+                value:
+                  name: Value
+                  value:
+                    fixedValue:
+                      $type: StringTestValue
+                      value: 1
+              - $type: ValueAssertion
+                timestamp: 1748463346104
+                name: Value Assertion 2
+                extractEntireElement: true
+                Assertion_XPath: /root/message/string()
+                value:
+                  name: Value
+                  value:
+                    fixedValue:
+                      $type: StringTestValue
+                      value: success
+              message:
+                $type: ExpectedXMLMessage
+                message: true
+            conversionStrategy:
+              dataFormatName: JSON
+              conversionStrategyId: JSON
+              conversionStrategyClassName: com.parasoft.xml.convert.json.JsonConversionStrategy
+          formJson:
+            value:
+              $type: ElementValue
+              writeType: true
+              hasReference: true
+              qnameAsString: :root
+              replacedColumn: ""
+              values:
+              - $type: ComplexValue
+                replacedColumn: ""
+                attributes:
+                - replacedColumn: ""
+                  value:
+                    $type: StringValue
+                    replacedColumn: ""
+                    value: object
+                  useValue: true
+                compositorValue: true
+                compositorValueObj:
+                  replacedColumn: ""
+                  values:
+                    $type: CompositorValueSetCollectionSet
+                    set:
+                    - $type: CompositorValueSet
+            elementTypeName: root
+          hasServiceInfo: true
+          serviceInfo:
+            serviceDescriptor:
+              $type: StandardServiceDescriptor
+              location: http://localhost:8080/pda/api-docs/v1
+          jsonBuilder:
+            hasValue: true
+            value:
+              $type: JSONObjectValue
+              nameIsNull: true
+          schemaURL:
+            MessagingClient_SchemaLocation: "${OPENAPI}"
+          formInput:
+            value:
+              $type: ElementValue
+              writeType: true
+              hasReference: true
+              qnameAsString: ":"
+              replacedColumn: ""
+              values:
+              - $type: ComplexValue
+                replacedColumn: ""
+                compositorValue: true
+                compositorValueObj:
+                  replacedColumn: ""
+                  values:
+                    $type: CompositorValueSetCollectionSet
+                    set:
+                    - $type: CompositorValueSet
+          jmsMessageOutputProvider:
+            $type: JMSMessageOutputProvider
+            jmsOutputProviderRequest:
+              $type: JMSOutputProvider
+              name: Request Object
+              menuName: Object
+            jmsOutputProviderResponse:
+              $type: JMSOutputProvider
+              name: Response Message Object
+              menuName: Message Object
+          validResponseRange:
+            validResponseRange:
+              values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                validResponseRange: 200
+          router:
+            values:
+            - $type: ScriptedValue
+            fixedValue:
+              $type: StringTestValue
+              HTTPClient_Endpoint: "${BASEURL}/v1/assets/categories?searchString=&page=0&size=2147483647&sort=%5B%22name%2CASC%22%5D"
+          urlParameters:
+            properties:
+            - $type: QueryParameterNameValuePair
+              name: searchString
+              value:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: StringTestValue
+              hasEqualsForEmptyValue: true
+            - name: page
+              value:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: StringTestValue
+                  value: 0
+            - name: size
+              value:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: StringTestValue
+                  value: 2147483647
+            - name: sort
+              value:
+                values:
+                - $type: ScriptedValue
+                fixedValue:
+                  $type: StringTestValue
+                  value: "[\"name,ASC\"]"
+          transportProperties:
+            manager:
+              properties:
+              - $type: HTTPClientHTTPProperties
+                followRedirects:
+                  bool: true
+                common:
+                  auth:
+                    useDefault: false
+                    authName: Basic
+                  method:
+                    values:
+                    - $type: ScriptedValue
+                    fixedValue:
+                      $type: HTTPMethodTestValue
+                      method: GET
+                  httpHeaders:
+                    properties:
+                    - name: Accept
+                      value:
+                        values:
+                        - $type: ScriptedValue
+                        fixedValue:
+                          $type: StringTestValue
+                          value: application/json
+                keepAlive1_1:
+                  bool: true
+            messageExchangePattern:
+              inverted: true
+          outputProviders:
+            requestHeader:
+              $type: HTTPNamedToolOutputProvider
+              menuName: Transport Header
+              name: Request Transport Header
+            responseHeader:
+              $type: HTTPNamedToolOutputProvider
+              menuName: Transport Header
+              name: Response Transport Header
+            xmlRequestOutput:
+              $type: NamedXMLToolOutputProvider
+              menuName: Traffic
+              name: Request Traffic
+            trafficOutput:
+              m_name: Traffic Stream
+            objectOutput:
+              $type: ObjectOutputProvider
+              outputTools:
+              - $type: TrafficViewer
+                iconName: TrafficViewer
+                name: Traffic Viewer
+                showRequestHeaders: true
+                showResponseHeaders: true
+              name: Traffic Object
+          literal:
+            use: 1
+            text:
+              MessagingClient_LiteralMessage: ""
+              type: application/json
+            dataSource:
+              columnName: "Test 1: id"
+          mode: Literal
+          literalQuery:
+            isPropertiesRef: true
+          literalPath:
+            pathElements:
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: v1
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: assets
+            - values:
+              - $type: ScriptedValue
+              fixedValue:
+                $type: StringTestValue
+                value: categories
+          resourceMethod:
+            resourceId: /v1/demoAdmin/databaseReset
+            httpMethod: PUT
           resourceMode: 3
           baseUrl:
             values:
